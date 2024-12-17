@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- 안녕하세요!
+ 안녕하세요! 제 이름은 김은지 입니다.
 </body>
 </html>
