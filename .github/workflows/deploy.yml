@@ -40,3 +40,9 @@ jobs:
                     # mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
                     ls -al /home/ec2-user/apache-tomcat-10.1.33/webapps/
 
+                    # restart tomcat
+                    sudo /home/ec2-user/apache-tomcat-10.1.33/bin/shutdown.sh
+                    sudo /home/ec2-user/apache-tomcat-10.1.33/bin/startup.sh
+                    
+
+
