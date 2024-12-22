@@ -30,3 +30,7 @@ jobs:
                     rm -rf src/main/resources/application.properties
                     git pull origin main
                     echo "$APPLICATION_PROPERTIES" > src/main/resources/application.properties
+
+                    # build gradle
+                    ./gradlew clean build
+
