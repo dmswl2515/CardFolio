@@ -37,7 +37,8 @@ jobs:
                     # change file name 
                     mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
 
-                    # mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
+                    # move project file to apach webapp 
+                    mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
                     ls -al /home/ec2-user/apache-tomcat-10.1.33/webapps/
 
                     # restart tomcat
