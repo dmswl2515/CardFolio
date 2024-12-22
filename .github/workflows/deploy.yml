@@ -37,7 +37,7 @@ jobs:
                     # change file name 
                     mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
 
-                    # move project file to apach webapp 
+                    # WAR 파일을 webapps 디렉토리로 복사
                     mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
                     ls -al /home/ec2-user/apache-tomcat-10.1.33/webapps/
 
