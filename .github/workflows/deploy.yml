@@ -34,3 +34,6 @@ jobs:
                     # build gradle
                     ./gradlew clean build
 
+                    # change file name 
+                    cp build/libs/*SNAPSHOT.war build/libs/CardFolio.war
+
