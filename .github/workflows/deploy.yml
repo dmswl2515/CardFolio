@@ -35,5 +35,8 @@ jobs:
                     ./gradlew clean build
 
                     # change file name 
-                    cp build/libs/*SNAPSHOT.war build/libs/CardFolio.war
+                    mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
+
+                    # mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
+                    ls -al /home/ec2-user/apache-tomcat-10.1.31/webapps/
 
