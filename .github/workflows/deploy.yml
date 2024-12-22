@@ -1,26 +1,25 @@
-name : Deploy To EC2
+name: Deploy To EC2
 
-on :
-  push :
-    branches :
+on:
+  push:
+    branches:
         - main
 
-jobs :
-    Deploy :
-        runs-on : ubuntu-lates
+jobs:
+    Deploy:
+        runs-on: ubuntu-latest
 
-        steps :
-            - name : SSH(원격접속)으로 EC2에 접속하기
-              uses : appleboy/ssh-actions@1.2.0
-              env :
-                APPLICATION_PROPERTIES : ${{ secrets.APPLICATION_PROPERTIES }}
-              with :
-                host : ${{ secrets.EC2_HOST }}
-                username : ${{ secrets.EC2_USERNAME }}
-                key : ${{ secrets.EC2_PRIVATE_KEY }}
-                envs : APPLICATION_PROPERTIES
-                script_stop : true
-                script : |
+        steps:
+            - name: SSH(원격접속)으로 EC2에 접속하기
+              uses: appleboy/ssh-actions@1.2.0
+              env:
+                APPLICATION_PROPERTIES: ${{ secrets.APPLICATION_PROPERTIES }}
+              with:
+                host: ${{ secrets.EC2_HOST }}
+                username: ${{ secrets.EC2_USERNAME }}
+                key: ${{ secrets.EC2_PRIVATE_KEY }}
+                script_stop: true
+                script: |
                     # Git Repository에서 최신 버전 pull
                     cd /home/ec2-user/CardFolio
                     rm -rf src/main/resources/application.properties
