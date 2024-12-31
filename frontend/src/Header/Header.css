@@ -7,11 +7,13 @@
 
 /* 상단 정보 영역 */
 .header-top {
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 1px;
     font-size: 14px;
+    margin-top: 10px;
 
     margin-left: clamp(20px, 10vw, 200px);
     margin-right: clamp(20px, 10vw, 200px);
@@ -30,9 +32,14 @@
 }
 
 .rank {
-    background-color: #e0e0e0;
-    padding: 5px 10px;
-    border-radius: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    background-color: #f4f2f2;
+    padding: 5px 30px;
+    border-radius: 27px;
     margin-right: 10px;
     font-weight: bold;
 }
@@ -40,22 +47,37 @@
 .card-image {
     width: 30px;
     height: 40px;
-    margin-right: 10px;
 }
 
 .card-info {
     font-weight: bold;
+    word-wrap: break-word;
+
+}
+
+.logo-image {
+    width: 200px;
 }
 
 .header-top-right {
     color: #333;
 }
 
+.header-top-right span {
+    display: block;
+}
+
 .event-text {
     font-size: 12px;
     color: #8b8988;
-    margin-left: 5px;
 }
+
+.card-image2 {
+    width: 30px;
+    height: 40px;
+}
+
+
 
 /* 메인 헤더 */
 .header-main {
