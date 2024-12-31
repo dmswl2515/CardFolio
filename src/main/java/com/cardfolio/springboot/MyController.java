@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MyController {
 	
 	@RequestMapping("/")
-	public String root() {
-		return "main";
+	public String redirect() {
+		return "forward:/index.html";
 	}
 
 }
