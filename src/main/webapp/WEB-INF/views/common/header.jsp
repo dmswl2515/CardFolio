@@ -8,7 +8,6 @@
 <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
- <h1>CardFolio CI/CD test</h1>
-    application.properties 존재여부 확인
+ 
 </body>
 </html>

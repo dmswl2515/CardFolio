@@ -1,0 +1,116 @@
+/* 전체 헤더 스타일 */
+.header {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    
+}
+
+/* 상단 정보 영역 */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 14px;
+
+    margin-left: clamp(20px, 10vw, 200px);
+    margin-right: clamp(20px, 10vw, 200px);
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        margin-left: calc(5vw);
+        margin-right: calc(5vw);
+    }
+}
+
+.header-top-left {
+    display: flex;
+    align-items: center;
+}
+
+.rank {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.card-image {
+    width: 30px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.card-info {
+    font-weight: bold;
+}
+
+.header-top-right {
+    color: #333;
+}
+
+.event-text {
+    font-size: 12px;
+    color: #8b8988;
+    margin-left: 5px;
+}
+
+/* 메인 헤더 */
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-manu ul li {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.search-icon,
+.cart-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #f2be63;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.divider {
+    width: 100%;
+    border: 1px solid #eaeaea;
+}
