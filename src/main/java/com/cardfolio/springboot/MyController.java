@@ -10,5 +10,11 @@ public class MyController {
 	public String redirect() {
 		return "forward:/index.html";
 	}
+	
+	@RequestMapping("main.do")
+		public String main() {
+			return "main";
+		}
 
 }
+
