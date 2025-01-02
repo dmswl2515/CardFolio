@@ -32,10 +32,8 @@ const Header = () => {
 
                 {/* 로고 및 네비게이션 영역 */}
                 <div className="header-main">
-                    <div className="logo">
-                        <img src="logo-image-url" alt="CardFolio" />
-                    </div>
-                    <nav className="nav-manu">
+                    
+                    <nav className="nav-menu">
                         <ul>
                             <li>카드폴리오 차트</li>
                             <li>카드</li>

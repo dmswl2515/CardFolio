@@ -90,12 +90,9 @@
     padding: 10px 20px;
 }
 
-.logo img {
-    height: 40px;
-}
-
 .nav-menu ul {
     display: flex;
+    align-items: center;
     gap: 15px;
     list-style: none;
     padding: 0;
