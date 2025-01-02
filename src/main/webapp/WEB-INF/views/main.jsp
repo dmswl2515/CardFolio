@@ -9,6 +9,6 @@
 </head>
 <body>
  <h1>CardFolio CI/CD test</h1>
-    application.properties 존재여부 확인
+    react 파일 옮김김 
 </body>
 </html>
