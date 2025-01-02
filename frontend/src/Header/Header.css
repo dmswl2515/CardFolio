@@ -8,15 +8,14 @@
 /* 상단 정보 영역 */
 .header-top {
     height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     padding: 10px 1px;
     font-size: 14px;
-    margin-top: 10px;
-
+    margin: 10px 0px 15px 0px;
     margin-left: clamp(20px, 10vw, 200px);
     margin-right: clamp(20px, 10vw, 200px);
+    column-gap: 230px; /* 요소들 간 간격 고정 */
 }
 
 @media (max-width: 768px) {
@@ -27,7 +26,6 @@
 }
 
 .header-top-left {
-    display: flex;
     align-items: center;
 }
 
@@ -55,6 +53,10 @@
 
 }
 
+.header-top-center{
+    text-align: center;
+}
+
 .logo-image {
     width: 200px;
 }
@@ -64,7 +66,7 @@
 }
 
 .header-top-right span {
-    display: block;
+    white-space: nowrap; /* 줄바꿈을 하지 않게 함 */
 }
 
 .event-text {

@@ -22,7 +22,7 @@ const Header = () => {
 
                     <div className="header-top-right">
                         <span>서두르세요! 현대카드M</span>
-                        <span className="event-text">최대 15만원 캐시백 제공 이벤트</span>
+                        <span className="event-text">최대 15만원 캐시백 제공 이벤트 </span> 
                         <img src="https://www.hyundaicard.com/img/com/card/card_ME4_BA_f.png" alt="카드이미지" className="card-image2"/>
                     </div>
                 </div>
