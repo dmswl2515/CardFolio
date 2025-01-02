@@ -9,6 +9,8 @@
 </head>
 <body>
  <h1>CardFolio CI/CD test</h1>
-    react 파일 옮김김 
+    react html 다시 확인
+    아이콘 확인
+    manifast 추가확인
 </body>
 </html>
