@@ -1,6 +1,7 @@
 /* 전체 헤더 스타일 */
 .header {
     width: 100%;
+    display: grid;
     font-family: Arial, sans-serif;
     
 }
@@ -15,7 +16,7 @@
     margin: 10px 0px 15px 0px;
     margin-left: clamp(20px, 10vw, 200px);
     margin-right: clamp(20px, 10vw, 200px);
-    column-gap: 230px; /* 요소들 간 간격 고정 */
+    column-gap: 200px; /* 요소들 간 간격 고정 */
 }
 
 @media (max-width: 768px) {
@@ -136,5 +137,5 @@
 
 .divider {
     width: 100%;
-    border: 1px solid #eaeaea;
+    border: 0.5px solid #eaeaea;
 }
