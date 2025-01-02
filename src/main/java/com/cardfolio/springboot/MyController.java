@@ -8,7 +8,7 @@ public class MyController {
 	
 	@RequestMapping("/")
 	public String redirect() {
-		return "forward:/index.html";
+		return "redirect:/index.html";
 	}
 	
 	@RequestMapping("main.do")
