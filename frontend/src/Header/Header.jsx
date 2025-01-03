@@ -1,6 +1,8 @@
 import React from "react";
 import "./Header.css"
 import logo from '../Assets/CardFolio_logo.png';
+import SearchButton from "./SearchButton";
+import RankCard from "./RankCard";
 
 const Header = () => {
     return (
@@ -9,10 +11,7 @@ const Header = () => {
                 <div className="header-top">
                     <div className="header-top-left">
                         <span className="rank">
-                            <span className="rank-number">1</span>
-                            <img src="https://www.shinhancard.com/pconts/images/contents/card/plate/cdCreditAUAARH.png" alt="카드이미지" className="card-image"/>
-                            <span className="card-info">신한카드 Mr.Life </span>
-                            <i className="fas fa-caret-down"></i>
+                            <RankCard />
                         </span>
                     </div>
 
@@ -47,13 +46,15 @@ const Header = () => {
                         </ul>
                     </nav>
                     <div className="header-icons">
-                        <button className="search-icon">🔍</button>
+                        <SearchButton />
                         <button className="cart-icon">
                             🛒
                             <spna className="cart-count">3</spna>
                         </button>
                     </div>
                 </div>
+
+                <hr className="divider"></hr>
             </header>
     );
 };

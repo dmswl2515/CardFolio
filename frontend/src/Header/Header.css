@@ -41,6 +41,13 @@
     border-radius: 27px;
     margin-right: 10px;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.rank.expanded {
+    height: 150px; /* 마우스 오버 시 높이 확장 */
 }
 
 .card-image {
