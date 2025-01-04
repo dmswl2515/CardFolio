@@ -1,4 +1,4 @@
-/* 전체 헤더 스타일 */
+/* Header General Style */
 .header {
     width: 100%;
     display: grid;
@@ -6,7 +6,7 @@
     
 }
 
-/* 상단 정보 영역 */
+/* Header Information Section */
 .header-top {
     height: 50px;
     display: grid;
@@ -16,7 +16,7 @@
     margin: 10px 0px 15px 0px;
     margin-left: clamp(20px, 10vw, 200px);
     margin-right: clamp(20px, 10vw, 200px);
-    column-gap: 200px; /* 요소들 간 간격 고정 */
+    column-gap: 200px; 
 }
 
 @media (max-width: 768px) {
@@ -47,7 +47,7 @@
 }
 
 .rank.expanded {
-    height: 150px; /* 마우스 오버 시 높이 확장 */
+    height: 150px; 
   }
 
 .card-image {
@@ -88,7 +88,7 @@
 }
 
 
-/* 메인 헤더 */
+/* Main Header */
 .header-main {
     display: flex;
     justify-content: space-between;

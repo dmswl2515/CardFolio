@@ -7,7 +7,7 @@ import RankCard from "./RankCard";
 const Header = () => {
     return (
             <header className="header">
-                {/* 상단 정보 영역 */}
+                {/* Header Information Section */}
                 <div className="header-top">
                     <div className="header-top-left">
                         <span className="rank">
@@ -29,7 +29,7 @@ const Header = () => {
 
                 <hr className="divider"></hr>
 
-                {/* 로고 및 네비게이션 영역 */}
+                {/* Logo & Navigation Section */}
                 <div className="header-main">
                     
                     <nav className="nav-menu">
