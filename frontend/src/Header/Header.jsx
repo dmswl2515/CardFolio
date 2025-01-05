@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css"
-import logo from '../Assets/CardFolio_logo.png';
 import SearchButton from "./SearchButton";
 import RankCard from "./RankCard";
 
@@ -16,7 +15,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-center">
-                        <img src={logo} alt="Logo" className="logo-image"/>
+                        <img src="/assets/CardFolio_logo.png" className="logo-image"/>
                     </div>
 
                     <div className="header-top-right">
