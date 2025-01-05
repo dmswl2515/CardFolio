@@ -1,4 +1,6 @@
 .footer {
+    width: 100%;
+    min-width: 1250px;
     background-color: #111;
     color: white;
     text-align: center;
@@ -8,17 +10,17 @@
 
 /* Newsletter Section */
 .footer-newsletter {
-    padding: 20px;
+    padding: 30px;
 }
 
 .footer-newsletter h2 {
     font-size: 35px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .footer-newsletter p {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .newsletter-form {
@@ -47,15 +49,24 @@
 .newsletter-agreement {
     display: flex;
     justify-content: center;
-    margin: 10px 0 25px;
+    margin: 10px 0 40px;
     font-size: 14px;
     gap: 20px;
 }
 
 .newsletter-info .text-circle{
     display: inline-block;
-    background-color: #ffc1073d;
+    padding: 13px 30px;
+    border-radius: 50px;
+    background-color: #cc9a033d;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
+
+.newsletter-info .text-circle:hover {
+    background-color: #f0b5044c;
+}
+
 
 .newsletter-info p {
     font-size: 15px;
