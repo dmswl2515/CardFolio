@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import Slide from "./Slide";
 
@@ -18,7 +18,7 @@ const Carousel = () => {
     return (
         <div className="slider">
             <Swiper       
-                modules={[Navigation]}
+                modules={[Navigation, Pagination]}
                 spaceBetween={50} 
                 slidesPerView={1} 
                 navigation 

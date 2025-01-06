@@ -7,6 +7,7 @@ const Slide = ({ src, alt }) => (
                 justifyContent: "center",
                 alignContent: "center",
                 backgroundColor: "#f4f2f2",
+                padding: "30px",
             }}
     >
         <img 
