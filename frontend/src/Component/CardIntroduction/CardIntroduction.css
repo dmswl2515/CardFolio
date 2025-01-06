@@ -1,0 +1,43 @@
+.card-introduction {
+    padding: 40px 80px;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+.card-list .cards {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    gap: 100px;
+}
+
+.card {
+    width: 150px;
+    text-align: center;
+}
+
+.card-image {
+    width: 90px;
+    height: 140px;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+.card-subtitle {
+    color: gray;
+    margin: -5px 0 40px;
+}
+
+.banner {
+    
+}

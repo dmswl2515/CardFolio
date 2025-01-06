@@ -1,7 +1,38 @@
 import React from "react";
+import "./CardIntroduction.css";
+
+{/* individual card component */}
+const Card = ({ title, imageUrl, subtitle }) => {
+    return (
+        <div className="card">
+            <img src={imageUrl} alt={title} className="card-image" />
+            <h3 className="card-title">{title}</h3>
+            <p className="card-subtitle">{subtitle}</p>
+        </div>
+    );
+};
+
+{/* cardlist component */}
+const CardList = ({ cards, sectionTitle }) => {
+    return (
+        <div className="card-list">
+            <h2 className="section-title">{sectionTitle}</h2>
+            <div className="cards">
+                {cards.map((card, index) => (
+                    <Card
+                        key={index}
+                        title={card.title}
+                        imageUrl={card.imageUrl}
+                        subtitle={card.subtitle}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
 
 const CardIntroduction = () => {
-    const eventCard = [
+    const eventCards = [
         {
             title: "삼성카드 taptap O",
             imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
@@ -34,7 +65,7 @@ const CardIntroduction = () => {
         },
     ];
 
-    const saleCard = [
+    const discountCards = [
         {
             title: "LOCA 365 카드",
             imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2330/card_img/24131/2330card.png",
@@ -69,13 +100,14 @@ const CardIntroduction = () => {
 
     return (
         <div className="card-introduction">
-            <hr2>놓치지 마세요! 이달의 이벤트 카드</hr2>
-            <div>
-                
+            <CardList cards={eventCards} sectionTitle="놓치지 마세요! 이달의 이벤트 카드" />
+            <CardList cards={discountCards} sectionTitle="새해를 맞이하는 고정비 할인 카드!" />
+            <div className="banner">
+                <p>롯데카드 인기 카드를 발견하다</p>
+                <button>롯데카드 전용관</button>
             </div>
         </div>
     );
-
 };
 
 export default CardIntroduction;
