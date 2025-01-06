@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Header from './Header/Header';
 import Carousel from './Component/Swiper/Carousel';
+import CardIntroduction from './Component/CardIntroduction/CardIntroduction';
 import Footer from './Footer/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     <Header />
     <Carousel />
+    <CardIntroduction />
     <Footer />
   </React.StrictMode>
 );
