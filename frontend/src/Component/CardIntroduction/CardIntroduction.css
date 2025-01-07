@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 2em;
-    font-weight: bolder;
+    font-weight: 900;
     margin-bottom: 40px;
 }
 
@@ -19,6 +19,8 @@
     text-align: center;
     white-space: nowrap;
     gap: 120px;
+
+    cursor: pointer;
 }
 
 .card {
@@ -40,6 +42,7 @@
     background-color: rgb(237, 234, 234);
     border-radius: 50%;
     z-index: -1;
+    cursor: pointer;
 }
 
 .card-image-main {
