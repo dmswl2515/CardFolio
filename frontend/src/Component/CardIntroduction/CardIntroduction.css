@@ -34,9 +34,9 @@
 .card::before {
     content: '';
     position: absolute;
-    top: 5%;
-    width: 150%;
-    height: 50%;
+    top: -1%;
+    width: 155%;
+    height: 49%;
     background-color: rgb(237, 234, 234);
     border-radius: 50%;
     z-index: -1;
@@ -61,7 +61,7 @@
 
 .card-subtitle {
     color: gray;
-    margin: -5px 0 40px;
+    margin: -5px 0 80px;
 }
 
 .view-all-button {
@@ -74,7 +74,11 @@
 }
 
 .banner {
-    display: flex;
-    
-    
+   min-width: 1200px;
+   display: flex;
+   justify-content: center;
+}
+
+.banner-image {
+    border-radius: 15px;
 }
