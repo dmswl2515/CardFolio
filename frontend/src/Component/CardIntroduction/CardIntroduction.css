@@ -1,12 +1,12 @@
 .card-introduction {
-    max-width: 1400px;
-    padding: 40px 60px;
+    max-width: 1250px;
+    padding: 40px 40px;
     font-family: Arial, sans-serif;
     margin: 0 auto;
 }
 
 .section-header {
-    min-width: 1400px;
+    min-width: 1200px;
     display: flex;
     justify-content: space-between;
     font-size: 2em;
@@ -15,25 +15,43 @@
 }
 
 .card-list .cards {
-    min-width: 1400px;
     display: flex;
     text-align: center;
     white-space: nowrap;
-    gap: 100px;
+    gap: 120px;
 }
 
 .card {
+    width: 150px;
+    min-width: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 150px;
     text-align: center;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    width: 150%;
+    height: 50%;
+    background-color: rgb(237, 234, 234);
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .card-image-main {
     width: 90px;
     height: 140px;
     border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.card-image-main:hover {
+    transform: translateY(-10px);
 }
 
 .card-title {
@@ -52,8 +70,11 @@
     font-size: 18px;
     border: none;
     color: gray;
+    cursor: pointer;
 }
 
 .banner {
+    display: flex;
+    
     
 }

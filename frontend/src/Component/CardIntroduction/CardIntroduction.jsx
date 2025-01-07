@@ -112,7 +112,6 @@ const CardIntroduction = () => {
             <CardList cards={discountCards} />
 
             <div className="banner">
-                <p>롯데카드 인기 카드를 발견하다</p>
                 <button>롯데카드 전용관</button>
             </div>
         </div>
