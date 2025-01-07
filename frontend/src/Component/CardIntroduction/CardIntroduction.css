@@ -6,6 +6,7 @@
 }
 
 .section-header {
+    min-width: 1400px;
     display: flex;
     justify-content: space-between;
     font-size: 2em;
@@ -14,8 +15,8 @@
 }
 
 .card-list .cards {
+    min-width: 1400px;
     display: flex;
-    justify-content: center;
     text-align: center;
     white-space: nowrap;
     gap: 100px;
@@ -29,7 +30,7 @@
     text-align: center;
 }
 
-.card-image {
+.card-image-main {
     width: 90px;
     height: 140px;
     border-radius: 5px;
@@ -43,6 +44,14 @@
 .card-subtitle {
     color: gray;
     margin: -5px 0 40px;
+}
+
+.view-all-button {
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    border: none;
+    color: gray;
 }
 
 .banner {

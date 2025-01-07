@@ -5,7 +5,7 @@ import "./CardIntroduction.css";
 const Card = ({ title, imageUrl, subtitle }) => {
     return (
         <div className="card">
-            <img src={imageUrl} alt={title} className="card-image" />
+            <img src={imageUrl} alt={title} className="card-image-main" />
             <h3 className="card-title">{title}</h3>
             <p className="card-subtitle">{subtitle}</p>
         </div>
@@ -110,7 +110,7 @@ const CardIntroduction = () => {
                 <hr2>새해를 맞이하는 고정비 할인 카드!</hr2>
             </div>
             <CardList cards={discountCards} />
-            
+
             <div className="banner">
                 <p>롯데카드 인기 카드를 발견하다</p>
                 <button>롯데카드 전용관</button>
