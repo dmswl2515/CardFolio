@@ -100,8 +100,17 @@ const CardIntroduction = () => {
 
     return (
         <div className="card-introduction">
-            <CardList cards={eventCards} sectionTitle="놓치지 마세요! 이달의 이벤트 카드" />
-            <CardList cards={discountCards} sectionTitle="새해를 맞이하는 고정비 할인 카드!" />
+            <div className="section-header">
+                <hr2>놓치지 마세요! 이달의 이벤트 카드</hr2>
+                <button className="view-all-button">전체보기</button>
+            </div>
+            <CardList cards={eventCards} />
+            
+            <div className="section-header">
+                <hr2>새해를 맞이하는 고정비 할인 카드!</hr2>
+            </div>
+            <CardList cards={discountCards} />
+            
             <div className="banner">
                 <p>롯데카드 인기 카드를 발견하다</p>
                 <button>롯데카드 전용관</button>
