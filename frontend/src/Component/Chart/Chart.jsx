@@ -42,32 +42,36 @@ const Chart = () => {
     ];
 
     return (
-        <div className="chart-container">
-            <h2 className="chart-title">인기 차트</h2>
-            <div>
-                <nav className="chart-nav">
-                    <span className="active">종합순위</span>
-                    <span>카드사별 순위</span>
-                    <span>혜택별 순위</span>
-                    <span>기타 순위</span>
-                </nav>
-            </div>
-            <div className="chart-list">
-                {chartData.map((chart, index) => (
-                    <div className="chart-item" key={index}>
-                        <h3 className="chart-item-title">{chart.title}</h3>
-                        <ul className="chart-item-list">
-                            {chart.items.map((item, idx) => (
-                                <li key={idx} className="chart-item-entry">
-                                    <img src={item.image} alt={item.name} className="chart-item-image"/>
-                                    <span className="rank">{item.rank}</span>
-                                    <span className="name">{item.name}</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <button className="more-button">차트 더보기</button>
+        <div className="chart">
+            <div className="chart-container">
+                <div className="chart-header">
+                    <h2 className="chart-title">인기 차트</h2>
+                    <div>
+                        <nav className="chart-nav">
+                            <span className="active">종합순위</span>
+                            <span>카드사별 순위</span>
+                            <span>혜택별 순위</span>
+                            <span>기타 순위</span>
+                        </nav>
                     </div>
-                ))}
+                </div>
+                <div className="chart-list">
+                    {chartData.map((chart, index) => (
+                        <div className="chart-item" key={index}>
+                            <h3 className="chart-item-title">{chart.title}</h3>
+                            <ul className="chart-item-list">
+                                {chart.items.map((item, idx) => (
+                                    <li key={idx} className="chart-item-entry">
+                                        <img src={item.image} alt={item.name} className="chart-item-image"/>
+                                        <span className="rank">{item.rank}</span>
+                                        <span className="name">{item.name}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button className="more-button">차트 더보기</button>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
