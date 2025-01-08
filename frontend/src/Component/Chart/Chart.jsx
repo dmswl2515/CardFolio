@@ -63,7 +63,7 @@ const Chart = () => {
                                 {chart.items.map((item, idx) => (
                                     <li key={idx} className="chart-item-entry">
                                         <img src={item.image} alt={item.name} className="chart-item-image"/>
-                                        <span className="rank">{item.rank}</span>
+                                        <span className="chart-rank">{item.rank}</span>
                                         <span className="name">{item.name}</span>
                                     </li>
                                 ))}
