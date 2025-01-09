@@ -113,6 +113,11 @@
     
 }
 
+.chart-icon {
+    margin-right: 15px;
+    color: #ffc107;
+}
+
 .more-button {
     display: block;
     margin: 20px auto 10px;

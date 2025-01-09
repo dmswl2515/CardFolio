@@ -65,6 +65,7 @@ const Chart = () => {
                                         <img src={item.image} alt={item.name} className="chart-item-image"/>
                                         <span className="chart-rank">{item.rank}</span>
                                         <span className="name">{item.name}</span>
+                                        <i class="fa-solid fa-caret-up chart-icon"></i>
                                     </li>
                                 ))}
                             </ul>
