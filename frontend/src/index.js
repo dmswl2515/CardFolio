@@ -8,6 +8,7 @@ import Carousel from './Component/Swiper/Carousel';
 import CardIntroduction from './Component/CardIntroduction/CardIntroduction';
 import Chart from './Component/Chart/Chart';
 import Footer from './Footer/Footer';
+import YouTube from './Component/YouTube/YouTube';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <Carousel />
     <CardIntroduction />
     <Chart />
+    <YouTube />
     <Footer />
   </React.StrictMode>
 );
