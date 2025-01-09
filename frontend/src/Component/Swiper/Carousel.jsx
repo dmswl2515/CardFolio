@@ -8,11 +8,11 @@ import "./Swiper.css"
 
 const Carousel = () => {
     const slides = [
-        { src: "/assets/slider1.png", alt: "Slide 1" },
-        { src: "/assets/slider2.png", alt: "Slide 2" },
-        { src: "/assets/slider3.png", alt: "Slide 3" },
-        { src: "/assets/slider4.png", alt: "Slide 4" },
-        { src: "/assets/slider5.png", alt: "Slide 5" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider1.png", alt: "Slide 1" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider2.png", alt: "Slide 2" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider3.png", alt: "Slide 3" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider4.png", alt: "Slide 4" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider5.png", alt: "Slide 5" },
     ];
     
     

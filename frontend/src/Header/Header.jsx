@@ -15,7 +15,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-center">
-                        <img src="/assets/CardFolio_logo.png" className="logo-image"/>
+                        <img src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/logo/CardFolio_logo.png" className="logo-image"/>
                     </div>
 
                     <div className="header-top-right">
