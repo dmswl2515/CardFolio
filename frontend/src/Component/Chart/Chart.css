@@ -7,7 +7,7 @@
 .chart-container {
     max-width: 1300px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 30px;
     font-family: Arial, snas-serif;
 }
 
@@ -47,6 +47,7 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .chart-item::after {
