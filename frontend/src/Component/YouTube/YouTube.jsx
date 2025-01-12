@@ -74,7 +74,7 @@ const YouTube = () => {
                         <iframe
                             width="560"
                             height="350"
-                            src={videoUrl}
+                            src={`${videoUrl}?autoplay=1`}
                             title="YouYube video player"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
