@@ -1,11 +1,17 @@
 .youtube {
-    width: 100%;
-    min-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px;
     font-family: Arial, sans-serif;
 }
 
+.shorts-title {
+
+}
+
 .shorts-container {
-    max-width: 1200px;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -14,9 +20,10 @@
 
 .short-video {
     position: relative;
-    width: 200px;
-    height: 300px;
+    width: 250px;
+    height: 400px;
     cursor: pointer;
+
 }
 
 .short-video img {

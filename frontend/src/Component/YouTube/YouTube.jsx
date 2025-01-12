@@ -48,7 +48,7 @@ const YouTube = () => {
 
     return (
         <div className="youtube">
-            <h1>Shorts 영상</h1>
+            <h2 className="shorts-title">Shorts 영상</h2>
             <div className="shorts-container">
                 {videos.map((video) => (
                 <div
