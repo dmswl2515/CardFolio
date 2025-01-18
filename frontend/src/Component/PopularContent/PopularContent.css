@@ -1,0 +1,44 @@
+.popular-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1300px;
+    margin: 20px auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.popular-content h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 0 0;
+}
+
+.popular-content-container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+}
+
+.popular-card {
+    flex: 0px 0 auto;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.popular-card:hover {
+    transform: translateY(-10px);
+}
+
+.contents-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.contents-posts {
+    font-size: 14px;
+    color: #666;
+}
