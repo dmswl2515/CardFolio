@@ -18,6 +18,7 @@ root.render(
     <CardIntroduction />
     <Chart />
     <YouTube />
+    <CardIntroduction />
     <Footer />
   </React.StrictMode>
 );
