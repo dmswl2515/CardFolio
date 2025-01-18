@@ -2,24 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import Header from './Header/Header';
-import Carousel from './Component/Swiper/Carousel';
-import CardIntroduction from './Component/CardIntroduction/CardIntroduction';
-import Chart from './Component/Chart/Chart';
-import Footer from './Footer/Footer';
-import YouTube from './Component/YouTube/YouTube';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
-    <Carousel />
-    <CardIntroduction />
-    <Chart />
-    <YouTube />
-    <CardIntroduction />
-    <Footer />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>
 );
 
