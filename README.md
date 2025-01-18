@@ -10,4 +10,5 @@ Java, spring boot, SQL, AWS, Github
 3. 관리자페이지
 4. JWT를 통한 로그인 및 회원가입
 5. s3
+6. YouTube 영상 임베딩 및 동적 모달 팝업 기능 구현으로 사용자 경험 향상
  
