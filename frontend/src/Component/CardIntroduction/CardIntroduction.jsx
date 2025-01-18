@@ -2,9 +2,9 @@ import React from "react";
 import "./CardIntroduction.css";
 
 {/* individual card component */}
-const Card = ({ title, imageUrl, subtitle }) => {
+const Card = ({ title, imageUrl, subtitle, circleColorClass }) => {
     return (
-        <div className="card">
+        <div className={`card ${circleColorClass}`}>
             <img src={imageUrl} alt={title} className="card-image-main" />
             <h3 className="card-title">{title}</h3>
             <p className="card-subtitle">{subtitle}</p>
@@ -13,10 +13,9 @@ const Card = ({ title, imageUrl, subtitle }) => {
 };
 
 {/* cardlist component */}
-const CardList = ({ cards, sectionTitle }) => {
+const CardList = ({ cards, backgroundColor, circleColorClass }) => {
     return (
-        <div className="card-list">
-            <h2 className="section-title">{sectionTitle}</h2>
+        <div className="card-list" style={{ backgroundColor: backgroundColor }}>
             <div className="cards">
                 {cards.map((card, index) => (
                     <Card
@@ -24,6 +23,7 @@ const CardList = ({ cards, sectionTitle }) => {
                         title={card.title}
                         imageUrl={card.imageUrl}
                         subtitle={card.subtitle}
+                        circleColorClass={circleColorClass}
                     />
                 ))}
             </div>
@@ -31,7 +31,7 @@ const CardList = ({ cards, sectionTitle }) => {
     );
 };
 
-const CardIntroduction = () => {
+const CardIntroduction = ({ backgroundColor, buttonColor, circleColorClass, sectionTitle1, sectionTitle2 }) => {
     const eventCards = [
         {
             title: "삼성카드 taptap O",
@@ -99,26 +99,36 @@ const CardIntroduction = () => {
     ];
 
     return (
-        <div className="card-introduction">
-            <div className="section-header">
-                <hr2>놓치지 마세요! 이달의 이벤트 카드</hr2>
-                <button className="view-all-button">전체보기</button>
-            </div>
-            <CardList cards={eventCards} />
-            
-            <div className="section-header">
-                <hr2>새해를 맞이하는 고정비 할인 카드!</hr2>
-            </div>
-            <CardList cards={discountCards} />
+        <div className="card-intro-container" style={{ backgroundColor }} >
+            <div className="card-introduction">
+                <div className="section-header">
+                    <hr2>{sectionTitle1}</hr2>
+                    <button className="view-all-button" style={{ backgroundColor: buttonColor }}>전체보기</button>
+                </div>
+                <CardList 
+                    cards={eventCards} 
+                    backgroundColor={backgroundColor}
+                    circleColorClass={circleColorClass} 
+                />
+                
+                <div className="section-header">
+                    <hr2>{sectionTitle2}</hr2>
+                </div>
+                <CardList 
+                    cards={discountCards} 
+                    backgroundColor={backgroundColor} 
+                    circleColorClass={circleColorClass} 
+                />
 
-            <div className="banner">
-                <a href="#" className="banner-link">
-                    <img 
-                        src="https://d1c5n4ri2guedi.cloudfront.net/display/4988/pc_img/38848/board_pc.jpg" 
-                        alt="롯데카드 전용관" 
-                        className="banner-image" 
-                    />
-                </a>
+                <div className="banner">
+                    <a href="#" className="banner-link">
+                        <img 
+                            src="https://d1c5n4ri2guedi.cloudfront.net/display/4988/pc_img/38848/board_pc.jpg" 
+                            alt="롯데카드 전용관" 
+                            className="banner-image" 
+                        />
+                    </a>
+                </div>
             </div>
         </div>
     );

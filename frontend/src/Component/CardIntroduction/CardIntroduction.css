@@ -19,7 +19,6 @@
     text-align: center;
     white-space: nowrap;
     gap: 120px;
-
     cursor: pointer;
 }
 
@@ -33,16 +32,29 @@
     position: relative;
 }
 
-.card::before {
+.card.gray-background::before {
     content: '';
     position: absolute;
-    top: -1%;
-    width: 155%;
-    height: 49%;
+    top: -1.5%;
+    width: 140%;
+    height: 50%;
     background-color: rgb(237, 234, 234);
     border-radius: 50%;
     z-index: -1;
     cursor: pointer;
+}
+
+.card.white-background::before {
+    content: '';
+    position: absolute;
+    top: -1.5%;
+    width: 140%;
+    height: 50%;
+    background-color: white; 
+    border-radius: 50%;
+    z-index: -1;
+    cursor: pointer;
+    
 }
 
 .card-image-main {
