@@ -11,10 +11,13 @@ const PopularContent = ({ contents }) => {
             <div className="popular-content-container">
                 {contents.map((content, index) =>  (
                     <div key={index} className="popular-card">
+                        <div className="overlay"></div>
                         <img src={content.image} alt={content.title} className="contents-image" />
                         <div className="contents-info">
-                            <h3 className="contents-title">{content.title}</h3>
-                            <p className="contents-posts">{content.posts}</p>
+                        <h3 className="contents-title" dangerouslySetInnerHTML={{ __html: content.title }}></h3>
+                            <p className="contents-posts">
+                                +{content.posts} <span className="posts-label">Posts</span>
+                            </p>
                         </div>
                     </div>
                 ))}
