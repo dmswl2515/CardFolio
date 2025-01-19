@@ -15,10 +15,8 @@
     padding: 10px 10px;
     font-size: 14px;
     margin: 15px auto;
-    column-gap: 300px; 
+    column-gap: 320px; 
 }
-
-
 
 .header-top-left {
     align-items: center;
@@ -84,19 +82,20 @@
 
 /* Main Header */
 .header-main {
+    max-width: 1300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    margin-left: clamp(20px, 10vw, 200px);
-    margin-right: clamp(20px, 10vw, 200px);
-    
+    margin-left: clamp(20px, 20vw, 300px);
+    margin-right: clamp(20px, 13vw, 200px);    
 }
 
 .nav-menu {
     flex: 1;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .nav-menu ul {
