@@ -82,13 +82,11 @@
 
 /* Main Header */
 .header-main {
-    max-width: 1300px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    margin-left: clamp(20px, 20vw, 300px);
-    margin-right: clamp(20px, 13vw, 200px);    
+    margin : 0 auto;
+    position: relative;
 }
 
 .nav-menu {
@@ -96,6 +94,9 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-menu ul {
@@ -116,6 +117,7 @@
 .header-icons {
     display: flex;
     gap: 15px;
+    transform: translateX(600px);
 }
 
 .search-icon,
