@@ -28,6 +28,7 @@
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3), 20px 20px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .contents-image {
@@ -37,7 +38,6 @@
     border-radius: 10px;
     margin-bottom: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
 }
 
 .popular-card:hover .contents-image {
