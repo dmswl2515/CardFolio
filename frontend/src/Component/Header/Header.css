@@ -9,22 +9,16 @@
 /* Header Information Section */
 .header-top {
     height: 50px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    padding: 10px 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
     font-size: 14px;
-    margin: 10px 0px 15px 0px;
-    margin-left: clamp(20px, 10vw, 200px);
-    margin-right: clamp(20px, 10vw, 200px);
-    column-gap: 200px; 
+    margin: 15px auto;
+    column-gap: 300px; 
 }
 
-@media (max-width: 768px) {
-    .header-top {
-        margin-left: calc(5vw);
-        margin-right: calc(5vw);
-    }
-}
+
 
 .header-top-left {
     align-items: center;
