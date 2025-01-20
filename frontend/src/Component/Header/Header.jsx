@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css"
 import SearchButton from "./SearchButton";
 import RankCard from "./RankCard";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
@@ -15,7 +16,9 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-center">
-                        <img src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/logo/CardFolio_logo.png" className="logo-image"/>
+                        <Link to="/">
+                            <img src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/logo/CardFolio_logo.png" className="logo-image"/>
+                        </Link>
                     </div>
 
                     <div className="header-top-right">
@@ -33,15 +36,15 @@ const Header = () => {
                     
                     <nav className="nav-menu">
                         <ul>
-                            <li>카드폴리오 차트 <i className="fas fa-caret-down"></i></li>
-                            <li>카드 <i className="fas fa-caret-down"></i></li>
-                            <li>카드사 <i className="fas fa-caret-down"></i></li>
-                            <li>캐시백 <i className="fas fa-caret-down"></i></li>
-                            <li>콘텐츠 <i className="fas fa-caret-down"></i></li>
-                            <li>프리미엄 <i className="fas fa-caret-down"></i></li>
-                            <li>마일리지 <i className="fas fa-caret-down"></i></li>
-                            <li>호텔 <i className="fas fa-caret-down"></i></li>
-                            <li>카드커버 <i className="fas fa-caret-down"></i></li>
+                            <li><Link to="/chart">카드폴리오 차트 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/card">카드 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/company">카드사 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/cashback">캐시백 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/contents">콘텐츠 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/premium">프리미엄 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/mileage">마일리지 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/hotel">호텔 <i className="fas fa-caret-down"></i></Link></li>
+                            <li><Link to="/cardCover">카드커버 <i className="fas fa-caret-down"></i></Link></li>
                         </ul>
                     </nav>
                     <div className="header-icons">
