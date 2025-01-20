@@ -174,8 +174,19 @@ const ChartPage = () => {
                             ))}
                         </div>
                     </section>
-                </div>        
-                
+                </div>
+
+                {/* Card Cover Section */}        
+                <section className="card-cover">
+                    <h2>카드커버 인기차트</h2>
+                    <div className="card-cover-container">
+                        <img 
+                            src="https://api.card-gorilla.com:8080/storage/corp/2/tips/29083/tips_chart_gosty_pc.jpg"
+                            alt="Card Covers"
+                            className="card-cover-image"
+                        />
+                    </div>
+                </section>
             </div>
         </div>
     );

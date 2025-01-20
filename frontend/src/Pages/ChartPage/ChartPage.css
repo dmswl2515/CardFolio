@@ -1,5 +1,4 @@
 .chart-page {
-    padding: 20px;
     background-color: #f0f2f5;
 }
 
@@ -228,4 +227,15 @@
     display: block;
     font-size: 20px;
     font-weight: 500;
+}
+
+/* Card Cover Section */
+.card-cover {
+    margin-top: 40px;
+}
+
+.card-cover-image {
+    min-width: 1300px;
+    border-radius: 15px;
+    cursor: pointer;
 }
