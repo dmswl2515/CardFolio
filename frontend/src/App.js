@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Layout from './Component/Layout';
 import HomePage from './Pages/HomePage';
-import ChartPage from './Pages/ChartPage';
+import ChartPage from './Pages/ChartPage/ChartPage';
 
 function App() {
   return (

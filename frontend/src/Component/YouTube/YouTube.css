@@ -1,7 +1,7 @@
 .youtube {
+    max-width: 1300px;
     display: flex;
     flex-direction: column;
-    max-width: 1300px;
     margin: 0 auto;
     padding: 30px;
     font-family: Arial, sans-serif;

@@ -1,0 +1,79 @@
+.chart-page {
+    padding: 20px;
+    background-color: #f0f2f5;
+}
+
+.cardfolio-chart-container{
+    display: flex;
+    gap: 20px;
+}
+
+.chart-items {
+   flex: 1;
+   position: relative;
+   height: 200px;
+   background-size: cover;
+   background-position: center;
+   border-radius: 16px;
+   color: #000;
+   font-size: 18px;
+   box-shadow: 0 4px 10px raba(0, 0, 0, 0.1);
+   padding: 30px;
+   cursor: pointer;
+}
+
+.credit-card {
+    background: url("https://api.card-gorilla.com:8080/storage/corp/2/tips/29057/tips_gc_top100.jpg") no-repeat center center / cover;
+    padding-right: 200px;
+}
+
+.new-card {
+    background: linear-gradient(to right, #a8d7e6, #6bb3c0);
+    position: relative;
+    overflow: hidden;  
+}
+
+.new-card::before {
+    content: "";
+    position: absolute; 
+    left: 58%;
+    top: 73%;
+    transform: translateY(-50%);
+    width: 140px;  /* 이미지 너비 조정 */
+    height: 200px;  /* 이미지 높이 조정 */
+    background: url("https://d1c5n4ri2guedi.cloudfront.net/corp/2/tips/36726/tips_gc_newest.png") no-repeat center center;
+    background-size: contain;  /* 이미지 크기 조절 */
+}
+
+.debit-card {
+    background: url("https://api.card-gorilla.com:8080/storage/corp/2/tips/29058/tips_gc_check.jpg") no-repeat center center / cover;
+}
+
+.realtime {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f07700;
+}
+
+.btn {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+}
+
+.credit-btn {
+    background-color: #ef9d20;
+}
+
+.new-btn {
+    background-color: #618b97;
+}
+
+.debit-btn {
+    background-color: #6f8764;
+}
+
