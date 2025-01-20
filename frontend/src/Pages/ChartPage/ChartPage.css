@@ -101,3 +101,44 @@
     background-color: #6f8764;
 }
 
+/* Card Issuer Ranking Section */
+.popular-card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-box {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-logo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-image {
+
+}
+
+
