@@ -39,6 +39,66 @@ const cardImages= {
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/10/logo_img/33333/logo_ibk.png"
     },
+    통신 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29060/tips_p-mobile.jpg"
+    },
+    주유차량정비 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29061/tips_p-car.jpg"
+    },
+    쇼핑 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29062/tips_p-shopping.jpg"
+    },
+    항공마일리지 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29063/tips_p-mileage.jpg"
+    },
+    공항라운지 : {
+        img: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/tips/37728/tips_p-lounge.jpg"
+    },
+    무실적모든가맹점 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29065/tips_p-all.jpg"
+    },
+    구독스트리밍 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29066/tips_p-subsc.jpg"
+    },
+    해외결제 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29067/tips_p-shipping.jpg"
+    },
+    배달앱간편결제 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29068/tips_p-delivery.jpg"
+    },
+    병원약국 : {
+        img: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/tips/38158/tips_p-medical.jpg"
+    },
+    공과금 : {
+        img: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/tips/37729/tips_p-pee.jpg"
+    },
+    여행바우처 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29074/tips_p-tour.jpg"
+    },
+    제휴PLCC : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29073/tips_p-plcc.jpg"
+    },
+    증권사CMA : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29072/tips_p-cma.jpg"
+    },
+    할인형 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29077/tips_type_01.png"
+    },
+    포인트형 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29078/tips_type_02.png"
+    },
+    마일리지형 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29079/tips_type_03.png"
+    },
+    조건없음 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29080/tips_month_01.png"
+    },
+    삼십만원이하 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29081/tips_month_02.png"
+    },
+    삼십만원초과 : {
+        img: "https://api.card-gorilla.com:8080/storage/corp/2/tips/29082/tips_month_03.png"
+    },
 };
 
 export default cardImages;

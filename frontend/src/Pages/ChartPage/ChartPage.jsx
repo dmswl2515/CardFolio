@@ -22,7 +22,7 @@ const ChartPage = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // card issuer date
+    // card issuer data
     const popularCards = [
         { id: 1, logo: cardImages.신한카드.logo, name: "신한카드", img: cardImages.신한카드.img },
         { id: 2, logo: cardImages.삼성카드.logo, name: "삼성카드", img: cardImages.삼성카드.img },
@@ -35,6 +35,34 @@ const ChartPage = () => {
         { id: 9, logo: cardImages.BC카드.logo, name: "BC카드", img: cardImages.BC카드.img },
         { id: 10, logo: cardImages.IBK기업은행.logo, name: "IBK기업은행", img: cardImages.IBK기업은행.img },
         
+    ];
+
+    // card benefit data
+    const benefits = [
+        { id: 1, name: "통신", img: cardImages.통신.img },
+        { id: 2, name: "주유+차량정비", img: cardImages.주유차량정비.img },
+        { id: 3, name: "쇼핑", img: cardImages.쇼핑.img },
+        { id: 4, name: "항공마일리지", img: cardImages.항공마일리지.img },
+        { id: 5, name: "공항라운지", img: cardImages.공항라운지.img },
+        { id: 6, name: "무실적+모든가맹점", img: cardImages.무실적모든가맹점.img },
+        { id: 7, name: "구독/스트리밍", img: cardImages.구독스트리밍.img },
+        { id: 8, name: "해외결제", img: cardImages.해외결제.img },
+        { id: 9, name: "배달앱+간편결제", img: cardImages.배달앱간편결제.img },
+        { id: 10, name: "병원+약국", img: cardImages.병원약국.img },
+        { id: 11, name: "공과금", img: cardImages.공과금.img },
+        { id: 12, name: "여행+바우처", img: cardImages.여행바우처.img },
+        { id: 13, name: "제휴/PLCC", img: cardImages.제휴PLCC.img },
+        { id: 14, name: "증권사CMA", img: cardImages.증권사CMA.img },
+    ];
+
+    // card type data 
+    const cardTypes = [
+        { id: 1, name: "할인형", img: cardImages.할인형.img },
+        { id: 2, name: "포인트형", img: cardImages.포인트형.img },
+        { id: 3, name: "마일리지형", img: cardImages.마일리지형.img },
+        { id: 4, name: "조건없음", img: cardImages.조건없음.img },
+        { id: 5, name: "30만원 이하", img: cardImages.삼십만원이하.img },
+        { id: 6, name: "30만원 초과", img: cardImages.삼십만원초과.img },
     ];
 
     return(
@@ -97,6 +125,57 @@ const ChartPage = () => {
                         ))}
                     </div>
                 </section>
+
+                {/* Card Benefit Section */}
+                <section className="benefit-chart">
+                    <h2>혜택별 인기차트</h2>
+                    <div className="benefit-chart-container">
+                        {benefits.map((benefit) => (
+                            <div key={benefit.id} className="benefit-box">
+                                <img src={benefit.img} alt={benefit.name} className="benefit-image" />
+                                <h3 className="benefit-name">
+                                    <span>{benefit.name}</span>
+                                    <span>Top10</span>
+                                </h3>
+                            </div>
+                        ))}
+                    </div>    
+                </section>
+
+                <div className="card-type-performance-wrapper">        
+                    {/* Card Type Section */}
+                    <section className="card-type-chart">
+                        <h2>카드타입별 인기차트</h2>
+                        <div className="card-type-container">
+                            {cardTypes.slice(0, 3).map((type) => (
+                                <div key={type.id} className="type-box">
+                                    <img src={type.img} alt={type.name} className="type-image" />
+                                    <h3 className="type-name">
+                                        <span>{type.name}</span>
+                                        <span>Top30</span>
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    {/* Monthly Performance-Based Card Section */}            
+                    <section className="performance-chart">
+                        <h2>전월실적별 인기차트</h2>
+                        <div className="performance-container">
+                            {cardTypes.slice(3).map((type) => (
+                                <div key={type.id} className="performance-box">
+                                    <img src={type.img} alt={type.name} className="performance-image" />
+                                    <h3 className="performance-name">
+                                        <span>{type.name}</span>
+                                        <span>Top30</span>
+                                    </h3>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </div>        
+                
             </div>
         </div>
     );
