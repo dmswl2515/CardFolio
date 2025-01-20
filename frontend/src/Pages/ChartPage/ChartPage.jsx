@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import cardImages from "../../Component/CardImage";
 import "./ChartPage.css"
 import "../../Styles/Style.css";
 
@@ -23,16 +24,16 @@ const ChartPage = () => {
 
     // card issuer date
     const popularCards = [
-        { id: 1, logo: "신한카드", name: "신한카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/13/card_img/28201/13card.png"},
-        { id: 2, logo: "Samsung Card", name: "삼성카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png" },
-        { id: 3, logo: "HyundaiCard", name: "현대카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2669/card_img/32807/2669card.png" },
-        { id: 4, logo: "KB국민카드", name: "KB국민카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2553/card_img/36834/2553card.png" },
-        { id: 5, logo: "우리카드", name: "우리카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2441/card_img/37123/2441card_3.png" },
-        { id: 6, logo: "롯데카드", name: "롯데카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2261/card_img/21011/2261card.png" },
-        { id: 7, logo: "하나카드", name: "하나카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2657/card_img/32434/2657card.png" },
-        { id: 8, logo: "NH농협카드", name: "NH농협카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/666/card_img/21431/666card.png" },
-        { id: 9, logo: "BC 바로카드", name: "BC 바로카드", img: "https://d1c5n4ri2guedi.cloudfront.net/card/772/card_img/22246/772card.png" },
-        { id: 10, logo: "IBK기업은행", name: "IBK기업은행", img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png" },
+        { id: 1, logo: cardImages.신한카드.logo, name: "신한카드", img: cardImages.신한카드.img },
+        { id: 2, logo: cardImages.삼성카드.logo, name: "삼성카드", img: cardImages.삼성카드.img },
+        { id: 3, logo: cardImages.현대카드.logo, name: "현대카드", img: cardImages.현대카드.img },
+        { id: 4, logo: cardImages.KB국민카드.logo, name: "KB국민카드", img: cardImages.KB국민카드.img },
+        { id: 5, logo: cardImages.우리카드.logo, name: "우리카드", img: cardImages.우리카드.img },
+        { id: 6, logo: cardImages.롯데카드.logo, name: "롯데카드", img: cardImages.롯데카드.img },
+        { id: 7, logo: cardImages.하나카드.logo, name: "하나카드", img: cardImages.하나카드.img },
+        { id: 8, logo: cardImages.NH농협카드.logo, name: "NH농협카드", img: cardImages.NH농협카드.img },
+        { id: 9, logo: cardImages.BC카드.logo, name: "BC카드", img: cardImages.BC카드.img },
+        { id: 10, logo: cardImages.IBK기업은행.logo, name: "IBK기업은행", img: cardImages.IBK기업은행.img },
         
     ];
 
@@ -84,9 +85,12 @@ const ChartPage = () => {
                     <div className="popular-card-container">
                         {popularCards.map((card) => (
                             <div key={card.id} className="card-box">
-                                <p className="card-logo">{card.logo}</p>
+                                <img className="card-logo" src={card.logo} alt={card.name}/>
                                 <div className="card-content">
-                                    <h3 className="card-name">{card.name}</h3>
+                                    <h3>
+                                        <span className="card-name">{card.name}</span>
+                                        <span>TOP 100</span>
+                                    </h3>
                                     <img src={card.img} alt={card.name} className="card-image" />
                                 </div>
                             </div>
