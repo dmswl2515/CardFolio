@@ -1,8 +1,8 @@
 import React from "react";
-import "./Header.css"
+import { NavLink } from "react-router-dom";
 import SearchButton from "./SearchButton";
 import RankCard from "./RankCard";
-import { Link } from "react-router-dom";
+import "./Header.css"
 
 const Header = () => {
     return (
@@ -16,9 +16,9 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-center">
-                        <Link to="/">
+                        <NavLink to="/">
                             <img src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/logo/CardFolio_logo.png" className="logo-image"/>
-                        </Link>
+                        </NavLink>
                     </div>
 
                     <div className="header-top-right">
@@ -36,15 +36,51 @@ const Header = () => {
                     
                     <nav className="nav-menu">
                         <ul>
-                            <li><Link to="/chart">카드폴리오 차트 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/card">카드 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/company">카드사 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/cashback">캐시백 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/contents">콘텐츠 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/premium">프리미엄 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/mileage">마일리지 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/hotel">호텔 <i className="fas fa-caret-down"></i></Link></li>
-                            <li><Link to="/cardCover">카드커버 <i className="fas fa-caret-down"></i></Link></li>
+                            <li>
+                                <NavLink to="/chart" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    카드폴리오 차트 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/card" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    카드 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/company" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    카드사 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/cashback" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    캐시백 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/contents" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    콘텐츠 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/premium" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    프리미엄 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/mileage" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    마일리지 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/hotel" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    호텔 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/cardCover" className={({ isActive }) => isActive ? "active-link" : ""}>
+                                    카드커버 <i className="fas fa-caret-down"></i>
+                                </NavLink>
+                            </li>
                         </ul>
                     </nav>
                     <div className="header-icons">
