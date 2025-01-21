@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import CardInformation from "../../Component/CardInformation/CardInformation";
 import CardData from "../../Component/CardData";
 import "../../Styles/Style.css";
 import "./CardPage.css";
 
 const CardPage = () => {
+    const [activeTab, setActiveTab] = useState("credit");
+
+    const filteredCards = CardData.filter(card =>
+        activeTab === "credit" ? card.type === "credit" : card.type === "debit"
+    );
+
     return (
         <div className="page-background">
             <div className="common-container">
@@ -41,8 +47,22 @@ const CardPage = () => {
 
                 {/* Card List Section */}
                 <section className="card-list-section">
-                    {CardData.map((card) => (
-                        <CardInformation key={card.id} card={card} />
+                    <div className="tab-container">
+                        <button
+                            className={activeTab === "credit" ? "active-tab" : ""}
+                            onClick={() => setActiveTab("credit")}
+                        >
+                            신용카드
+                        </button>
+                        <button
+                            className={activeTab === "debit" ? "active-tab" : ""}
+                            onClick={() => setActiveTab("debit")}
+                        >
+                            체크카드
+                        </button>
+                    </div>
+                    {filteredCards.map((card, index) => (
+                        <CardInformation key={index} card={card} />
                     ))}
                 </section>
             </div>

@@ -70,6 +70,29 @@
     background-color: #faae09;
 }
 
+.tab-container {
+    display: flex;
+    max-width: 1060px;
+    margin: 10px 90px;
+    gap: 10px;
+}
+
+.tab-container button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+    background-color: hsla(0, 0%, 100%, 0.65);;
+    font-weight: 900;
+}
+
+.tab-container button.active-tab {
+    background: #fff;
+    color: #000;
+}
+
 .card-list-section {
     min-width: 1300px;
 }

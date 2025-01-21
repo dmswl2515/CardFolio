@@ -13,8 +13,8 @@ const CardInformation = ({ card }) => {
                         <h3 className="card-name">{card.name}</h3>
                         <p className="card-company">{card.company}</p>
                         <button className="details-button">자세히 보기</button>
-                        </div>
-                    <p className="card-event">{card.event}</p>
+                    </div>
+                    <p className={`card-event ${card.event ? 'has-content' : ''}`}>{card.event}</p>
                     <div className="card-benefits">
                         <p>
                             {card.benefit1} <span className="card-benefit-content">{card.benefitcontent1}</span>

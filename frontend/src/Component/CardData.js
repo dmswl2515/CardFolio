@@ -2,7 +2,7 @@ const CardData = [
     {
         id: 1, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
-        type: "신용카드",
+        type: "credit",
         name: "삼성카드 taptap O",
         event: "최대 26.5만원 혜택",
         company: "삼성카드",
@@ -19,7 +19,7 @@ const CardData = [
     {
         id: 2, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/13/card_img/28201/13card.png",
-        type: "신용카드",
+        type: "credit",
         name: "신한카드 Mr.Life",
         event: "최대 10만원 캐시백",
         company: "신한카드",
@@ -36,7 +36,7 @@ const CardData = [
     {
         id: 3, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2669/card_img/32807/2669card.png",
-        type: "신용카드",
+        type: "credit",
         name: "현대카드 M",
         event: "최대 15만원 캐시백",
         company: "현대카드",
@@ -53,7 +53,7 @@ const CardData = [
     {
         id: 4, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2330/card_img/24131/2330card.png",
-        type: "신용카드",
+        type: "credit",
         name: "LOCA 365 카드",
         event: "최대 16만원 캐시백 지급 이벤트",
         company: "롯데카드",
@@ -70,7 +70,7 @@ const CardData = [
     {
         id: 5, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/49/card_img/27705/49card.png",
-        type: "신용카드",
+        type: "credit",
         name: "삼성카드 & MILEAGE PLATINUM (스카이패스)",
         event: "",
         company: "삼성카드",
@@ -87,7 +87,7 @@ const CardData = [
     {
         id: 6, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2749/card_img/39221/2749card_4.png",
-        type: "체크카드",
+        type: "debit",
         name: "ONE 체크카드",
         event: "",
         company: "케이뱅크",
@@ -121,7 +121,7 @@ const CardData = [
     {
         id: 8, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/646/card_img/21410/646card.png",
-        type: "체크카드",
+        type: "debit",
         name: "신한카드 Deep Dream 체크(미니언즈)",
         event: "",
         company: "신한카드",
@@ -138,7 +138,7 @@ const CardData = [
     {
         id: 9, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/286/card_img/20508/286card.png",
-        type: "체크카드",
+        type: "debit",
         name: "카카오페이 신한 체크카드",
         event: "",
         company: "신한카드",
@@ -155,7 +155,7 @@ const CardData = [
     {
         id: 10, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2432/card_img/27295/2432card.png",
-        type: "체크카드",
+        type: "debit",
         name: "네이버페이 머니 하나 체크카드",
         event: "",
         company: "하나카드",
