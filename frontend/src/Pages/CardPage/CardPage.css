@@ -1,0 +1,70 @@
+
+.card-search-section {
+    min-width: 1300px;
+    text-align: center;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.card-search-title {
+    justify-content: center;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.highlight {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.card-search-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.search-option-box {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px 50px;
+    width: 350px;
+    box-shadow: 0 2px 6px raba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.search-option-icon {
+    width: 120px;
+    height: 110px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-option-box:hover .search-option-icon {
+    transform: scale(1.2);
+}
+
+.option-description1 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #444;
+}
+
+.option-description2 {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.option-button {
+    background-color: #ffc03d;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 55px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 13px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-option-box:hover .option-button {
+    background-color: #faae09;
+}

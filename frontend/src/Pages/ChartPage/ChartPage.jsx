@@ -66,7 +66,7 @@ const ChartPage = () => {
     ];
 
     return(
-        <div className="chart-page">
+        <div className="page-background">
             <div className="common-container">
                 {/* CardFolio Section */}
                 <section className="cardfolio-chart">

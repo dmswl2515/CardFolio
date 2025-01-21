@@ -1,7 +1,10 @@
 h2 {
     font-size: 30px;
     font-weight: 900;
-    margin-right: 70px;
+}
+
+.page-background {
+    background-color: #f0f2f5;
 }
 
 .common-container {
