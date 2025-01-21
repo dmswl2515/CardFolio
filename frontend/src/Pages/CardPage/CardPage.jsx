@@ -1,4 +1,6 @@
 import React from "react";
+import CardInformation from "../../Component/CardInformation/CardInformation";
+import CardData from "../../Component/CardData";
 import "../../Styles/Style.css";
 import "./CardPage.css";
 
@@ -35,6 +37,13 @@ const CardPage = () => {
                             <button className="option-button">카드추천 테스트</button>
                         </div>
                     </div>
+                </section>
+
+                {/* Card List Section */}
+                <section className="card-list-section">
+                    {CardData.map((card) => (
+                        <CardInformation key={card.id} card={card} />
+                    ))}
                 </section>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./CardIntroduction.css";
+import "../../Styles/Style.css";
 
 {/* individual card component */}
 const Card = ({ title, imageUrl, subtitle, circleColorClass }) => {

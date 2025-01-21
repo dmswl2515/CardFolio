@@ -28,7 +28,7 @@
     background-color: #fff;
     border-radius: 12px;
     padding: 20px 50px;
-    width: 350px;
+    width: 450px;
     box-shadow: 0 2px 6px raba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
@@ -63,8 +63,14 @@
     font-weight: 900;
     margin-bottom: 13px;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .search-option-box:hover .option-button {
     background-color: #faae09;
 }
+
+.card-list-section {
+    min-width: 1300px;
+}
+
