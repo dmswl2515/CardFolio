@@ -97,3 +97,41 @@
     min-width: 1300px;
 }
 
+.button-container {
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 90px;   
+}
+
+.more-cards-btn,
+.search-benefits-btn {
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 25px 40px;
+    cursor: pointer;
+}
+
+.more-cards-btn {
+    width: 64%;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #aaa
+}
+
+.search-benefits-btn {
+    width: 34%;
+    color: #555;
+    background-color: #e8e8e8;
+    border: none;
+}
+
+.more-cards-btn:hover {
+    background-color: #f8f5f5;
+}
+
+.search-benefits-btn:hover {
+    color: #333;
+    background-color: #d6d6d6;
+}

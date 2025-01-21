@@ -61,9 +61,19 @@ const CardPage = () => {
                             체크카드
                         </button>
                     </div>
+
                     {filteredCards.map((card, index) => (
                         <CardInformation key={index} card={card} />
                     ))}
+                    
+                    <div className="button-container">
+                        <button className="more-cards-btn">
+                            카드 더보기 <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                        <button className="search-benefits-btn">
+                            <i class="fa-solid fa-magnifying-glass benefits-search-icon"> 원하는 혜택만 검색</i>
+                        </button>
+                    </div>
                 </section>
             </div>
         </div>
