@@ -1,5 +1,6 @@
 import React from "react";
-import CardData from "../../Component/CardData";
+import cardImages from "../../Component/CardImage";
+import CardIntroduction from "../../Component/CardIntroduction/CardIntroduction";
 import "../../Styles/Style.css";
 import "./CompanyPage.css";
 
@@ -47,10 +48,44 @@ const CompanyPage = () => {
                     </div>
                 </section>
 
-                <section>
-
+                <section className="card-button-section">
+                    {Object.keys(cardImages).map((key) => {
+                        const card = cardImages[key];
+                        // 데이터가 없으면 렌더링하지 않음
+                        if (!card.id || !card.logo) {
+                            return null;
+                        }
+                        return (
+                            <div
+                                key={card.id}
+                                className="card-button-item"
+                                style={{ backgroundColor: card.color || "#fff" }}
+                            >
+                                <img src={card.logo} alt={`${key} 로고`} className="card-logo" />
+                                <button>바로가기</button>
+                            </div>
+                        );
+                    })}
                 </section>
+
             </div>
+                <section>
+                    {/* CardIntroduction Component(2) */}
+                    <CardIntroduction 
+                        backgroundColor="#fff"
+                        circleColorClass="white-background"
+                        sectionTitle1="카드사별 베스트셀러"
+                    />
+                </section>
+
+                <section>
+                    {/* CardIntroduction Component */}
+                    <CardIntroduction
+                        circleColorClass="gray-background"
+                        buttonColor="white"
+                        sectionTitle1="카드사별 신규 카드"
+                    />
+                </section>
         </div>
     );
 };
