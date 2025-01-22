@@ -56,13 +56,17 @@ const CompanyPage = () => {
                             return null;
                         }
                         return (
-                            <div
-                                key={card.id}
-                                className="card-button-item"
-                                style={{ backgroundColor: card.color || "#fff" }}
-                            >
-                                <img src={card.logo} alt={`${key} 로고`} className="card-logo" />
-                                <button>바로가기</button>
+                            <div className="card-button-item-container">  
+                                <div
+                                    key={card.id}
+                                    className="card-button-item"
+                                    style={{ backgroundColor: card.color || "#fff" }}
+                                >
+                                
+                                    <img src={card.logo2} alt={`${key} 로고`} className="card-logo" />
+                                
+                                    <button className="go-to-company-button">바로가기</button>
+                                </div>
                             </div>
                         );
                     })}
