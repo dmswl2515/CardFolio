@@ -1,0 +1,103 @@
+.card-company-list {
+    min-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.card-company-all {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.card-company-item {
+    color: hsla(0, 0%, 100%, 0.6);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card-ranking-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-company-ranking-title {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.ranking-date {
+    font-size: 1.1em;
+    color: #888;
+    margin-top: -15px;
+}
+
+.ranking-card-companys {
+    min-width: 1300px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.ranking-card-company {
+    position: relative;
+    width: 300px;
+    height: 430px;
+    overflow: hidden;
+    font-size: 4.5em;
+    font-weight: bold;
+    color: #333;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.rank-number {
+    position: absolute;
+    top: -60px;
+    left: 20px;
+    color: #fff;
+    display: flex;
+    z-index: 1;
+}
+
+.ranking-card-company img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.ranking-card-company:hover img {
+    transform: scale(1.2);
+    transition: transform 0.2s ease-in-out;
+}
+
+.ranking-card-company button {
+    position: absolute;
+    width: 180px;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: none;
+    color: #444;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-card-name {
+    color: #0046ff;
+}
+
+
+
