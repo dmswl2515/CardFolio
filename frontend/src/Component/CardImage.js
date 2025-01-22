@@ -32,7 +32,7 @@ const cardImages= {
         id: 3,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2261/card_img/21011/2261card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/4/logo_img/33414/logo_lt.png",
-        logo2: "https://d1c5n4ri2guedi.cloudfront.net/event/183/logo_img/38907/bi_loca.png",
+        logo2: "https://d1c5n4ri2guedi.cloudfront.net/corp/4/logo_img/33414/logo_lt.png",
         color: "#6B4AAF"
     },
     하나카드 : {

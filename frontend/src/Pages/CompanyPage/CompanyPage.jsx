@@ -63,7 +63,16 @@ const CompanyPage = () => {
                                     style={{ backgroundColor: card.color || "#fff" }}
                                 >
                                 
-                                    <img src={card.logo2} alt={`${key} 로고`} className="card-logo" />
+                                    <img 
+                                        src={card.logo2} 
+                                        alt={`${key} 로고`} 
+                                        className="card-logo" 
+                                        style={
+                                            key == "롯데카드"
+                                            ? { width: "120px", height: "60px", margin: "28px 0px"}
+                                            : {}
+                                        }
+                                    />
                                 
                                     <button className="go-to-company-button">바로가기</button>
                                 </div>

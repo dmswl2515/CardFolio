@@ -109,6 +109,7 @@
 .card-button-item-container {
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 
 .card-button-item-container::after {
@@ -118,7 +119,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
     pointer-events: none; 
     z-index: 0;
     border-radius: 10px;
@@ -137,6 +137,7 @@
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.5));
     transition: transform 0.2s ease;
     z-index: 1;
 }
@@ -152,9 +153,11 @@
     height: 25px;
     margin-top: 40px;
     margin-bottom: 50px;
+    z-index: 2;
 }
 
 .go-to-company-button {
+    bottom: 20px;
     font-size: 15px;
     font-weight: bold;
     color: #fff;
@@ -162,7 +165,11 @@
     padding: 15px 35px;
     border: none;
     border-radius: 30px;
-    z-index: 2;
+    z-index: 3;
+}
+
+.go-to-company-button:hover {
+    z-index: 3;
 }
 
 
