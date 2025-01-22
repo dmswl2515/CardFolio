@@ -120,16 +120,6 @@ const CardIntroduction = ({ backgroundColor, buttonColor, circleColorClass, sect
                     backgroundColor={backgroundColor} 
                     circleColorClass={circleColorClass} 
                 />
-
-                <div className="banner">
-                    <a href="#" className="banner-link">
-                        <img 
-                            src="https://d1c5n4ri2guedi.cloudfront.net/display/4988/pc_img/38848/board_pc.jpg" 
-                            alt="롯데카드 전용관" 
-                            className="banner-image" 
-                        />
-                    </a>
-                </div>
             </div>
         </div>
     );

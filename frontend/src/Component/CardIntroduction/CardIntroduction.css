@@ -16,6 +16,7 @@
     justify-content: space-between;
     font-size: 2em;
     font-weight: 900;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
@@ -79,14 +80,4 @@
     border: none;
     color: gray;
     cursor: pointer;
-}
-
-.banner {
-   min-width: 1200px;
-   display: flex;
-   justify-content: center;
-}
-
-.banner-image {
-    border-radius: 15px;
 }
