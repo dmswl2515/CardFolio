@@ -5,6 +5,7 @@ import Layout from './Component/Layout';
 import HomePage from './Pages/HomePage';
 import ChartPage from './Pages/ChartPage/ChartPage';
 import CardPage from './Pages/CardPage/CardPage';
+import CompanyPage from "./Pages/CompanyPage/CompanyPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<Layout><HomePage /></Layout>} />
       <Route path="/chart" element={<Layout><ChartPage /></Layout>}/>
       <Route path="/card" element={<Layout><CardPage /></Layout>}/>
+      <Route path="/company" element={<Layout><CompanyPage /></Layout>}/>
     </Routes>
   );
 }
