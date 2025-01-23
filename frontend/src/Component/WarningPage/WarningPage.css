@@ -1,0 +1,8 @@
+.WarningPage {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 600px 0; 
+}
