@@ -169,6 +169,40 @@ const CardData = [
         condition: "전월실적 25만원 이상",
         issueType: ""
     },
+    {
+        id: 11, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/event/301/logo_img/38736/2376card.png",
+        type: "credit",
+        name: "삼성 iD SIMPLE 카드",
+        event: "16만원 캐시백",
+        company: "삼성카드",
+        benefit1: "국내 외 가맹점",
+        benefit2: "온라인쇼핑몰 멤버십",
+        benefit3: "영화",
+        benefitcontent1: "0.7%·1%할인",
+        benefitcontent2: "50%할인",
+        benefitcontent3: "3,000원할인",
+        fee: "연회비국내전용 7,000원  해외겸용 7,000원",
+        condition: "전월실적없음",
+        issueType: ""
+    },
+    {
+        id: 12, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png",
+        type: "credit",
+        name: "BC 바로 클리어 플러스",
+        event: "최대 15만원 캐시백",
+        company: "BC 바로카드",
+        benefit1: "점심식사/배달앱",
+        benefit2: "온라인쇼핑",
+        benefit3: "휴대폰요금/스트리밍",
+        benefitcontent1: "7% 할인",
+        benefitcontent2: "10% 할인",
+        benefitcontent3: "10% 할인",
+        fee: "국내전용 5,000원 / 해외겸용 5,000원",
+        condition: "전월실적 15만원 이상",
+        issueType: ""
+    },
 ];
 
 export default CardData;

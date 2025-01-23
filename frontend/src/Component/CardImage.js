@@ -1,63 +1,66 @@
-const cardImages= {
+const CardImages= {
     신한카드 : {
+        id: 1, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/13/card_img/28201/13card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/logo_img/33324/logo_sh.png",
-        color: ""
+        color: "",   
     },
     삼성카드 : {
+        id: 2,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/1/logo_img/33415/logo_ss.png",
         color: ""
     },
     현대카드 : {
+        id: 3,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2669/card_img/32807/2669card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/7/logo_img/33328/logo_hd.png",
         color: ""
     },
     KB국민카드 : {
-        id: 1,
+        id: 4,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2553/card_img/36834/2553card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/3/logo_img/33325/logo_kb.png",
         logo2: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/tips/37120/tips_corp_logo_kb.png",
         color: "#79684f"
     },
     우리카드 : {
-        id: 2,
+        id: 5,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2441/card_img/37123/2441card_3.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/5/logo_img/33329/logo_wr.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32251/tips_corp_logo_wr.png",
         color: "#016795"
     },
     롯데카드 : {
-        id: 3,
+        id: 6,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2261/card_img/21011/2261card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/4/logo_img/33414/logo_lt.png",
         logo2: "https://d1c5n4ri2guedi.cloudfront.net/corp/4/logo_img/33414/logo_lt.png",
         color: "#6B4AAF"
     },
     하나카드 : {
-        id: 4,
+        id: 7,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2657/card_img/32434/2657card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/8/logo_img/33331/logo_hn.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32257/tips_corp_logo_hn.png",           
         color: "#007C72"
     },
     NH농협카드 : {
-        id: 5,
+        id: 8,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/666/card_img/21431/666card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/9/logo_img/33330/logo_nh.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32255/tips_corp_logo_nh.png",
         color: "#1961a1"
     },
     BC카드 : {
-        id: 6,
+        id: 9,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/772/card_img/22246/772card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/32/logo_img/33332/logo_bc.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32254/tips_corp_logo_br.png",
         color: "#bb464b"
     },
     IBK기업은행 : {
-        id: 7,
+        id: 10,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/10/logo_img/33333/logo_ibk.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32256/tips_corp_logo_ibk.png",
@@ -125,4 +128,4 @@ const cardImages= {
     },
 };
 
-export default cardImages;
+export default CardImages;

@@ -66,7 +66,7 @@ const CompanyPage = () => {
                                     <img 
                                         src={card.logo2} 
                                         alt={`${key} 로고`} 
-                                        className="card-logo" 
+                                        className="card-button-logo" 
                                         style={
                                             key == "롯데카드"
                                             ? { width: "120px", height: "60px", margin: "28px 0px"}
