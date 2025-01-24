@@ -7,6 +7,15 @@ import "./CashbackPage.css";
 const CashbackPage = () => {
     const [activeCard, setActiveCard] = useState(null);
 
+
+    const filteredCardDate = CardData.filter(
+        (card) => 
+            card.event &&
+            card.event.trim() != "" &&
+            (activeCard === null || card.company === activeCard)
+    );
+        
+
     return (
         <div className="page-background">
             <div className="common-container">
@@ -21,7 +30,6 @@ const CashbackPage = () => {
                                 style={{
                                     backgroundColor: activeCard === null ? "black" : "#f9f9f9",
                                     color: activeCard === null ? "white" : "#666",
-                                    pointerEvents: activeCard === null ? "none" : "auto",
                                 }}
                                 className="filter-button"
                         >
@@ -42,13 +50,12 @@ const CashbackPage = () => {
                                 {key}
                         </button>
                         ))}
-                        <button className="last-event-button">지난 이벤트</button>
                         <button className="faq-button">FAQ &gt;</button>
                     </div>
                 </div>
                 <div className="cashback-event-container">
                     <div className="card-event-list">
-                        {CardData.filter((card) => card.event && card.event.trim() !== "").map((card) => (
+                        {filteredCardDate.map((card) => (
                             <div className="card-event-item" key={card.id}>
                                 <img src={card.img} alt={`${card.name} 로고`} className="card-event-logo"/>        
                                 <span className="card-event-name">{card.name}</span>

@@ -192,7 +192,7 @@ const CardData = [
         type: "credit",
         name: "BC 바로 클리어 플러스",
         event: "최대 15만원 캐시백",
-        company: "BC 바로카드",
+        company: "BC카드",
         benefit1: "점심식사/배달앱",
         benefit2: "온라인쇼핑",
         benefit3: "휴대폰요금/스트리밍",
