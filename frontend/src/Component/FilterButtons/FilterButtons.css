@@ -1,0 +1,67 @@
+.cashback-event-button-container {
+    width:100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    flex: 1;
+    padding: 20px 0px;
+    text-align: center;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: #aaa;
+    text-decoration: none;
+    border-bottom: 1px solid #aaa;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.tab.active {
+    color: #000;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-bottom: none;
+    background-color: #fafafa;
+}
+
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    padding: 30px 0;
+    gap: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    background-color: #fff;
+    flex-wrap: wrap;
+}
+
+.filter-button,  
+.faq-button,
+.last-event-button  {
+    color: #666;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.faq-button:hover {
+color: #666 ;
+background: rgba(0, 0, 0, 0.1);
+}

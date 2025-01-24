@@ -12,6 +12,7 @@ import PremiumPage from "./Pages/PremiumPage/PremiumPage";
 import MileagePage from "./Pages/MileagePage/MileagePage";
 import HotalPage from "./Pages/HotalPage/HotalPage";
 import CardCoverPage from './Pages/CardCoverPage/CardCoverPage';
+import EventPage from "./Pages/EventPage/EventPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/card" element={<Layout><CardPage /></Layout>}/>
       <Route path="/company" element={<Layout><CompanyPage /></Layout>}/>
       <Route path="/cashback" element={<Layout><CashbackPage /></Layout>}/>
+      <Route path="/event" element={<Layout><EventPage /></Layout>}/>
       <Route path="/contents" element={<Layout><ContentPage /></Layout>}/>
       <Route path="/premium" element={<Layout><PremiumPage /></Layout>}/>
       <Route path="/mileage" element={<Layout><MileagePage /></Layout>}/>
