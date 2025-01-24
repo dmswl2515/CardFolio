@@ -1,5 +1,5 @@
 import React from "react";
-import cardImages from "../../Component/CardImage";
+import CardImages from "../../Component/CardImage";
 import CardIntroduction from "../../Component/CardIntroduction/CardIntroduction";
 import "../../Styles/Style.css";
 import "./CompanyPage.css";
@@ -49,10 +49,10 @@ const CompanyPage = () => {
                 </section>
 
                 <section className="card-button-section">
-                    {Object.keys(cardImages).map((key) => {
-                        const card = cardImages[key];
-                        // 데이터가 없으면 렌더링하지 않음
-                        if (!card.id || !card.logo) {
+                    {Object.keys(CardImages).map((key) => {
+                        const card = CardImages[key];
+                        
+                        if (!card.id || !card.logo || card.id < 4) {
                             return null;
                         }
                         return (

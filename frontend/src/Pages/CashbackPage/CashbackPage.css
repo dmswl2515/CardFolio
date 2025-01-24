@@ -1,6 +1,5 @@
-.cashback-event-container {
+.cashback-event-button-container {
     width:100%;
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -61,6 +60,13 @@
 .filter-buttons button:hover {
     color: #000;
   }
+
+.cashback-event-container {
+    width:100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}  
 
 .card-event-list {
     display: flex;

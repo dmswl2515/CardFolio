@@ -3,19 +3,19 @@ const CardImages= {
         id: 1, 
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/13/card_img/28201/13card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/2/logo_img/33324/logo_sh.png",
-        color: "",   
+        color: "#4666C1",   
     },
     삼성카드 : {
         id: 2,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/1/logo_img/33415/logo_ss.png",
-        color: ""
+        color: "#006BD1"
     },
     현대카드 : {
         id: 3,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2669/card_img/32807/2669card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/7/logo_img/33328/logo_hd.png",
-        color: ""
+        color: "#444444"
     },
     KB국민카드 : {
         id: 4,
