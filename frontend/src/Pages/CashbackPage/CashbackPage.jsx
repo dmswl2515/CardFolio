@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState} from "react";
 import CardImage from "../../Component/CardImage";
 import CardData from "../../Component/CardData";
 import "./CashbackPage.css";
 
 
 const CashbackPage = () => {
+    const [activeCard, setActiveCard] = useState(null);
+
     return (
         <div className="page-background">
             <div className="common-container">
@@ -14,13 +16,34 @@ const CashbackPage = () => {
                         <button className="tab">카드사 이벤트</button>
                     </div>
                     <div className="filter-buttons">
-                        <button>전체 이벤트</button>
+                        <button
+                            onClick={() => setActiveCard(null)}
+                                style={{
+                                    backgroundColor: activeCard === null ? "black" : "#f9f9f9",
+                                    color: activeCard === null ? "white" : "#666",
+                                    pointerEvents: activeCard === null ? "none" : "auto",
+                                }}
+                                className="filter-button"
+                        >
+                            전체 이벤트
+                        </button>
                         {Object.keys(CardImage)
                             .filter((key) => CardImage[key].id)
                             .map((key) => (
-                            <button key={CardImage[key].id}>{key}</button>
+                            <button 
+                                key={CardImage[key].id}
+                                onClick={() => setActiveCard(key)}
+                                style={{
+                                    backgroundColor: activeCard === key ? CardImage[key].color : "#f9f9f9",
+                                    color: activeCard === key ? "white" : "#666",
+                                }}
+                                className="filter-button"
+                            >
+                                {key}
+                        </button>
                         ))}
-                        <button>FAQ &gt;</button>
+                        <button className="last-event-button">지난 이벤트</button>
+                        <button className="faq-button">FAQ &gt;</button>
                     </div>
                 </div>
                 <div className="cashback-event-container">

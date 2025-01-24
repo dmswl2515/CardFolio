@@ -203,6 +203,23 @@ const CardData = [
         condition: "전월실적 15만원 이상",
         issueType: ""
     },
+    {
+        id: 13, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/event/222/logo_img/33970/613card.gif",
+        type: "credit",
+        name: "신한카드 YaY",
+        event: "최대 2.6만원 캐시백",
+        company: "신한카드",
+        benefit1: "배달앱",
+        benefit2: "온라인쇼핑",
+        benefit3: "홈게임방",
+        benefitcontent1: "최대30%적립",
+        benefitcontent2: "10% 할인",
+        benefitcontent3: "10%적립",
+        fee: "국내전용 23,000원  해외겸용 26,000원",
+        condition: "전월실적50만원 이상",
+        issueType: "VISA"
+    },
 ];
 
 export default CardData;
