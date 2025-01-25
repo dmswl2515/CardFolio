@@ -33,20 +33,33 @@
 
 .todays-best-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 400px;
+    gap: 40px;
 }
 
-
 .best-info {
-    width: 70%;
+    display: inline-block;
+    position: relative;
+    width: 94%;
+    padding: 50px 40px;
     background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.best-info p {
+    color : #999;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0px;
 }
 
 .best-info h3 {
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 140px;
 }
 
 .best-info .best-button {
@@ -57,12 +70,45 @@
     font-weight: bold;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 
 .best-images img {
-    width: 100%;
+    position: absolute;
+    width: 55%;
+    height: 100%;
+    top: 50%;
+    left: 73%;
+    transform: translate3d(-50%, -50%, 1px);
+    object-fit: cover;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center center;
+}
+
+.best-info:hover img {
+    transform: translate3d(-50%, -50%, 1px) scale(1.1);
+}
+
+.additional-info {
+    cursor: pointer;
+}
+
+.top-content {
+
+}
+
+.top-content-image {
+
+}
+
+.top-content-category {
+
+}
+
+.top-content-name {
+    
 }
 
 
