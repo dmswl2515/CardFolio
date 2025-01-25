@@ -23,16 +23,18 @@ const EventPage = () => {
 
                 <div className="cardcompany-event-container">
                     {filteredCardData.map((event) => (
-                        <div key={event.id} className="event-companys">
+                        <div 
+                            key={event.id} 
+                            className="event-companys"  
+                            onClick={() => window.open(event.url, "_blank")}
+                        >
+                            <p className="company-name">{event.company}</p>
                             <img src={event.img} alt={`${event.provider} 로고`} className="event-content-img"/>
                             <div className="event-content-info">
-                                <h3>{event.provider}</h3>
-                                <p>{event.benefit}</p>
-                                <p>{event.period}</p>
-                                <a href={event.url} target="-blank" rel="noopener noreferrer">
-                                    자세히 보기
-                                </a>
+                                <p className="bnf">{event.benefit}</p>
+                                <h3 className="pvd">{event.provider}</h3>
                             </div>
+                            <p className="term">{event.period}</p>
                         </div>
                     ))}
                 </div>

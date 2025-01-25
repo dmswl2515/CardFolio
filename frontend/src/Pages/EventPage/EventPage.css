@@ -1,29 +1,48 @@
-
 .cardcompany-event-container {
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
+    width: 70%;
+    margin: 0 auto;
     gap: 20px;
 }
+
 .event-companys {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 200px;
+    height: auto;
+    position: relative;
+    padding: 10px 150px 10px 30px;
     background: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+.event-companys:hover {
+    border : 1px solid #ddd;
+}
+
+.company-name {
+    color: #999;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 
 .event-content-img {
-    width: 100px;
-    height: 100px;
-    padding: 15px;
+    position: absolute;
+    width: auto;
+    height: 70%;
+    max-width: 115px;
+    object-fit: cover;
+    top: 50%;
+    left: 55%;
+    transform: translate(50%, -50%);
+    border-radius: 10px;
 }
 
 .event-content-info h3 {
@@ -35,23 +54,46 @@
 
 .event-content-info p {
     font-size: 14px;
-    color: #666;
+    font-weight: 700;
+    color: #888;
     margin: 5px 0;
 }
 
-.event-content-info a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
+.term {
     font-size: 14px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    color: #aaa;
+    font-weight: 500;
 }
 
-.event-content-info a:hover {
-    background-color: #0056b3;
+@media (max-width: 1300px) {
+    .cardcompany-event-container {
+        grid-template-columns: repeat(2, 1fr); 
+        width: auto;
+    }
+
+    .event-content-img {
+        top: 50%;
+        left: 45%;
+        transform: translate(50%, -50%);
+        border-radius: 10px;
+    }
+
+    
+}
+
+
+@media (max-width: 800px) {
+    .cardcompany-event-container {
+        grid-template-columns: repeat(1, 1fr); 
+        width: auto;
+    }
+
+    .event-content-img {
+        top: 50%;
+        left: 45%;
+        transform: translate(50%, -50%);
+        border-radius: 10px;
+    }
+
+    
 }
