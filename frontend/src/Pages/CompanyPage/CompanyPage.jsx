@@ -86,7 +86,7 @@ const CompanyPage = () => {
                     {/* CardIntroduction Component(2) */}
                     <CardIntroduction 
                         backgroundColor="#fff"
-                        circleColorClass="white-background"
+                        circleColorClass="gray-background"
                         sectionTitle1="카드사별 베스트셀러"
                     />
                 </section>
@@ -94,7 +94,7 @@ const CompanyPage = () => {
                 <section>
                     {/* CardIntroduction Component */}
                     <CardIntroduction
-                        circleColorClass="gray-background"
+                        circleColorClass="white-background"
                         buttonColor="white"
                         sectionTitle1="카드사별 신규 카드"
                     />
