@@ -85,12 +85,12 @@ const ContentData = [
         count: "",
     },
     {
-        name: "포햄이, 인생이 햄들다면 포실포실 햄스터",
+        name: "포햄이, 인생이 햄들다면<br />포실포실 햄스터",
         category: "스페셜콜라보",
-        image: "https://d1c5n4ri2guedi.cloudfront.net/post/3394/post_img/37620/%EC%9D%B4%EB%AF%B8%EC%A7%80_%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%EC%B9%B4%EB%93%9C%EC%BB%A4%EB%B2%84-%EB%B8%8C%EB%9E%9C%EB%93%9C-%EA%B3%A0%EC%8A%A4%ED%8B%B0%2C-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EC%84%A0%EB%AC%BC%ED%95%98%EA%B8%B0-%EC%9E%85%EC%A0%90.jpg",
-        date: "2024.10.24",
+        image: "https://d1c5n4ri2guedi.cloudfront.net/post/3494/post_img/38622/2411_%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%89%E1%85%B3%E1%84%90%E1%85%A1%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7_%E1%84%91%E1%85%A9%E1%84%92%E1%85%A2%E1%86%B7%E1%84%8B%E1%85%B5.jpg",
+        date: "2024.12.16",
         content: "",
-        count: 300
+        count: 100
     },
     {
         name: "이제 카카오톡으로 고스티를<br />선물하세요🎁",
