@@ -42,8 +42,10 @@ const CardCoverPage = () => {
                             {topThreeContents.map((item) => (
                                 <div key={item.id} className="top-content">
                                     <img src={item.image} alt={item.name} className="top-content-image"/>
-                                    <p className="top-content-category">{item.category}</p>
-                                    <h4 className="top-content-name">{item.name}</h4>
+                                    <div className="top-contnet-title">
+                                        <p className="top-content-category">{item.category}</p>
+                                        <h4 className="top-content-name" dangerouslySetInnerHTML={{ __html: item.name }}></h4>
+                                    </div>
                                 </div>
                             ))}
                         </div>

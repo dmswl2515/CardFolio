@@ -82,10 +82,18 @@ const ContentData = [
         image: "https://d1c5n4ri2guedi.cloudfront.net/post/3387/contents/37524/2409_%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8_%EC%95%84%EC%B0%94.jpg",
         date: "2024.10.24",
         content: "",
-        count: 100
+        count: "",
     },
     {
-        name: "이제 카카오톡으로 고스티를 선물하세요🎁",
+        name: "포햄이, 인생이 햄들다면 포실포실 햄스터",
+        category: "스페셜콜라보",
+        image: "https://d1c5n4ri2guedi.cloudfront.net/post/3394/post_img/37620/%EC%9D%B4%EB%AF%B8%EC%A7%80_%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%EC%B9%B4%EB%93%9C%EC%BB%A4%EB%B2%84-%EB%B8%8C%EB%9E%9C%EB%93%9C-%EA%B3%A0%EC%8A%A4%ED%8B%B0%2C-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EC%84%A0%EB%AC%BC%ED%95%98%EA%B8%B0-%EC%9E%85%EC%A0%90.jpg",
+        date: "2024.10.24",
+        content: "",
+        count: 300
+    },
+    {
+        name: "이제 카카오톡으로 고스티를<br />선물하세요🎁",
         category: "뉴스룸",
         image: "https://d1c5n4ri2guedi.cloudfront.net/post/3394/post_img/37620/%EC%9D%B4%EB%AF%B8%EC%A7%80_%ED%94%84%EB%A6%AC%EB%AF%B8%EC%97%84-%EC%B9%B4%EB%93%9C%EC%BB%A4%EB%B2%84-%EB%B8%8C%EB%9E%9C%EB%93%9C-%EA%B3%A0%EC%8A%A4%ED%8B%B0%2C-%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1-%EC%84%A0%EB%AC%BC%ED%95%98%EA%B8%B0-%EC%9E%85%EC%A0%90.jpg",
         date: "2024.10.24",
@@ -93,7 +101,7 @@ const ContentData = [
         count: 300
     },
     {
-        name: "요즘 유행하는 '카꾸'하는 방법",
+        name: "요즘 유행하는 '카꾸'하는<br />방법",
         category: "고스티",
         image: "https://d1c5n4ri2guedi.cloudfront.net/post/3175/post_img/35659/%EC%8D%B8%EB%84%A4%EC%9D%BC_%EA%B3%A0%EC%8A%A4%ED%8B%B0%ED%99%9C%EC%9A%A9%EB%B2%95.jpg",
         date: "2024.07.04",
