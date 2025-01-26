@@ -67,12 +67,16 @@ const CardCoverPage = () => {
                             <div key={index} className="content-item">
                                 <img src={content.image} alt={content.name} />
                                 <div className="content-item-title">
-                                    <h4>{content.name}</h4>
+                                    <h4>{content.name.replace(/<\/?[^>]+(>|$)/g, " ")}</h4>
                                     <p>{content.category}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
+                    <button className="add-content-btn">
+                        콘텐츠 더보기 
+                        <i class="fa-solid fa-angle-down add-content-icon"></i>
+                    </button>
                 </section>
             </div>
         </div>
