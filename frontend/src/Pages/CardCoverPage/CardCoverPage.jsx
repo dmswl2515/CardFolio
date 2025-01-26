@@ -41,7 +41,9 @@ const CardCoverPage = () => {
                         <div className="additional-info">
                             {topThreeContents.map((item) => (
                                 <div key={item.id} className="top-content">
-                                    <img src={item.image} alt={item.name} className="top-content-image"/>
+                                    <div className="top-content-img-container">
+                                        <img src={item.image} alt={item.name} className="top-content-image"/>
+                                    </div>
                                     <div className="top-contnet-title">
                                         <p className="top-content-category">{item.category}</p>
                                         <h4 className="top-content-name" dangerouslySetInnerHTML={{ __html: item.name }}></h4>
@@ -64,8 +66,10 @@ const CardCoverPage = () => {
                         {ContentData.map((content, index) => (
                             <div key={index} className="content-item">
                                 <img src={content.image} alt={content.name} />
-                                <h4>{content.name}</h4>
-                                <p>{content.category}</p>
+                                <div className="content-item-title">
+                                    <h4>{content.name}</h4>
+                                    <p>{content.category}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
