@@ -58,7 +58,7 @@ const CardCoverPage = () => {
                 </div>
             </div>
 
-            <div className="common-container">
+            
                 {/* Weekly Best Section */}
                 <section className="weekly-best">
                 <CardIntroduction 
@@ -67,7 +67,7 @@ const CardCoverPage = () => {
                     sectionTitle1="WEEKLY BEST 5"
                 />
                 </section>
-            </div>
+            
             
             <div className="page-background">
                 <div className="common-container">
