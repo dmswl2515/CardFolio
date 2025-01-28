@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 import SearchButton from "./SearchButton";
 import RankCard from "./RankCard";
 import "./Header.css"
 
 const Header = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
     return (
             <header className="header">
                 {/* Header Information Section */}
@@ -22,10 +33,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-right">
-                        <span>서두르세요! 현대카드M</span>
-                        <br></br>
-                        <span className="event-text">최대 15만원 캐시백 제공 이벤트 </span> 
-                        <img src="https://www.hyundaicard.com/img/com/card/card_ME4_BA_f.png" alt="카드이미지" className="card-image2"/>
+                        <img src="https://d1c5n4ri2guedi.cloudfront.net/display/4468/pc_img/38928/%28%E1%84%89%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%BC%29-top_p_600x100.jpg" alt="카드이미지" className="card-image2"/>
                     </div>
                 </div>
 
@@ -33,37 +41,42 @@ const Header = () => {
 
                 {/* Logo & Navigation Section */}
                 <div className="header-main">
-                    
-                    <nav className="nav-menu">
+                    {/* Hanbers button */}
+                    <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                        <FaBars />
+                    </button>
+
+                    {/* Drawer menu */}
+                    <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
                         <ul>
                             <li>
                                 <NavLink to="/chart" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    카드폴리오 차트 <i className="fas fa-caret-down"></i>
+                                    카드폴리오 차트 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/card" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    카드 <i className="fas fa-caret-down"></i>
+                                    카드 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/company" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    카드사 <i className="fas fa-caret-down"></i>
+                                    카드사 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/cashback" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    캐시백 <i className="fas fa-caret-down"></i>
+                                    캐시백 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/contents" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    콘텐츠 <i className="fas fa-caret-down"></i>
+                                    콘텐츠 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/premium" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    프리미엄 <i className="fas fa-caret-down"></i>
+                                    프리미엄 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
@@ -83,8 +96,16 @@ const Header = () => {
                             </li>
                         </ul>
                     </nav>
+
+                    <div
+                        className={`nav-overlay ${menuOpen ? "open" : ""}`}
+                        onClick={closeMenu}
+                    ></div>
+
                     <div className="header-icons">
-                        <SearchButton />
+                        <div className="search-icon">
+                            <SearchButton />
+                        </div>
                         <button className="cart-icon">
                             🛒
                             <spna className="cart-count">3</spna>
