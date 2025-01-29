@@ -58,16 +58,15 @@ const CardCoverPage = () => {
                 </div>
             </div>
 
-            
-                {/* Weekly Best Section */}
-                <section className="weekly-best">
-                <CardIntroduction 
-                    backgroundColor="#fff"
-                    circleColorClass="gray-background"
-                    sectionTitle1="WEEKLY BEST 5"
-                />
-                </section>
-            
+            {/* Weekly Best Section 
+            <section className="weekly-best">
+            <CardIntroduction 
+                backgroundColor="#fff"
+                circleColorClass="gray-background"
+                sectionTitle1="WEEKLY BEST 5"
+            />
+            </section>
+            */}
             
             <div className="page-background">
                 <div className="common-container">
