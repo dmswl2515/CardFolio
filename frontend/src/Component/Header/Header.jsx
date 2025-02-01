@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import SearchButton from "./SearchButton";
+import SearchComponent from "./SearchButton";
 import RankCard from "./RankCard";
 import "./Header.css"
 
@@ -104,7 +104,7 @@ const Header = () => {
 
                     <div className="header-icons">
                         <div className="search-icon">
-                            <SearchButton />
+                            <SearchComponent />
                         </div>
                         <button className="cart-icon">
                             🛒

@@ -146,22 +146,18 @@
     gap: 5px;
 }
 
-.search-icon,
 .cart-icon {
+    position: relative;
     background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
 }
 
-.cart-icon {
-    position: relative;
-}
-
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -10px;
+    top: -4px;
+    right: -14px;
     background-color: #f2be63;
     font-size: 12px;
     font-weight: bold;

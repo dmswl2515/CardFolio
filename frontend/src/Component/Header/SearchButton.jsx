@@ -1,42 +1,40 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
-function SearchButton() {
+const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+`;
+
+const SearchInput = styled.input`
+    width: 120px;
+    padding: 6px;
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    background: #f4f2f2;
+    display: ${(props) => (props.visible ? "block" : "none")}; /* 토글 */
+    outline: none;
+  `;
+
+const SearchButton = styled.button`
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 20px;
+`;
+
+
+function SearchComponent() {
     const [showInput, setShowInput] = useState(false);
 
-    const handleClick = () => {
-        setShowInput((prev) => !prev);
-    };
-
     return (
-        <div 
-            style={{ 
-                display: "flex", 
-                alignItems: "center", 
-                fontSize: "14px",
-            }}>
-
-            {showInput && (
-                <input 
-                    type="text"
-                    placeholder="검색어를 입력하세요."
-                    className="serach-input"
-                    style={{
-                        width: "120px",
-                        padding: "8px",
-                        textAlign: "center",
-                        border: "none", 
-                        borderRadius: "20px",
-                        background: "#F4F2F2",
-                     }}
-                />
-            )}
-            
-            
-            <button className="search-icon" onClick={handleClick}>
-                🔍
-            </button>
-        </div>
+        <SearchContainer>
+            <SearchInput visible={showInput} placeholder="검색어를 입력하세요." />
+            <SearchButton onClick={() => setShowInput((prev) => !prev)}>🔍</SearchButton>
+        </SearchContainer>
     );
 }
 
-export default SearchButton;
+export default SearchComponent;
