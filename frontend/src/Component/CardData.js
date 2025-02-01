@@ -14,7 +14,8 @@ const CardData = [
         benefitcontent3: "5,000원 할인",
         fee: "국내전용 10,000원 / 해외겸용 10,000원",
         condition: "전월실적 30만원 이상",
-        issueType: "온라인발급 전용 카드"
+        issueType: "온라인발급 전용 카드",
+        count: "200"
     },
     {
         id: 2, 

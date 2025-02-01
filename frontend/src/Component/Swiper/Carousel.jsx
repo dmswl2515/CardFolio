@@ -8,11 +8,11 @@ import "./Swiper.css"
 
 const Carousel = () => {
     const slides = [
-        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider1.png", alt: "Slide 1" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider1.jpg", alt: "Slide 1" },
         { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider2.png", alt: "Slide 2" },
-        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider3.png", alt: "Slide 3" },
-        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider4.png", alt: "Slide 4" },
-        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider5.png", alt: "Slide 5" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider3.jpg", alt: "Slide 3" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider4.jpg", alt: "Slide 4" },
+        { src: "https://cardfolio.s3.ap-southeast-2.amazonaws.com/slider/slider5.jpg", alt: "Slide 5" },
     ];
     
     
@@ -27,7 +27,7 @@ const Carousel = () => {
                 loop={true}
                 style={{ 
                     position: "relative", 
-                    minWidth: "1300px", 
+                    minWidth: "400px", 
                     display: "flex",
                     justifyContent: "center",
                     alignContent: "center",

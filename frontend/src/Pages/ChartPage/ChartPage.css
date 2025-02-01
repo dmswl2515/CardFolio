@@ -28,6 +28,11 @@
     margin-top: 5px;
 }
 
+.credit-card, 
+.new-card,
+.debit-card {
+    text-decoration: none;
+}
 
 .credit-card {
     background: url("https://api.card-gorilla.com:8080/storage/corp/2/tips/29057/tips_gc_top100.jpg") no-repeat center center / cover;

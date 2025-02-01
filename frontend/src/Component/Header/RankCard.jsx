@@ -14,8 +14,10 @@ function RankCard() {
     return (
         <div 
             className={`rank ${isHovered ? "expanded" : ""}`}
+            /* 
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            */
         >
             <span className="rank-number">1</span>
             <img 

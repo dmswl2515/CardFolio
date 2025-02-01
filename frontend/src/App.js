@@ -13,6 +13,7 @@ import MileagePage from "./Pages/MileagePage/MileagePage";
 import HotalPage from "./Pages/HotalPage/HotalPage";
 import CardCoverPage from './Pages/CardCoverPage/CardCoverPage';
 import EventPage from "./Pages/EventPage/EventPage";
+import Top100Page from "./Pages/ChartPage/TopPage/Top100Page/Top100Page";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/mileage" element={<Layout><MileagePage /></Layout>}/>
       <Route path="/hotel" element={<Layout><HotalPage /></Layout>}/>
       <Route path="/cardCover" element={<Layout><CardCoverPage /></Layout>}/>
+      <Route path="/top100" element={<Layout><Top100Page /></Layout>}/>
     </Routes>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import cardImages from "../../Component/CardImage";
 import "./ChartPage.css"
 import "../../Styles/Style.css";
@@ -72,7 +73,8 @@ const ChartPage = () => {
                 <section className="cardfolio-chart">
                     <h2>카드폴리오 차트</h2>
                     <div className="cardfolio-chart-container">
-                        <div className="chart-items credit-card">
+                        
+                        <NavLink to="/top100" className="chart-items credit-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간 &nbsp;&nbsp;&nbsp;{currentTime}
                             </p>
@@ -81,9 +83,9 @@ const ChartPage = () => {
                                 <span class="title-large">TOP100</span>
                             </h3>
                             <button className="btn credit-btn">보러가기</button>
-                        </div>
-                    
-                        <div className="chart-items new-card">
+                        </NavLink>
+
+                        <NavLink to="/release30" className="chart-items new-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간
                             </p>
@@ -92,9 +94,9 @@ const ChartPage = () => {
                                 <span class="title-large">TOP100</span>
                             </h3>
                             <button className="btn new-btn">보러가기</button>
-                        </div>
+                        </NavLink>
 
-                        <div className="chart-items debit-card">
+                        <NavLink to="/check30" className="chart-items debit-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간
                             </p>
@@ -103,7 +105,7 @@ const ChartPage = () => {
                                 <span class="title-large">TOP100</span>
                             </h3>
                             <button className="btn debit-btn">보러가기</button>
-                        </div>
+                        </NavLink>
                     </div>
                 </section>
 
