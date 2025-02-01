@@ -9,7 +9,7 @@
 /* Header Information Section */
 .header-top {
     position: relative;
-    width: 1300px;
+    width: 1400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,6 +26,7 @@
 
 .header-top-left {
     align-items: center;
+    margin-left: 50px;
 }
 
 .rank {
@@ -112,6 +113,9 @@
 }
 
 .nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -127,9 +131,14 @@
     transition: color 0.1s ease-in-out;
 }
 
+.down-icon {
+    margin-top: -3px;
+    font-size: 10px;
+}
+
 .header-icons {
     position: absolute;
-    right: -17%;
+    right: -25%;
     transform: translateY(-50%);
     display: flex;
     transform: none;

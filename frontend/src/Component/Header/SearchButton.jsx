@@ -1,15 +1,37 @@
 import React, { useState } from "react";
 
 function SearchButton() {
-    const [showMessage, setShowMessage] = useState(false);
+    const [showInput, setShowInput] = useState(false);
 
     const handleClick = () => {
-        setShowMessage(true);
+        setShowInput((prev) => !prev);
     };
 
     return (
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            {showMessage && <span className="search-message">검색어를 입력하세요</span>}
+        <div 
+            style={{ 
+                display: "flex", 
+                alignItems: "center", 
+                fontSize: "14px",
+            }}>
+
+            {showInput && (
+                <input 
+                    type="text"
+                    placeholder="검색어를 입력하세요."
+                    className="serach-input"
+                    style={{
+                        width: "120px",
+                        padding: "8px",
+                        textAlign: "center",
+                        border: "none", 
+                        borderRadius: "20px",
+                        background: "#F4F2F2",
+                     }}
+                />
+            )}
+            
+            
             <button className="search-icon" onClick={handleClick}>
                 🔍
             </button>

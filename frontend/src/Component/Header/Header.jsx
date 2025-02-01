@@ -81,17 +81,17 @@ const Header = () => {
                             </li>
                             <li>
                                 <NavLink to="/mileage" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    마일리지 <i className="fas fa-caret-down"></i>
+                                    마일리지 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/hotel" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    호텔 <i className="fas fa-caret-down"></i>
+                                    호텔 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/cardCover" className={({ isActive }) => isActive ? "active-link" : ""}>
-                                    카드커버 <i className="fas fa-caret-down"></i>
+                                    카드커버 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
                         </ul>
