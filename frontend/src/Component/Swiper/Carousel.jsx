@@ -15,7 +15,6 @@ const Carousel = () => {
         { src: "https://d1c5n4ri2guedi.cloudfront.net/display/5003/pc_img/39365/CardGorilla_Main_Selection_PC2501.png", alt: "Slide 5" },
     ];
     
-    
     return (
         <div className="slider">
             <Swiper       
