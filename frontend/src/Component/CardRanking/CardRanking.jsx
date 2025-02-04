@@ -9,10 +9,30 @@ const Container = styled.div`
   padding: 20px;
 `;
 
+const TitleSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 20px;
+  background-color: #212529;
+  color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+`;
+
 const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+`;
+
+const SubInfo = styled.div`
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 const CardWrapper = styled.div`
@@ -70,7 +90,18 @@ const CardRanking = () => {
 
     return (
         <Container>
-            <Title>고릴라 TOP 100</Title>
+            <TitleSection>
+                <Title>고릴라 TOP 100</Title>
+                <SubInfo>
+                <span>WEEKLY</span>
+                <span>2025.1.27 ~ 2025.2.2</span>
+                <span role="img" aria-label="calendar">
+                    📅
+                </span>
+                </SubInfo>
+            </TitleSection>
+            
+
             <CardWrapper>
                 {sortedData.map((card, index) => (
                 <CardItem key={card.id}>
