@@ -29,7 +29,10 @@ const CashbackPage = () => {
                     <div className="card-event-list">
                         {filteredCardDate.map((card) => (
                             <div className="card-event-item" key={card.id}>
-                                <img src={card.img} alt={`${card.name} 로고`} className="card-event-logo"/>        
+                                <div className="card-img-wrapper">
+                                    <img src={card.img} alt={`${card.name} 로고`} className="card-event-logo"/>        
+                                    <div className="circle-background"></div>
+                                </div>
                                 <span className="card-event-name">{card.name}</span>
                                 <button className="event-button">{card.event}</button>
                                 <i class="fa-solid fa-angle-right angle-icon"></i>

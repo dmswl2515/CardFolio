@@ -209,16 +209,15 @@ const CardRanking = () => {
                     </PollSection>
 
                     <TopList>
-                        <h3>카드사 별 캐시백 TOP 5</h3>
+                        <TopListContainer>
+                            <h3>카드사 별 캐시백 TOP 5</h3>
+                        
+                            <TopListItem>
+                                <span>신한카드</span>
+                                <span>15만원</span>
+                            </TopListItem>
+                        </TopListContainer>
                     </TopList>
-                    <TopListItem>
-                        <span>신한카드</span>
-                        <span>15만원</span>
-                    </TopListItem>
-                    <TopListItem>
-                        <span>삼성카드</span>
-                        <span>12만원</span>
-                    </TopListItem>
                 </RightSection>
             </SectionContainer>    
         </Container>
@@ -309,14 +308,31 @@ const PollOption = styled.div`
         font-size: 14px;
         padding-top: 10px;
     }
+    
+    & p:hover {
+        background: #f7e1b5;
+    }
 `;
 
 const TopList = styled.div`
+    position: relative;
+    background: #8cde94;
+`;
 
+const TopListContainer = styled.div`
+    content: "";
+    display: inline-block;
+    background: #000;
 `;
 
 const TopListItem = styled.div`
-
+    display: inline-block;
+    width: 100%;
+    padding: 5px 20px 25px 20px;
+    border-radius: 30px;
+    background: #fff;
+    position: relative;
+    z-index: 1;
 `;
 
 
