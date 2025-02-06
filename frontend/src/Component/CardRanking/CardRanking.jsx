@@ -277,7 +277,6 @@ const PollTitle = styled.div`
     }
 `;
 
-
 const PollContent = styled.div`
     h2 {
         font-size: 18px;
@@ -291,7 +290,6 @@ const PollContent = styled.div`
         margin-bottom: 20px;
     }
 `;
-
 
 const PollOption = styled.div`
     p {
@@ -334,6 +332,18 @@ const TopListItem = styled.div`
     position: relative;
     z-index: 1;
 `;
+
+/* Card Event Top5 */
+const extractNumber = (str) => {
+    const match = str.match(/[\d.]+/g);
+    return match ? parseFloat(match[0]) : 0;
+};
+
+const sortedEvents = CardData.sort((a, b) => {
+    const numA = extractNumber(a.event);
+    const numB = extractNumber(b.event);
+    return numB - numA;
+});
 
 
 export default CardRanking;

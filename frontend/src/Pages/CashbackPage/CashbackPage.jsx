@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import CardData from "../../Component/CardData";
 import FilterButtons from "../../Component/FilterButtons/FilterButtons";
 import "./CashbackPage.css";
+import "../../Styles/Style.css"
 
 
 const CashbackPage = () => {
