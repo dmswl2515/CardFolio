@@ -140,6 +140,13 @@ const CardRanking = () => {
     const topCard = sortedData[0];
     const otherCards = sortedData.slice(1);
 
+    const sortedEvents = CardData.sort((a, b) => {
+        const numA = extractNumber(a.event);
+        const numB = extractNumber(b.event);
+        return numB - numA;
+    });
+    const topFiveEvents = sortedEvents.slice(0, 5);
+
     return (
         <Container>
             <TitleSection>
@@ -210,11 +217,23 @@ const CardRanking = () => {
 
                     <TopList>
                         <TopListContainer>
-                            <h3>카드사 별 캐시백 TOP 5</h3>
-                        
+                            <TopListTitle>
+                                <img src="https://api.card-gorilla.com:8080/storage/corp/2/tips/29197/tips_img_promo.png" alt="세종대왕 로고" />
+                                <h3>카드사 별 캐시백 TOP 5</h3>
+                            </TopListTitle>
                             <TopListItem>
-                                <span>신한카드</span>
-                                <span>15만원</span>
+                                {topFiveEvents.map((card, index) => (
+                                <TopListItemWrapper key={index}>
+                                    <TopImgContainer>
+                                        <CircleBackground />
+                                        <TopItemImg src={card.img} alt={`${card.company} 로고`} />
+                                    </TopImgContainer>
+                                    <TopTextContainer>
+                                        <TopItemCompany>{card.company}</TopItemCompany>
+                                        <TopItemEvent>{card.event}</TopItemEvent>
+                                    </TopTextContainer>
+                                </TopListItemWrapper>
+                                ))}
                             </TopListItem>
                         </TopListContainer>
                     </TopList>
@@ -240,14 +259,13 @@ const RightSection = styled.div`
     width: 30%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 `;
 
 const Banner = styled.div`
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin-bottom: 30px;
 `;
 
 const BannerImage = styled.img`
@@ -315,22 +333,32 @@ const PollOption = styled.div`
 const TopList = styled.div`
     position: relative;
     background: #8cde94;
+    padding: 20px 0;
+    border-radius: 20px;
 `;
 
-const TopListContainer = styled.div`
-    content: "";
-    display: inline-block;
-    background: #000;
+const TopListContainer = styled.div`   
+
+`;
+
+const TopListTitle = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 45px;
+        height: 45px;
+    }
 `;
 
 const TopListItem = styled.div`
-    display: inline-block;
-    width: 100%;
-    padding: 5px 20px 25px 20px;
-    border-radius: 30px;
-    background: #fff;
-    position: relative;
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 20px;
+    padding: 20px 0px;
 `;
 
 /* Card Event Top5 */
@@ -339,11 +367,54 @@ const extractNumber = (str) => {
     return match ? parseFloat(match[0]) : 0;
 };
 
-const sortedEvents = CardData.sort((a, b) => {
-    const numA = extractNumber(a.event);
-    const numB = extractNumber(b.event);
-    return numB - numA;
-});
+const TopListItemWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 30px;
+`;
+
+const TopImgContainer =styled.div`
+    position: relative;
+    width: 40px;
+    height: 60px;
+`;
+
+const TopItemImg = styled.img`
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+`;
+
+const CircleBackground = styled.div`
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50% - 50%);
+    width: 65px;
+    height: 65px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    z-index: 1;
+`;
+
+const TopTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+`;
+
+const TopItemCompany = styled.span`
+    font-size: 14px;
+    color: #333;
+`;
+
+const TopItemEvent = styled.div`
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+`;
 
 
 export default CardRanking;
