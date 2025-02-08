@@ -82,7 +82,7 @@ const CardWrapper = styled.div`
 const CardItem = styled.div`
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 15px 35px 15px 15px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -94,16 +94,10 @@ const CardItem = styled.div`
     }
 `;
 
-const CardImage = styled.img`
-    width: 40px;
-    height: 60px;
-    object-fit: contain;
-    margin-right: 15px;
-`;
-
 const CardContent = styled.div`
     display: flex;
     flex-direction: column;
+    margin-left: 40px;
 `;
 
 const CardName = styled.div`
@@ -119,20 +113,46 @@ const CardCompany = styled.div`
 const CardRank = styled.div`
     font-size: 24px;
     font-weight: bold;
-    margin-left: auto;
+    margin: 0 20px;
     color: #333;
+`;
+
+const RankingNum = styled.div`
+    margin-left: 20px;
+    margin-right: 50px;
+    color: #7FCCF0;
+
+    i {
+        margin-right: 5px;
+    }
 `;
 
 const Card = ({ card, rank, isTop }) => (
     <CardItem isTop={isTop}>
-        <CardImage src={card.img} alt={card.name} />
+        <CardRank>{rank}</CardRank>
+        <RankingNum>
+            <i class="fa-solid fa-caret-up"></i>
+            1
+        </RankingNum>
+        <TopImgContainer>
+            <CircleBackground />
+            <TopItemImg src={card.img} alt={card.name} />
+        </TopImgContainer>
         <CardContent>
             <CardName>{card.name}</CardName>
             <CardCompany>{card.company}</CardCompany>
         </CardContent>
-        <CardRank>{rank}</CardRank>
+        <TopListBtn>
+            <i class="fa-solid fa-chevron-right"></i>
+        </TopListBtn>
     </CardItem>
 );
+
+/* Card Event Top5 */
+const extractNumber = (str) => {
+    const match = str.match(/[\d.]+/g);
+    return match ? parseFloat(match[0]) : 0;
+};
 
 const CardRanking = () => {
     const sortedData = useMemo(() => [...CardData].sort((a, b) => b.count - a.count), [CardData]);
@@ -172,7 +192,13 @@ const CardRanking = () => {
                 <LeftSection>
                     <CardWrapper>
                         {otherCards.map((card, index) => (
-                            <Card key={card.id} card={card} rank={index + 2} isTop={false} />
+                            <Card 
+                                key={card.id} 
+                                card={card} 
+                                rank={index + 2} 
+                                isTop={false} 
+                                style={{ fontWeight: index + 2 <= 3 ? 'bold' : 'normal' }}
+                            />
                         ))}
                     </CardWrapper>
                 </LeftSection>
@@ -219,21 +245,40 @@ const CardRanking = () => {
                         <TopListContainer>
                             <TopListTitle>
                                 <img src="https://api.card-gorilla.com:8080/storage/corp/2/tips/29197/tips_img_promo.png" alt="세종대왕 로고" />
-                                <h3>카드사 별 캐시백 TOP 5</h3>
+                                <h3>카드사 별 캐시백</h3>
+                                <span>TOP 5</span>
                             </TopListTitle>
                             <TopListItem>
                                 {topFiveEvents.map((card, index) => (
-                                <TopListItemWrapper key={index}>
-                                    <TopImgContainer>
-                                        <CircleBackground />
-                                        <TopItemImg src={card.img} alt={`${card.company} 로고`} />
-                                    </TopImgContainer>
-                                    <TopTextContainer>
-                                        <TopItemCompany>{card.company}</TopItemCompany>
-                                        <TopItemEvent>{card.event}</TopItemEvent>
-                                    </TopTextContainer>
-                                </TopListItemWrapper>
+                                <TopListItemWrapperContainer>    
+                                    <TopListItemWrapper key={index}>
+                                        <TopImgContainer>
+                                            <CircleBackground />
+                                            <TopItemImg src={card.img} alt={`${card.company} 로고`} />
+                                        </TopImgContainer>
+                                        <TopTextContainer>
+                                            <TopItemCompany>{card.company}</TopItemCompany>
+                                            <TopItemEvent>
+                                                {card.event.replace(/^최대\s*/, '').split(' ').map((part, index) => {
+                                                    if (index == 0) {
+                                                        return <span key={index} style={{ fontWeight: 'bold', marginRight: '5px' }}>{part}</span>
+                                                    } else {
+                                                        return <span key={index} style={{ fontWeight: 'normal' }}>{part}</span>
+                                                    }
+                                                })}
+                                            </TopItemEvent>
+                                        </TopTextContainer>
+                                        <TopListBtn>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </TopListBtn>
+                                    </TopListItemWrapper>
+                                    <Hr />
+                                </TopListItemWrapperContainer>
                                 ))}
+
+                                <MoreEventButton>
+                                    이벤트 더 보기
+                                </MoreEventButton>
                             </TopListItem>
                         </TopListContainer>
                     </TopList>
@@ -334,11 +379,26 @@ const TopList = styled.div`
     position: relative;
     background: #8cde94;
     padding: 20px 0;
-    border-radius: 20px;
+    border-radius: 40px;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 25%; 
+        left: 0;
+        width: 100%;
+        height: 100%; 
+        background: black;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+        z-index: 0;
+    }
 `;
 
 const TopListContainer = styled.div`   
-
+    position: relative;
+    z-index: 1;
 `;
 
 const TopListTitle = styled.div`
@@ -346,31 +406,71 @@ const TopListTitle = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-right: 15px;
+    margin-top: -15px;
 
     img {
         width: 45px;
         height: 45px;
+    }
+
+    h3 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+    
+    span {
+        margin-left: -4px;
+        font-size: 26px;
+        font-weight: 700;
     }
 `;
 
 const TopListItem = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: left;
-    gap: 20px;
-    padding: 20px 0px;
+    gap: 10px;
+    padding: 30px 40px;
+    margin: 0 25px;
+    background: #fff;
+    border-radius: 30px;
+    cursor: pointer;
 `;
 
-/* Card Event Top5 */
-const extractNumber = (str) => {
-    const match = str.match(/[\d.]+/g);
-    return match ? parseFloat(match[0]) : 0;
-};
+const TopItemEvent = styled.div`
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+`;
+
+const TopListBtn = styled.div`
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    margin-left: auto;
+`;
+
+const TopListItemWrapperContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:nth-last-child(2) hr {
+        display: none;
+    }
+`;
 
 const TopListItemWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 30px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+
+    &:hover ${TopItemEvent}, &:hover ${TopListBtn} {
+        color: #01630a; 
+    }
 `;
 
 const TopImgContainer =styled.div`
@@ -389,9 +489,9 @@ const TopItemImg = styled.img`
 
 const CircleBackground = styled.div`
     position: absolute;
-    top: -10%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50% - 50%);
+    transform: translate(-50%, -50%);
     width: 65px;
     height: 65px;
     background-color: #f5f5f5;
@@ -400,20 +500,33 @@ const CircleBackground = styled.div`
 `;
 
 const TopTextContainer = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 5px;
 `;
 
 const TopItemCompany = styled.span`
-    font-size: 14px;
-    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    color: #888;
 `;
 
-const TopItemEvent = styled.div`
-    font-weight: bold;
-    font-size: 16px;
-    color: #000;
+const Hr = styled.hr`
+    width: 100%;
+    border: 0.5px solid #eee;
+`;
+
+const MoreEventButton = styled.div`
+    font-weight: 600;
+    text-align: center;
+    border-radius: 30px;
+    background: #EEE;
+    padding: 13px 20px;
+
+    &:hover {
+        background: #ddd;
+    }
 `;
 
 

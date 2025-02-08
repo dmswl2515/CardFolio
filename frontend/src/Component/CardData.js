@@ -56,7 +56,7 @@ const CardData = [
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/2330/card_img/24131/2330card.png",
         type: "credit",
         name: "LOCA 365 카드",
-        event: "최대 16만원 캐시백 지급 이벤트",
+        event: "최대 16만원 캐시백",
         company: "롯데카드",
         benefit1: "아파트관리비, 공과금",
         benefit2: "교통, 통신, 배달앱",
