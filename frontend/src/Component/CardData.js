@@ -15,7 +15,8 @@ const CardData = [
         fee: "국내전용 10,000원 / 해외겸용 10,000원",
         condition: "전월실적 30만원 이상",
         issueType: "온라인발급 전용 카드",
-        count: "200"
+        count: "600",
+        release: "2024-01-01"
     },
     {
         id: 2, 
@@ -32,7 +33,9 @@ const CardData = [
         benefitcontent3: "10% 할인",
         fee: "해외겸용 15,000원",
         condition: "전월실적 30만원 이상",
-        issueType: "온라인발급 전용 카드"
+        issueType: "온라인발급 전용 카드",
+        count: "668",
+        release: "2024-01-01"
     },
     {
         id: 3, 
@@ -49,7 +52,9 @@ const CardData = [
         benefitcontent3: "5% 적립",
         fee: "국내전용 30,000원 / 해외겸용 30,000원",
         condition: "전월실적 50만원 이상",
-        issueType: ""
+        issueType: "",
+        count: "420",
+        release: "2024-01-01"
     },
     {
         id: 4, 
@@ -66,7 +71,9 @@ const CardData = [
         benefitcontent3: "1,500원 할인",
         fee: "국내전용 20,000원 / 해외겸용 20,000원",
         condition: "전월실적 50만원 이상",
-        issueType: ""
+        issueType: "",
+        count: "200",
+        release: "2025-01-01"
     },
     {
         id: 5, 
@@ -83,7 +90,9 @@ const CardData = [
         benefitcontent3: "라운지 무료이용",
         fee: "국내전용 47,000원 / 해외겸용 49,000원",
         condition: "전월실적 없음",
-        issueType: ""
+        issueType: "",
+        count: "423",
+        release: "2025-01-01"
     },
     {
         id: 6, 
@@ -100,7 +109,9 @@ const CardData = [
         benefitcontent3: "1,000원 캐시백 (3개 중 1개 선택)카드 신청",
         fee: "해외겸용 없음",
         condition: "전월실적 없음",
-        issueType: ""
+        issueType: "",
+        count: "9",
+        release: "2025-01-01"
     },
     {
         id: 7, 
@@ -117,7 +128,9 @@ const CardData = [
         benefitcontent3: "2% 추가 할인",
         fee: "국내전용 없음 / 해외겸용 없음",
         condition: "전월실적 20만원 이상",
-        issueType: ""
+        issueType: "",
+        count: "234",
+        release: "2025-01-01"
     },
     {
         id: 8, 
@@ -134,7 +147,9 @@ const CardData = [
         benefitcontent3: "1.0% 적립",
         fee: "해외겸용 없음",
         condition: "전월실적 없음",
-        issueType: ""
+        issueType: "",
+        count: "8",
+        release: "2025-01-01"
     },
     {
         id: 9, 
@@ -151,7 +166,9 @@ const CardData = [
         benefitcontent3: "최대 3천원 적립",
         fee: "해외겸용 없음",
         condition: "전월실적 없음",
-        issueType: ""
+        issueType: "",
+        count: "2",
+        release: "2025-01-01"
     },
     {
         id: 10, 
@@ -168,7 +185,9 @@ const CardData = [
         benefitcontent3: "",
         fee: "국내전용 없음 / 해외겸용 없음",
         condition: "전월실적 25만원 이상",
-        issueType: ""
+        issueType: "",
+        count: "22",
+        release: "2025-01-01"
     },
     {
         id: 11, 
@@ -185,7 +204,9 @@ const CardData = [
         benefitcontent3: "3,000원할인",
         fee: "연회비국내전용 7,000원  해외겸용 7,000원",
         condition: "전월실적없음",
-        issueType: ""
+        issueType: "",
+        count: "1",
+        release: "2025-01-02"
     },
     {
         id: 12, 
@@ -202,7 +223,9 @@ const CardData = [
         benefitcontent3: "10% 할인",
         fee: "국내전용 5,000원 / 해외겸용 5,000원",
         condition: "전월실적 15만원 이상",
-        issueType: ""
+        issueType: "",
+        count: "12",
+        release: "2025-01-02"
     },
     {
         id: 13, 
@@ -219,7 +242,142 @@ const CardData = [
         benefitcontent3: "10%적립",
         fee: "국내전용 23,000원  해외겸용 26,000원",
         condition: "전월실적50만원 이상",
-        issueType: "VISA"
+        issueType: "",
+        count: "11",
+        release: "2024-01-02"
+    },
+    {
+        id: 14, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2759/card_img/37240/2759card.png",
+        type: "credit",
+        name: "신한카드 처음(ANNIVERSE)",
+        event: "최대 16만원 캐시백",
+        company: "신한카드",
+        benefit1: "음식·생활·패션",
+        benefit2: "통신·구독·멤버십",
+        benefit3: "소비관리 보너스",
+        benefitcontent1: "5% 적립",
+        benefitcontent2: "최대 20% 할인",
+        benefitcontent3: "매월 최대 1만P",
+        fee: "국내전용 15,000원  해외겸용 18,000원",
+        condition: "전월실적 30만원 이상",
+        issueType: "",
+        count: "123",
+        release: "2025-01-02"
+    },
+    {
+        id: 15, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2657/card_img/32434/2657card.png",
+        type: "credit",
+        name: "JADE Classic",
+        event: "",
+        company: "하나카드",
+        benefit1: "바우처 최대",
+        benefit2: "전세계 공항라운지",
+        benefit3: "국내외 가맹점",
+        benefitcontent1: "10만원 제공",
+        benefitcontent2: "연 3회 무료 이용",
+        benefitcontent3: "1% 하나머니 적립",
+        fee: "국내전용 115,000원  해외겸용 120,000원",
+        condition: "전월실적 50만원 이상",
+        issueType: "",
+        count: "123",
+        release: "2025-01-02"
+    },
+    {
+        id: 16, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2692/card_img/33549/2692card.png",
+        type: "credit",
+        name: "현대카드 Summit",
+        event: "20만원 캐시백",
+        company: "현대카드",
+        benefit1: "국내외 가맹점",
+        benefit2: "공항라운지",
+        benefit3: "병원・약국",
+        benefitcontent1: "1.5% 적립",
+        benefitcontent2: "무료 이용",
+        benefitcontent3: "5% 적립",
+        fee: "국내전용 200,000원  해외겸용 200,000원",
+        condition: "전월실적 50만원 이상",
+        issueType: "",
+        count: "123",
+        release: "2025-01-03"
+    },
+    {
+        id: 17, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2697/card_img/33888/2697card.png",
+        type: "credit",
+        name: "현대카드 MX Black Edition2",
+        event: "20만원 캐시백",
+        company: "현대카드",
+        benefit1: "국내외 가맹점",
+        benefit2: "공항라운지",
+        benefit3: "",
+        benefitcontent1: "1% 적립",
+        benefitcontent2: "무료 이용",
+        benefitcontent3: "",
+        fee: "국내전용 200,000원  해외겸용 200,000원",
+        condition: "전월실적 50만원 이상",
+        issueType: "",
+        count: "123",
+        release: "2025-01-03"
+    },
+    {
+        id: 18, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2779/card_img/38233/2778card.png",
+        type: "credit",
+        name: "IBK포인트(신용)",
+        event: "최대 2.2만원 캐시백",
+        company: "IBK카드",
+        benefit1: "국내외 가맹점",
+        benefit2: "",
+        benefit3: "",
+        benefitcontent1: "최대 3.3% 적립",
+        benefitcontent2: "",
+        benefitcontent3: "",
+        fee: "국내전용 21,000원  해외겸용 22,000원",
+        condition: "전월실적 50만원 이상",
+        issueType: "",
+        count: "123",
+        release: "2025-01-03"
+    },
+    {
+        id: 19, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2719/card_img/35783/2719card.jpg",
+        type: "credit",
+        name: "카드의정석 EVERY DISCOUNT",
+        event: "6만원 캐시백 이벤트!",
+        company: "우리카드",
+        benefit1: "국내외 가맹점",
+        benefit2: "국내 온라인 간편결제",
+        benefit3: "",
+        benefitcontent1: "0.8% 청구할인",
+        benefitcontent2: "2% 청구할인",
+        benefitcontent3: "",
+        fee: "국내전용 12,000원  해외겸용 12,000원",
+        condition: "전월실적 없음",
+        issueType: "",
+        count: "621",
+        release: "2025-01-03"
+    },
+    {
+        id: 20, 
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2663/card_img/32407/2663card.png",
+        type: "credit",
+        name: "American Express® Gold Card Edition2",
+        event: "30만원 상당 혜택",
+        company: "현대카드",
+        benefit1: "바우처",
+        benefit2: "전 세계 공항라운지",
+        benefit3: "멤버십리워즈(MR)",
+        benefitcontent1: "연간 25만원상당",
+        benefitcontent2: "연 10회무료 이용",
+        benefitcontent3: "최대 3MR적립",
+        fee: "해외겸용 300,000원",
+        condition: "전월실적 50만원 이상",
+        issueType: "",
+        count: "333",
+        release: "2025-01-03"
     },
 ];
 

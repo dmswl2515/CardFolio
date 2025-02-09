@@ -41,13 +41,14 @@ const TitleSection = styled.div`
         content: "";
         position: absolute;
         left: 61%;
-        bottom: 42px;
+        bottom: 7%;
         width: 130px;
         height: 200px;
         transform: skew(0, 2deg);
         -webkit-filter: blur(1px);
         filter: blur(1px);
         z-index: 0;
+        border-radius: 10px;
         background-image: url(${({ bgImage }) => bgImage});
         background-size: contain;
         background-repeat: no-repeat;
@@ -112,7 +113,7 @@ const SubInfo = styled.div`
 
     span: nth-child(1),
     span:nth-child(2) {
-    color: gray;
+    color: ${({ showTabs }) => (showTabs ? "gray" : "white")};
     font-weight: 400;
     cursor: pointer;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -243,8 +244,39 @@ const extractNumber = (str) => {
     return match ? parseFloat(match[0]) : 0;
 };
 
-const CardRanking = () => {
-    const sortedData = useMemo(() => [...CardData].sort((a, b) => b.count - a.count), [CardData]);
+const getDateRange = (isNewRelease) => {
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    const firstDayOfYear = new Date(new Date().getFullYear(), 0, 1);
+    
+    const monday = new Date(today);
+    monday.setDate(today.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
+    
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+
+    const formatDate = (date) => `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`;
+    const formattedFirstDay = formatDate(firstDayOfYear);
+    const formattedToday = formatDate(today);
+    const formattedMonday = formatDate(monday);
+    const formattedSunday = formatDate(sunday);
+
+    return isNewRelease ? `${formattedFirstDay} ~ ${formattedToday}` : `${formattedMonday} ~ ${formattedSunday}`;
+};
+
+const CardRanking = ({ title, isNewRelease, showTabs = true }) => {
+    const dateRange = getDateRange(isNewRelease);
+
+    /* For Filtering Release */
+    const filteredData = useMemo(() => {
+        if (isNewRelease) {
+            return CardData.filter(card => card.release.startsWith("2025"));
+        }
+        return CardData;
+    }, [isNewRelease]);
+    
+    /* For Filtering Count */
+    const sortedData = useMemo(() => [...filteredData].sort((a, b) => b.count - a.count), [filteredData]);
 
     const topCard = sortedData[0];
     const otherCards = sortedData.slice(1);
@@ -260,17 +292,21 @@ const CardRanking = () => {
         <Container>
             <TitleSection bgImage={topCard.img}>
                 <TitleContainer>
-                    <Title>카드폴리오 TOP 100</Title>
+                    <Title>{title}</Title>
                     <CheckButton><i class="fa-solid fa-check"></i></CheckButton>
                     <AllChartBtn>
                         <i class="fa-solid fa-chevron-left"></i>
                         전체 차트
                     </AllChartBtn>
                 </TitleContainer>
-                <SubInfo>
-                    <span>WEEKLY</span> 
-                    <span>MONTHLY</span> &nbsp;&nbsp;&nbsp;
-                    <span>2025.1.27 ~ 2025.2.2</span>
+                <SubInfo showTabs={showTabs}>
+                    {showTabs && (
+                        <>
+                            <span>WEEKLY</span> 
+                            <span>MONTHLY</span> &nbsp;&nbsp;&nbsp;    
+                        </>
+                    )}
+                    <span>{dateRange}</span>
                     <span role="img" aria-label="calendar">
                         📅
                     </span>

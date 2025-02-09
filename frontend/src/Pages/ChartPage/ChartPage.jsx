@@ -74,7 +74,7 @@ const ChartPage = () => {
                     <h2>카드폴리오 차트</h2>
                     <div className="cardfolio-chart-container">
                         
-                        <NavLink to="/top100" className="chart-items credit-card">
+                        <NavLink to="./top100" className="chart-items credit-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간 &nbsp;&nbsp;&nbsp;{currentTime}
                             </p>
@@ -85,7 +85,7 @@ const ChartPage = () => {
                             <button className="btn credit-btn">보러가기</button>
                         </NavLink>
 
-                        <NavLink to="/release30" className="chart-items new-card">
+                        <NavLink to="./release30" className="chart-items new-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간
                             </p>
