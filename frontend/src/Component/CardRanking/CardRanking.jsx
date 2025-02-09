@@ -11,42 +11,104 @@ const Container = styled.div`
 `;
 
 const TitleSection = styled.div`
+    position: relative;
     width: 80%;
     max-width: 1200px;
     min-width: 440px;
     padding: 10px 20px;
-    background-color: #212529;
+    background-image: url(https://api.card-gorilla.com:8080/storage/corp/2/tips/29097/tips_card_top_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #ffffff;
     border-radius: 8px;
     margin-bottom: 20px;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 61%;
+        bottom: 42px;
+        width: 130px;
+        height: 200px;
+        transform: skew(0, 2deg);
+        -webkit-filter: blur(1px);
+        filter: blur(1px);
+        z-index: 0;
+        background-image: url(${({ bgImage }) => bgImage});
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 `;
 
 const TitleContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
+    margin-left: 25px;
 `;
 
 const Title = styled.h1`
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
+    z-index: 2;
 `;
 
 const CheckButton = styled.div`
     position: absolute;
     top: 31%;
-    left: 22%;
+    left: 20%;
     background: #ffac00;
     padding: 3px 10px;
     border-radius: 15px;
     color : black;
+    z-index: 2;
+    cursor: pointer;
+`;
+
+const AllChartBtn = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 40px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #ffffff40;
+    cursor: pointer;
+    z-index: 2;
 `;
 
 const SubInfo = styled.div`
+    position: relative;
+    z-index: 2;
     font-size: 14px;
     display: flex;
     align-items: center;
     gap: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 0 0 15px 0;
+    border-bottom: 0.1px solid hsla(0, 0%, 100%, 0.2);
 
     span: nth-child(1),
     span:nth-child(2) {
@@ -66,10 +128,19 @@ const SubInfo = styled.div`
 `;
 
 const TopCardWrapper = styled.div`
+    position: relative;
     margin-top: 20px;
     padding: 15px 0;
     backgorund-color: black;
     color: black;
+    z-index: 2;
+`;
+
+const QuestionMark = styled.div`
+    position: absolute;
+    top: 80%;
+    left: 92.5%;
+    font-size: 20px;
 `;
 
 const CardWrapper = styled.div`
@@ -79,42 +150,60 @@ const CardWrapper = styled.div`
     max-width: 800px;
 `;
 
+const TopListBtn = styled.div`
+    display: ${({ isTop }) => (isTop ? 'none' : 'flex')};
+    align-items: center;
+    color: #ccc;
+    margin-left: auto;
+`;
+
 const CardItem = styled.div`
     display: flex;
     align-items: center;
     padding: 15px 35px 15px 15px;
-    border: 1px solid #e0e0e0;
     border-radius: 8px;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
+    background-color: ${({ isTop }) => (isTop ? 'none' : '#fff')};
     transition: color 0.2s ease;
+    cursor: pointer;
 
     &:hover {
-    color: #ffac00;
+        color: #ffac00;
+
+        ${TopListBtn} {
+            color: #ffac00;
+        }
     }
 `;
 
 const CardContent = styled.div`
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
+    margin-left: 50px;
 `;
 
 const CardName = styled.div`
     font-size: 16px;
     font-weight: bold;
+    color: ${({ isTop }) => (isTop ? '#fff' : '#333' )};
+
+    &:hover {
+        color : #ffac00;
+    }
 `;
 
 const CardCompany = styled.div`
     font-size: 14px;
-    color: #757575;
+    color: ${({ isTop }) => (isTop ? '#ffffff99' : '#757575')};
 `;
 
 const CardRank = styled.div`
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 20px;
-    color: #333;
+    font-size: ${({ isTop }) => (isTop ? '36px' : '24px')};
+    font-weight: ${({ rank }) => (rank <= 3 ? 'bold' : 'normal')};
+    margin: ${({ isTop }) => (isTop ? '0 15px 0 5px' : '0 20px')};
+    color: ${({ isTop }) => (isTop ? '#fff' : '#333' )};
+    width: 40px;
+    text-align: center;
 `;
 
 const RankingNum = styled.div`
@@ -129,20 +218,20 @@ const RankingNum = styled.div`
 
 const Card = ({ card, rank, isTop }) => (
     <CardItem isTop={isTop}>
-        <CardRank>{rank}</CardRank>
+        <CardRank rank={rank} isTop={isTop}>{rank}</CardRank>
         <RankingNum>
             <i class="fa-solid fa-caret-up"></i>
             1
         </RankingNum>
-        <TopImgContainer>
-            <CircleBackground />
+        <TopImgContainer isTop={isTop}>
+            <CircleBackground isTop={isTop} />
             <TopItemImg src={card.img} alt={card.name} />
         </TopImgContainer>
         <CardContent>
-            <CardName>{card.name}</CardName>
-            <CardCompany>{card.company}</CardCompany>
+            <CardName isTop={isTop}>{card.name}</CardName>
+            <CardCompany isTop={isTop}>{card.company}</CardCompany>
         </CardContent>
-        <TopListBtn>
+        <TopListBtn isTop={isTop}>
             <i class="fa-solid fa-chevron-right"></i>
         </TopListBtn>
     </CardItem>
@@ -169,10 +258,14 @@ const CardRanking = () => {
 
     return (
         <Container>
-            <TitleSection>
+            <TitleSection bgImage={topCard.img}>
                 <TitleContainer>
-                    <Title>고릴라 TOP 100</Title>
+                    <Title>카드폴리오 TOP 100</Title>
                     <CheckButton><i class="fa-solid fa-check"></i></CheckButton>
+                    <AllChartBtn>
+                        <i class="fa-solid fa-chevron-left"></i>
+                        전체 차트
+                    </AllChartBtn>
                 </TitleContainer>
                 <SubInfo>
                     <span>WEEKLY</span> 
@@ -181,11 +274,13 @@ const CardRanking = () => {
                     <span role="img" aria-label="calendar">
                         📅
                     </span>
-                    <hr/>
                 </SubInfo>
                 <TopCardWrapper>
                     <Card card={topCard} rank={1} isTop={true} />
                 </TopCardWrapper>
+                <QuestionMark>
+                    <i class="fa-sharp fa-regular fa-circle-question"></i>
+                </QuestionMark>
             </TitleSection>
             
             <SectionContainer>
@@ -197,7 +292,6 @@ const CardRanking = () => {
                                 card={card} 
                                 rank={index + 2} 
                                 isTop={false} 
-                                style={{ fontWeight: index + 2 <= 3 ? 'bold' : 'normal' }}
                             />
                         ))}
                     </CardWrapper>
@@ -378,7 +472,7 @@ const PollOption = styled.div`
 const TopList = styled.div`
     position: relative;
     background: #8cde94;
-    padding: 20px 0;
+    padding: 30px 0;
     border-radius: 40px;
     overflow: hidden;
 
@@ -443,13 +537,6 @@ const TopItemEvent = styled.div`
     color: #000;
 `;
 
-const TopListBtn = styled.div`
-    display: flex;
-    align-items: center;
-    color: #ccc;
-    margin-left: auto;
-`;
-
 const TopListItemWrapperContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -475,8 +562,8 @@ const TopListItemWrapper = styled.div`
 
 const TopImgContainer =styled.div`
     position: relative;
-    width: 40px;
-    height: 60px;
+    width: ${({ isTop }) => (isTop ? '60px' : '40px')};
+    height: ${({ isTop }) => (isTop ? '90px' : '60px')};
 `;
 
 const TopItemImg = styled.img`
@@ -492,11 +579,11 @@ const CircleBackground = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 65px;
-    height: 65px;
-    background-color: #f5f5f5;
+    width: ${({ isTop }) => (isTop ? '90px' : '65px')};
+    height: ${({ isTop }) => (isTop ? '90px' : '65px')};
+    background-color: ${({isTop}) => (isTop ? '#383734' : '#f5f5f5')};
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
 `;
 
 const TopTextContainer = styled.div`
