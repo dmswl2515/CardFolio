@@ -244,6 +244,7 @@ const extractNumber = (str) => {
     return match ? parseFloat(match[0]) : 0;
 };
 
+/* Card Chart Period */
 const getDateRange = (isNewRelease) => {
     const today = new Date();
     const dayOfWeek = today.getDay();
@@ -264,24 +265,33 @@ const getDateRange = (isNewRelease) => {
     return isNewRelease ? `${formattedFirstDay} ~ ${formattedToday}` : `${formattedMonday} ~ ${formattedSunday}`;
 };
 
-const CardRanking = ({ title, isNewRelease, showTabs = true }) => {
+const CardRanking = ({ title, isNewRelease, cardType = null, showTabs = true }) => {
     const dateRange = getDateRange(isNewRelease);
 
     /* For Filtering Release */
     const filteredData = useMemo(() => {
+        let data = [...CardData];
+        
+        /* For Filtering Release(2025) */
         if (isNewRelease) {
-            return CardData.filter(card => card.release.startsWith("2025"));
+            data = data.filter(card => card.release.startsWith("2025"));
         }
-        return CardData;
-    }, [isNewRelease]);
+
+        /* Filtering cardType */
+        if (cardType) {
+            data = data.filter(card => card.type === cardType);
+        }
+
+        return data;
+    }, [isNewRelease, cardType]);
     
     /* For Filtering Count */
     const sortedData = useMemo(() => [...filteredData].sort((a, b) => b.count - a.count), [filteredData]);
 
-    const topCard = sortedData[0];
+    const topCard = sortedData.length > 0 ? sortedData[0] : null;
     const otherCards = sortedData.slice(1);
 
-    const sortedEvents = CardData.sort((a, b) => {
+    const sortedEvents = [...CardData].sort((a, b) => {
         const numA = extractNumber(a.event);
         const numB = extractNumber(b.event);
         return numB - numA;
@@ -290,35 +300,38 @@ const CardRanking = ({ title, isNewRelease, showTabs = true }) => {
 
     return (
         <Container>
-            <TitleSection bgImage={topCard.img}>
-                <TitleContainer>
-                    <Title>{title}</Title>
-                    <CheckButton><i class="fa-solid fa-check"></i></CheckButton>
-                    <AllChartBtn>
-                        <i class="fa-solid fa-chevron-left"></i>
-                        전체 차트
-                    </AllChartBtn>
-                </TitleContainer>
-                <SubInfo showTabs={showTabs}>
-                    {showTabs && (
-                        <>
-                            <span>WEEKLY</span> 
-                            <span>MONTHLY</span> &nbsp;&nbsp;&nbsp;    
-                        </>
-                    )}
-                    <span>{dateRange}</span>
-                    <span role="img" aria-label="calendar">
-                        📅
-                    </span>
-                </SubInfo>
-                <TopCardWrapper>
-                    <Card card={topCard} rank={1} isTop={true} />
-                </TopCardWrapper>
-                <QuestionMark>
-                    <i class="fa-sharp fa-regular fa-circle-question"></i>
-                </QuestionMark>
-            </TitleSection>
-            
+            {topCard ? ( 
+                <TitleSection bgImage={topCard.img}>
+                    <TitleContainer>
+                        <Title>{title}</Title>
+                        <CheckButton><i class="fa-solid fa-check"></i></CheckButton>
+                        <AllChartBtn>
+                            <i class="fa-solid fa-chevron-left"></i>
+                            전체 차트
+                        </AllChartBtn>
+                    </TitleContainer>
+                    <SubInfo showTabs={showTabs}>
+                        {showTabs && (
+                            <>
+                                <span>WEEKLY</span> 
+                                <span>MONTHLY</span> &nbsp;&nbsp;&nbsp;    
+                            </>
+                        )}
+                        <span>{dateRange}</span>
+                        <span role="img" aria-label="calendar">
+                            📅
+                        </span>
+                    </SubInfo>
+                    <TopCardWrapper>
+                        <Card card={topCard} rank={1} isTop={true} />
+                    </TopCardWrapper>
+                    <QuestionMark>
+                        <i class="fa-sharp fa-regular fa-circle-question"></i>
+                    </QuestionMark>
+                </TitleSection>
+            ) : (
+                <div>카드 데이터가 없습니다.</div>
+            )}
             <SectionContainer>
                 <LeftSection>
                     <CardWrapper>

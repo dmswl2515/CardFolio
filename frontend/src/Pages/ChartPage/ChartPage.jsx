@@ -96,7 +96,7 @@ const ChartPage = () => {
                             <button className="btn new-btn">보러가기</button>
                         </NavLink>
 
-                        <NavLink to="/check30" className="chart-items debit-card">
+                        <NavLink to="./check100" className="chart-items debit-card">
                             <p className="realtime">
                                 <i class="fa-regular fa-clock watch-icon"></i> 실시간
                             </p>
