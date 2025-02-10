@@ -40,8 +40,8 @@ const TitleSection = styled.div`
     &::before {
         content: "";
         position: absolute;
-        left: 61%;
-        bottom: 7%;
+        left: 61.5%;
+        bottom: 15%;
         width: 130px;
         height: 200px;
         transform: skew(0, 2deg);
@@ -57,33 +57,29 @@ const TitleSection = styled.div`
 
 const TitleContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: relative;
     margin-left: 25px;
+    width: 100%;
 `;
 
 const Title = styled.h1`
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     z-index: 2;
 `;
 
 const CheckButton = styled.div`
-    position: absolute;
-    top: 31%;
-    left: 20%;
     background: #ffac00;
-    padding: 3px 10px;
+    padding: 1px 8px;
     border-radius: 15px;
     color : black;
     z-index: 2;
     cursor: pointer;
+    margin-left: 10px;
 `;
 
 const AllChartBtn = styled.div`
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,6 +93,7 @@ const AllChartBtn = styled.div`
     background: #ffffff40;
     cursor: pointer;
     z-index: 2;
+    margin-left: auto;
 `;
 
 const SubInfo = styled.div`

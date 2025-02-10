@@ -114,7 +114,12 @@ const ChartPage = () => {
                     <h2>카드사별 인기차트</h2>
                     <div className="popular-card-container">
                         {popularCards.map((card) => (
-                            <div key={card.id} className="card-box">
+                            <NavLink 
+                                key={card.id} 
+                                to={`./${card.company}`}
+                                className="card-box"
+                            
+                            >
                                 <img className="card-logo" src={card.logo} alt={card.name}/>
                                 <div className="card-content">
                                     <h3>
@@ -123,7 +128,7 @@ const ChartPage = () => {
                                     </h3>
                                     <img src={card.img} alt={card.name} className="card-image" />
                                 </div>
-                            </div>
+                            </NavLink>
                         ))}
                     </div>
                 </section>

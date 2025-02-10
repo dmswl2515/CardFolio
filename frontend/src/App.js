@@ -16,6 +16,7 @@ import EventPage from "./Pages/EventPage/EventPage";
 import Top100Page from "./Pages/ChartPage/TopPage/Top100Page";
 import Release30Page from './Pages/ChartPage/TopPage/Release30Page';
 import Check100Page from './Pages/ChartPage/TopPage/Check100';
+import ShinhanTop100 from './Pages/ChartPage/TopCompanyCardPage/ShinhanTop100';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Route path="/chart/top100" element={<Layout><Top100Page /></Layout>}/>
       <Route path="/chart/release30" element={<Layout><Release30Page /></Layout>}/>
       <Route path="/chart/check100" element={<Layout><Check100Page /></Layout>}/>
+      <Route path="/chart/:cardCompany" element={<Layout><ShinhanTop100 /></Layout>}/>
     </Routes>
   );
 }
