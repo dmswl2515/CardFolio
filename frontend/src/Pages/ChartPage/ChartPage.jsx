@@ -116,7 +116,7 @@ const ChartPage = () => {
                         {popularCards.map((card) => (
                             <NavLink 
                                 key={card.id} 
-                                to={`./${card.company}`}
+                                to={`/chart/${card.name}`}
                                 className="card-box"
                             
                             >
