@@ -262,7 +262,7 @@ const getDateRange = (isNewRelease) => {
     return isNewRelease ? `${formattedFirstDay} ~ ${formattedToday}` : `${formattedMonday} ~ ${formattedSunday}`;
 };
 
-const CardRanking = ({ title, isNewRelease, cardType = null, showTabs = true }) => {
+const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTabs = true }) => {
     const dateRange = getDateRange(isNewRelease);
 
     /* For Filtering Release */
@@ -279,8 +279,13 @@ const CardRanking = ({ title, isNewRelease, cardType = null, showTabs = true }) 
             data = data.filter(card => card.type === cardType);
         }
 
+        /* Filtering Card Company */
+        if (cardCompany) {
+            data = data.filter(card => card.company === cardCompany);
+        }
+
         return data;
-    }, [isNewRelease, cardType]);
+    }, [isNewRelease, cardType, cardCompany]);
     
     /* For Filtering Count */
     const sortedData = useMemo(() => [...filteredData].sort((a, b) => b.count - a.count), [filteredData]);
