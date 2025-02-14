@@ -40,8 +40,8 @@ const TitleSection = styled.div`
     &::before {
         content: "";
         position: absolute;
-        left: 61.5%;
-        bottom: 15%;
+        left: 61%;
+        bottom: 17%;
         width: 130px;
         height: 200px;
         transform: skew(0, 2deg);
