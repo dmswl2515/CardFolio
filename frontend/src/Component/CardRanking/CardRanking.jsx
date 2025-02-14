@@ -41,7 +41,7 @@ const TitleSection = styled.div`
         content: "";
         position: absolute;
         left: 61%;
-        bottom: 17%;
+        bottom: 8%;
         width: 130px;
         height: 200px;
         transform: skew(0, 2deg);
