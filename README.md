@@ -11,4 +11,4 @@
 | `개발현황`         | `완료된 작업 : ` <br> `- UI 컴포넌트를 모듈화하여 카드 정보의 재사용성을 확보` <br> `- useState를 활용한 체크카드/신용카드 필터링 및 조건부 렌더링 적용` <br> `- 다양한 화면 크기에서도 UI 요소들이 균형 잡히게 표시되도록 CSS 설정`<br> `- GitHub Actions를 활용한 CI/CD 파이프라인 구축` <br> `- AWS Ec2를 사용하여 프로젝트 서버 배포 ` <br> <br> `예정된 작업 : ` <br> `- 사용자 맞춤형 카드 추천 알고리즘` <br> `- API 연동 및 실제 카드 데이터 로딩` <br> `- 전반적인 기능을 관리할 수 있는 관리자 전용 페이지 구현.`                                                                                                | 
 
 ## 2. 사용언어 및 개발환경
-- React, HTML/CSS, Java, Spring Boot(React와 연동), Github
+- React, HTML/CSS, Java, Spring Boot(React와 연동), Oracle, Github
