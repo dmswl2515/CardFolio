@@ -47,7 +47,7 @@ function HomePage() {
             {/* CardIntroduction Component */}
             <CardIntroduction
                 circleColorClass="gray-background"
-                sectionTitle1="놓치지 마세Yo! 이달의 이벤트 카드"
+                sectionTitle1="놓치지 마세요! 이달의 이벤트 카드"
                 sectionTitle2="새해를 맞이하는 고정비 할인 카드!"
                 
             />
