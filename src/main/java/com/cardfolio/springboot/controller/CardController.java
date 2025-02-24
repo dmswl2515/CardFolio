@@ -22,7 +22,7 @@ public class CardController {
 		this.cardService = cardService;
 	}
 	
-	@GetMapping
+	@GetMapping("/type/{type}")
 	public List<CardDto> getCardsByType(@PathVariable String type) {
 		return cardService.getCardByType(type);
 	}
