@@ -13,7 +13,7 @@ import com.cardfolio.springboot.service.CardService;
 
 @RestController
 @RequestMapping("/api/cards")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class CardController {
 	
 	private final CardService cardService;
@@ -24,6 +24,7 @@ public class CardController {
 	
 	@GetMapping("/type/{type}")
 	public List<CardDto> getCardsByType(@PathVariable String type) {
+		List<CardDto> cards = cardService.getCardByType(type);
 		return cardService.getCardByType(type);
 	}
 

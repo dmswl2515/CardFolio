@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CardInformation from "../../Component/CardInformation/CardInformation";
 import CardData from "../../Component/CardData";
 import "../../Styles/Style.css";
 import "./CardPage.css";
 
 const CardPage = () => {
-    const [activeTab, setActiveTab] = useState("credit");
+    const [activeTab, setActiveTab] = useState("credit"); //basic card type
+    const [cards, setCards] = useState([]); //save card data
+    const [loading, setLoading] = useState(false); 
 
-    const filteredCards = CardData.filter(card =>
-        activeTab === "credit" ? card.type === "credit" : card.type === "debit"
-    );
+    //get data from back-end
+    const fetchCards = async (type) => {
+        setLoading(true);
+        try {
+            const response = await fetch(`http://13.210.30.163:8081/api/cards/type/${type}`);
+            const data = await response.json();
+            setCards(data);
+        } catch (error) {
+            console.error("데이터 불러오기 실패:" , error);
+        }
+        setLoading(false);
+    };
+
+    //when active, call API
+    useEffect(() => {
+        fetchCards(activeTab);
+    }, [activeTab]);
 
     return (
         <div className="page-background">
@@ -62,9 +78,12 @@ const CardPage = () => {
                         </button>
                     </div>
 
-                    {filteredCards.map((card, index) => (
-                        <CardInformation key={index} card={card} />
-                    ))}
+                    {/* show loading state */}
+                    {loading ? (
+                        <p>카드를 불러오는 중입니다.</p>
+                    ) : (
+                        cards.map((card, index) => <CardInformation key={index} card={card} />)
+                    )}
                     
                     <div className="button-container">
                         <button className="more-cards-btn">
