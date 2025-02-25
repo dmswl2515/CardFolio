@@ -13,7 +13,9 @@ const CardPage = () => {
     const fetchCards = async (type) => {
         setLoading(true);
         try {
-            const response = await fetch(`http://13.210.30.163:8081/api/cards/type/${type}`);
+            const response = await fetch(`http://13.210.30.163:8081/api/cards/type/${type}`,{
+                method: 'GET'
+            });
             const data = await response.json();
             setCards(data);
         } catch (error) {
