@@ -24,27 +24,45 @@ jobs:
                 host: ${{ secrets.EC2_HOST }}
                 username: ${{ secrets.EC2_USERNAME }}
                 key: ${{ secrets.EC2_PRIVATE_KEY }}
+                timeout: 600s
+                command_timeout: 600s
                 script_stop: true
                 script: |
                     # Git Repository에서 최신 버전 pull
                     cd /home/ec2-user/CardFolio
+
+                    # 기존 Gradle 프로세스 정리
+                    ./gradlew -- stop || true
+
+                    # application.properties 업데이트 
                     rm -rf src/main/resources/application.properties
                     git pull origin main
                     echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
 
-                    # build gradle
-                    ./gradlew clean build
+                    # 메모리 효율을 위한 빌드(테스트 스킵)
+                    ./graldew clean build --no-demon --max-workers=1 -x test
+
+                    # 톰캣 중지
+                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    sleep 5
+
+                    # 기존 애플리케이션 삭제
+                    sudo rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
 
                     # change file name 
                     mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
 
                     # WAR 파일을 webapps 디렉토리로 복사
-                    mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.33/webapps/
-                    ls -al /home/ec2-user/apache-tomcat-10.1.33/webapps/
+                    mv /home/ec2-user/CardFolio/build/libs/CardFolio.war /home/ec2-user/apache-tomcat-10.1.39/webapps/
+                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/
 
                     # restart tomcat
-                    sudo /home/ec2-user/apache-tomcat-10.1.33/bin/shutdown.sh
-                    sudo /home/ec2-user/apache-tomcat-10.1.33/bin/startup.sh
+                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh
+                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
+
+                    # 배포 확인
+                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+                    echo "Deployment completed successfully!"
                     
 
 
