@@ -40,7 +40,7 @@ jobs:
                     echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
 
                     # 메모리 효율을 위한 빌드(테스트 스킵)
-                    ./graldew clean build --no-demon --max-workers=1 -x test
+                    ./gradlew clean build --no-demon --max-workers=1 -x test
 
                     # 톰캣 중지
                     sudo /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
