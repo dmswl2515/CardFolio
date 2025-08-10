@@ -22,7 +22,7 @@ const CardCoverPage = () => {
                         <div className="card-cover-item">스폐셜콜라보</div>
                         <div className="card-cover-item">스테디라인</div>
                         <div className="card-cover-item">쇼룸</div>
-                        <div className="card-cover-item">뉴스룸</div>
+                        <div className="card-cover-item">뉴스룸2</div>
                     </section>
 
                     {/* Today's Best Section */}
