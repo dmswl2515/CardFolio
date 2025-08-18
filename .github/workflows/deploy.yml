@@ -35,3 +35,17 @@ jobs:
                     echo "Step 3: Date check"
                     date
                     echo "All steps completed"
+                    
+                    echo "=== Git Operations Test ==="
+                    cd /home/ec2-user/CardFolio
+                    echo "Changed to CardFolio directory"
+                    pwd
+                    
+                    pkill -f gradle || true
+                    echo "Killed gradle processes"
+                    
+                    git status
+                    echo "Git status checked"
+                    
+                    git pull origin main
+                    echo "Git pull completed"
