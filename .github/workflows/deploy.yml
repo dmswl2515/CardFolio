@@ -29,42 +29,54 @@ jobs:
                 script_stop: false
                 script: |
                     # Git Repository에서 최신 버전 pull
-                    cd /home/ec2-user/CardFolio
+                    #cd /home/ec2-user/CardFolio
 
                     # 기존 Gradle 프로세스 정리
-                    pkill -f gradle || true
+                    #pkill -f gradle || true
 
                     # application.properties 업데이트 
-                    rm -rf src/main/resources/application.properties
-                    git pull origin main
-                    echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
+                    #rm -rf src/main/resources/application.properties
+                    #git pull origin main
+                    #echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
 
                     # 메모리 효율을 위한 빌드(테스트 스킵)
-                    ./gradlew clean build --no-daemon --max-workers=1 -x test
+                    #./gradlew clean build --no-daemon --max-workers=1 -x test
 
                     # 톰캣 중지
-                    /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
-                    sleep 5
+                    #/home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    #sleep 5
 
                     # 기존 애플리케이션 삭제
-                    sudo rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+                    #sudo rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
 
                     # WAR 파일을 webapps 디렉토리로 복사
-                    echo "Deploying new application..."
-                    cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+                    #echo "Deploying new application..."
+                    #cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
                     
                     # 권한 설정
-                    chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+                    #chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
 
                     # 배포된 파일 확인
-                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/
+                    #ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/
 
                     # restart tomcat
-                    /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
+                    #/home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
 
                     # 배포 확인
-                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
-                    echo "Deployment completed successfully!"
+                    #ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+                    #echo "Deployment completed successfully!"
+
+                    # === 임시 테스트 스크립트 ===
+                    echo "=== SSH Connection Test ==="
+                    pwd
+                    whoami
+                    date
+                    echo "=== System Status ==="
+                    free -h
+                    df -h
+                    echo "=== Process Check ==="
+                    ps aux | grep -E "(gradle|tomcat)" | head -5
+                    echo "=== Test Completed ==="
                     
 
 
