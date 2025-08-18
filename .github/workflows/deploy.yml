@@ -28,6 +28,14 @@ jobs:
                 command_timeout: 600s
                 script_stop: false
                 script: |
+                    echo "Step 1: Basic test"
+                    pwd
+                    echo "Step 2: User check"
+                    whoami
+                    echo "Step 3: Date check"
+                    date
+                    echo "All steps completed"
+                    
                     # Git Repository에서 최신 버전 pull
                     #cd /home/ec2-user/CardFolio
 
@@ -65,18 +73,6 @@ jobs:
                     # 배포 확인
                     #ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
                     #echo "Deployment completed successfully!"
-
-                    # === 임시 테스트 스크립트 ===
-                    echo "=== SSH Connection Test ==="
-                    pwd
-                    whoami
-                    date
-                    echo "=== System Status ==="
-                    free -h
-                    df -h
-                    echo "=== Process Check ==="
-                    ps aux | grep -E "(gradle|tomcat)" | head -5
-                    echo "=== Test Completed ==="
                     
 
 
