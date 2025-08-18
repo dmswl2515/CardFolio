@@ -43,22 +43,24 @@ jobs:
                     ./gradlew clean build --no-daemon --max-workers=1 -x test
 
                     # 톰캣 중지
-                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
                     sleep 5
 
                     # 기존 애플리케이션 삭제
                     sudo rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
 
-                    # change file name 
-                    mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
-
                     # WAR 파일을 webapps 디렉토리로 복사
-                    sudo cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
-                    sudo chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+                    echo "Deploying new application..."
+                    cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+                    
+                    # 권한 설정
+                    chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+
+                    # 배포된 파일 확인
                     ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/
 
                     # restart tomcat
-                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
 
                     # 배포 확인
                     ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
