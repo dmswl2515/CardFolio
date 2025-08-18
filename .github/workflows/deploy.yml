@@ -26,7 +26,7 @@ jobs:
                 key: ${{ secrets.EC2_PRIVATE_KEY }}
                 timeout: 600s
                 command_timeout: 600s
-                script_stop: true
+                script_stop: false
                 script: |
                     # Git Repository에서 최신 버전 pull
                     cd /home/ec2-user/CardFolio
