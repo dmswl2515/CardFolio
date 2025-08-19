@@ -47,7 +47,14 @@ jobs:
 
                     ./gradlew clean build --no-daemon --max-workers=1 -x test
 
-                    #/home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
-                    #sleep 5
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    sleep 5
 
-                    
+                    rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+
+                    cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+
+                    chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
+
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
+                    echo "Deployment completed successfully!"
