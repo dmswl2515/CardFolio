@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "postbuild": "cp -r build/* /Users/kim-eunji/Documents/STS4WorkSpace/CardFolio/src/main/resources/static/ && rimraf /Users/kim-eunji/Documents/STS4WorkSpace/CardFolio/src/main/resources/static/static",
+    "postbuild": "rimraf /Users/kim-eunji/Documents/STS4WorkSpace/CardFolio/src/main/resources/static/* && cp -r build/* /Users/kim-eunji/Documents/STS4WorkSpace/CardFolio/src/main/resources/static/",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
   },
