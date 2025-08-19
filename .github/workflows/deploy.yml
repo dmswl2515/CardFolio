@@ -39,8 +39,9 @@ jobs:
                     echo "=== Git Operations Test ==="
                     cd /home/ec2-user/CardFolio
 
-                    echo "=== .gitignore 파일 내용 ==="
-                    cat .gitignore
+                    echo "=== Force resolve Git conflicts ==="
+                    git reset --hard HEAD
+                    git clean -fd
                     
                     git status
                     echo "Git status checked"
