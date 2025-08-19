@@ -26,43 +26,35 @@ jobs:
                 key: ${{ secrets.EC2_PRIVATE_KEY }}
                 timeout: 600s
                 command_timeout: 600s
-                script_stop: true
+                script_stop: false
                 script: |
-                    # Git Repository에서 최신 버전 pull
+                    echo "Step 1: Basic test"
+                    pwd
+                    echo "Step 2: User check"
+                    whoami
+                    echo "Step 3: Date check"
+                    date
+                    echo "All steps completed"
+                    
+                    echo "=== Git Operations Test ==="
                     cd /home/ec2-user/CardFolio
-
-                    # 기존 Gradle 프로세스 정리
-                    pkill -f gradle || true
-
-                    # application.properties 업데이트 
-                    rm -rf src/main/resources/application.properties
+                    
+                    git status
+                    echo "Git status checked"
+                    
                     git pull origin main
-                    echo "${{ secrets.APPLICATION_PROPERTIES }}" > src/main/resources/application.properties
+                    echo "Git pull completed"
 
-                    # 메모리 효율을 위한 빌드(테스트 스킵)
                     ./gradlew clean build --no-daemon --max-workers=1 -x test
 
-                    # 톰캣 중지
-                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
                     sleep 5
 
-                    # 기존 애플리케이션 삭제
-                    sudo rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+                    rm -rf /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
 
-                    # change file name 
-                    mv build/libs/*SNAPSHOT.war build/libs/CardFolio.war
+                    cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
 
-                    # WAR 파일을 webapps 디렉토리로 복사
-                    sudo cp build/libs/*SNAPSHOT.war /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
-                    sudo chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
-                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/
+                    chown ec2-user:ec2-user /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio.war
 
-                    # restart tomcat
-                    sudo /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
-
-                    # 배포 확인
-                    ls -al /home/ec2-user/apache-tomcat-10.1.39/webapps/CardFolio*
+                    /home/ec2-user/apache-tomcat-10.1.39/bin/startup.sh
                     echo "Deployment completed successfully!"
-                    
-
-
