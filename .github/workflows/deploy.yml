@@ -38,11 +38,16 @@ jobs:
                     
                     echo "=== Git Operations Test ==="
                     cd /home/ec2-user/CardFolio
-                    echo "Changed to CardFolio directory"
-                    pwd
                     
                     git status
                     echo "Git status checked"
                     
                     git pull origin main
                     echo "Git pull completed"
+
+                    ./gradlew clean build --no-daemon --max-workers=1 -x test
+
+                    #/home/ec2-user/apache-tomcat-10.1.39/bin/shutdown.sh || true
+                    #sleep 5
+
+                    
