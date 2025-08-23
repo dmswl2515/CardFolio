@@ -39,6 +39,7 @@ public class CardDto {
 	
 	private String condition;
 	
+	@Column(name = "ISSUETYPE")
 	private String issueType;
 	
 	private int views;

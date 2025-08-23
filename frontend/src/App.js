@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css';
 import Layout from './Component/Layout';
 import HomePage from './Pages/HomePage';
@@ -18,9 +19,13 @@ import Release30Page from './Pages/ChartPage/TopPage/Release30Page';
 import Check100Page from './Pages/ChartPage/TopPage/Check100';
 import CardCompanyChart from './Pages/ChartPage/TopCompanyCardPage/CardCompanyChart';
 
+// TanStack Query 클라이언트 생성
+const queryClient = new QueryClient();
+
 function App() {
   return (
-    <Routes>
+    <QueryClientProvider client={queryClient}>
+      <Routes>
       <Route path="/" element={<Layout><HomePage /></Layout>} />
       <Route path="/chart" element={<Layout><ChartPage /></Layout>}/>
       <Route path="/card" element={<Layout><CardPage /></Layout>}/>
@@ -36,7 +41,8 @@ function App() {
       <Route path="/chart/release30" element={<Layout><Release30Page /></Layout>}/>
       <Route path="/chart/check100" element={<Layout><Check100Page /></Layout>}/>
       <Route path="/chart/:cardCompany" element={<Layout><CardCompanyChart /></Layout>}/>
-    </Routes>
+      </Routes>
+    </QueryClientProvider>
   );
 }
 

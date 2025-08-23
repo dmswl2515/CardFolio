@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchCardsByType } from "../../api/cardApi";
 import CardInformation from "../../Component/CardInformation/CardInformation";
 import CardData from "../../Component/CardData";
 import "../../Styles/Style.css";
@@ -6,28 +8,12 @@ import "./CardPage.css";
 
 const CardPage = () => {
     const [activeTab, setActiveTab] = useState("credit"); //basic card type
-    const [cards, setCards] = useState([]); //save card data
-    const [loading, setLoading] = useState(false); 
 
-    //get data from back-end
-    const fetchCards = async (type) => {
-        setLoading(true);
-        try {
-            const response = await fetch(`http://13.210.30.163:8081/api/cards/type/${type}`,{
-                method: 'GET'
-            });
-            const data = await response.json();
-            setCards(data);
-        } catch (error) {
-            console.error("데이터 불러오기 실패:" , error);
-        }
-        setLoading(false);
-    };
-
-    //when active, call API
-    useEffect(() => {
-        fetchCards(activeTab);
-    }, [activeTab]);
+    // TanStack Query로 카드 데이터 가져오기
+    const { data: cards = [], isLoading, error } = useQuery({
+        queryKey: ['cards', activeTab],
+        queryFn: () => fetchCardsByType(activeTab)
+    });
 
     return (
         <div className="page-background">
@@ -81,8 +67,10 @@ const CardPage = () => {
                     </div>
 
                     {/* show loading state */}
-                    {loading ? (
+                    {isLoading ? (
                         <p>카드를 불러오는 중입니다.</p>
+                    ) : error ? (
+                        <p>데이터를 불러오는데 실패했습니다: {error.message}</p>
                     ) : (
                         cards.map((card, index) => <CardInformation key={index} card={card} />)
                     )}

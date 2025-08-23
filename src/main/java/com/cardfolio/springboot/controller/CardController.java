@@ -22,11 +22,10 @@ public class CardController {
 		this.cardService = cardService;
 	}
 	
-//	@GetMapping("/type/{type}")
-//	public List<CardDto> getCardsByType(@PathVariable String type) {
-//		List<CardDto> cards = cardService.getCardByType(type);
-//		return cardService.getCardByType(type);
-//	}
+	@GetMapping("/type/{type}")
+	public List<CardDto> getCardsByType(@PathVariable String type) {
+		return cardService.getCardByType(type);
+	}
 	
 	
 	
