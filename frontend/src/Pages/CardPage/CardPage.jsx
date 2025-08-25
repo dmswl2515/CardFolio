@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCardsByType } from "../../api/cardApi";
 import CardInformation from "../../Component/CardInformation/CardInformation";
 import CardData from "../../Component/CardData";
@@ -9,11 +9,26 @@ import "./CardPage.css";
 const CardPage = () => {
     const [activeTab, setActiveTab] = useState("credit"); //basic card type
 
-    // TanStack Query로 카드 데이터 가져오기
-    const { data: cards = [], isLoading, error } = useQuery({
+    // useInfiniteQuery로 무한스크롤링 구현
+    const { 
+        data,
+        isLoading, 
+        error,
+        fetchNextPage,
+        hasNextPage,
+        isFetchingNextPage 
+    } = useInfiniteQuery({
         queryKey: ['cards', activeTab],
-        queryFn: () => fetchCardsByType(activeTab)
+        queryFn: ({ pageParam = 0 }) => fetchCardsByType(activeTab, pageParam),
+        getNextPageParam: (lastPage, allPages) => {
+            // 마지막 페이지인지 확인
+            if (lastPage.last) return undefined;
+            return allPages.length; // 다음 페이지 번호
+        }
     });
+
+    // 모든 페이지의 카드들을 하나의 배열로 합치기
+    const cards = data?.pages?.flatMap(page => page.content) || [];
 
     return (
         <div className="page-background">
@@ -67,18 +82,27 @@ const CardPage = () => {
                     </div>
 
                     {/* show loading state */}
-                    {isLoading ? (
+                    {/* {isLoading ? (
                         <p>카드를 불러오는 중입니다.</p>
                     ) : error ? (
                         <p>데이터를 불러오는데 실패했습니다: {error.message}</p>
                     ) : (
                         cards.map((card, index) => <CardInformation key={index} card={card} />)
-                    )}
+                    )} */}
+
+                    {cards.map((card, index) => <CardInformation key={index} card={card} />)}
                     
                     <div className="button-container">
-                        <button className="more-cards-btn">
-                            카드 더보기 <i class="fa-solid fa-angle-down"></i>
-                        </button>
+                        {hasNextPage && (
+                            <button
+                                className="more-cards-btn"
+                                onClick={fetchNextPage}
+                                disabled={isFetchingNextPage}
+                            >
+                                {isFetchingNextPage ? '로딩 중' : '카드 더보기'}
+                                <i class="fa-solid fa-angle-down"></i>
+                            </button>
+                        )}
                         <button className="search-benefits-btn">
                             <i class="fa-solid fa-magnifying-glass benefits-search-icon"> 원하는 혜택만 검색</i>
                         </button>

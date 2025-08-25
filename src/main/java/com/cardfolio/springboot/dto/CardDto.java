@@ -42,7 +42,7 @@ public class CardDto {
 	@Column(name = "ISSUETYPE")
 	private String issueType;
 	
-	private int views;
+	private Integer views;
 	
 	@Temporal(TemporalType.DATE)
 	private Date release;

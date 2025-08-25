@@ -121,9 +121,12 @@
 
 .card-details-section2 {
     display: flex;
-    gap: 30px;
     font-size: 1.0em;
     color: #666;
+}
+
+.card-details-section2 > *:not(:first-child) {
+    margin-right: 30px;
 }
 
 
