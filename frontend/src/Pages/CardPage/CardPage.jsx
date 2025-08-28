@@ -3,11 +3,14 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCardsByType } from "../../api/cardApi";
 import CardInformation from "../../Component/CardInformation/CardInformation";
 import CardData from "../../Component/CardData";
+import ServicePrepModal from "../../Component/ServicePrepModal/ServicePrepModal";
+import LoadingSpinner from "../../Component/LoadingSpinner/LoadingSpinner";
 import "../../Styles/Style.css";
 import "./CardPage.css";
 
 const CardPage = () => {
     const [activeTab, setActiveTab] = useState("credit"); //basic card type
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // useInfiniteQuery로 무한스크롤링 구현
     const { 
@@ -30,13 +33,22 @@ const CardPage = () => {
     // 모든 페이지의 카드들을 하나의 배열로 합치기
     const cards = data?.pages?.flatMap(page => page.content) || [];
 
+    // 서비스 준비 중 모달 핸들러
+    const handleServicePrepClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="page-background">
             <div className="common-container">
                 {/* Card Search Section */}
                 <section className="card-search-section">
                     <h2 className="card-search-title">
-                        국내최대규모! 총 <span className="highlight">1425</span>개 중
+                        국내최대규모! 총 <span className="highlight">1519</span>개 중
                         <br />
                         내게 꼭 맞는 카드만 찾아보세요!
                     </h2>
@@ -49,7 +61,7 @@ const CardPage = () => {
                                 className="search-option-icon"
                             />
                             <p className="option-description2">100가지 상세혜택으로</p>
-                            <button className="option-button">맞춤 카드 검색</button>
+                            <button className="option-button" onClick={handleServicePrepClick}>맞춤 카드 검색</button>
                         </div>
                         <div className="search-option-box">
                             <p className="option-description1">1분 테스트로 추천 받기</p>
@@ -59,7 +71,7 @@ const CardPage = () => {
                                 className="search-option-icon"
                             />
                             <p className="option-description2">소비성향으로 알아보는</p>
-                            <button className="option-button">카드추천 테스트</button>
+                            <button className="option-button" onClick={handleServicePrepClick}>카드추천 테스트</button>
                         </div>
                     </div>
                 </section>
@@ -82,15 +94,20 @@ const CardPage = () => {
                     </div>
 
                     {/* show loading state */}
-                    {/* {isLoading ? (
-                        <p>카드를 불러오는 중입니다.</p>
+                    {isLoading ? (
+                        <LoadingSpinner message={`${activeTab === 'credit' ? '신용카드' : '체크카드'}를 불러오는 중입니다`} />
                     ) : error ? (
-                        <p>데이터를 불러오는데 실패했습니다: {error.message}</p>
+                        <div style={{ 
+                            textAlign: 'center', 
+                            padding: '40px', 
+                            color: '#666',
+                            fontSize: '16px' 
+                        }}>
+                            데이터를 불러오는데 실패했습니다: {error.message}
+                        </div>
                     ) : (
                         cards.map((card, index) => <CardInformation key={index} card={card} />)
-                    )} */}
-
-                    {cards.map((card, index) => <CardInformation key={index} card={card} />)}
+                    )}
                     
                     <div className="button-container">
                         {hasNextPage && (
@@ -109,6 +126,11 @@ const CardPage = () => {
                     </div>
                 </section>
             </div>
+            
+            <ServicePrepModal 
+                isOpen={isModalOpen} 
+                onClose={handleCloseModal} 
+            />
         </div>
     );
 };

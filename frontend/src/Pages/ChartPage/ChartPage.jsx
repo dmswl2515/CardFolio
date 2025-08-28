@@ -40,20 +40,20 @@ const ChartPage = () => {
 
     // card benefit data
     const benefits = [
-        { id: 1, name: "통신", img: cardImages.통신.img },
-        { id: 2, name: "주유+차량정비", img: cardImages.주유차량정비.img },
-        { id: 3, name: "쇼핑", img: cardImages.쇼핑.img },
-        { id: 4, name: "항공마일리지", img: cardImages.항공마일리지.img },
-        { id: 5, name: "공항라운지", img: cardImages.공항라운지.img },
-        { id: 6, name: "무실적+모든가맹점", img: cardImages.무실적모든가맹점.img },
-        { id: 7, name: "구독/스트리밍", img: cardImages.구독스트리밍.img },
-        { id: 8, name: "해외결제", img: cardImages.해외결제.img },
-        { id: 9, name: "배달앱+간편결제", img: cardImages.배달앱간편결제.img },
-        { id: 10, name: "병원+약국", img: cardImages.병원약국.img },
-        { id: 11, name: "공과금", img: cardImages.공과금.img },
-        { id: 12, name: "여행+바우처", img: cardImages.여행바우처.img },
-        { id: 13, name: "제휴/PLCC", img: cardImages.제휴PLCC.img },
-        { id: 14, name: "증권사CMA", img: cardImages.증권사CMA.img },
+        { id: 1, name: "통신", displayName: "통신", img: cardImages.통신.img },
+        { id: 2, name: "주유", displayName: "주유+차량정비", img: cardImages.주유차량정비.img },
+        { id: 3, name: "쇼핑", displayName: "쇼핑", img: cardImages.쇼핑.img },
+        { id: 4, name: "마일리지", displayName: "항공마일리지", img: cardImages.항공마일리지.img },
+        { id: 5, name: "라운지", displayName: "공항라운지", img: cardImages.공항라운지.img },
+        { id: 6, name: "가맹점", displayName: "무실적+모든가맹점", img: cardImages.무실적모든가맹점.img },
+        { id: 7, name: "구독", displayName: "구독/스트리밍", img: cardImages.구독스트리밍.img },
+        { id: 8, name: "해외", displayName: "해외결제", img: cardImages.해외결제.img },
+        { id: 9, name: "배달", displayName: "배달앱+간편결제", img: cardImages.배달앱간편결제.img },
+        { id: 10, name: "병원", displayName: "병원+약국", img: cardImages.병원약국.img },
+        { id: 11, name: "공과금", displayName: "공과금", img: cardImages.공과금.img },
+        { id: 12, name: "여행", displayName: "여행+바우처", img: cardImages.여행바우처.img },
+        { id: 13, name: "제휴", displayName: "제휴/PLCC", img: cardImages.제휴PLCC.img },
+        { id: 14, name: "CMA", displayName: "증권사CMA", img: cardImages.증권사CMA.img },
     ];
 
     // card type data 
@@ -91,7 +91,7 @@ const ChartPage = () => {
                             </p>
                             <h3>
                                 <span class="title-small">신규카드</span> 
-                                <span class="title-large">TOP100</span>
+                                <span class="title-large">TOP30</span>
                             </h3>
                             <button className="btn new-btn">보러가기</button>
                         </NavLink>
@@ -124,7 +124,7 @@ const ChartPage = () => {
                                 <div className="card-content">
                                     <h3>
                                         <span className="card-name">{card.name}</span>
-                                        <span>TOP 100</span>
+                                        <span>TOP 10</span>
                                     </h3>
                                     <img src={card.img} alt={card.name} className="card-image" />
                                 </div>
@@ -138,13 +138,17 @@ const ChartPage = () => {
                     <h2>혜택별 인기차트</h2>
                     <div className="benefit-chart-container">
                         {benefits.map((benefit) => (
-                            <div key={benefit.id} className="benefit-box">
-                                <img src={benefit.img} alt={benefit.name} className="benefit-image" />
+                            <NavLink 
+                                key={benefit.id}
+                                to={`/chart/benefit/${benefit.name}`} 
+                                className="benefit-box"
+                            >
+                                <img src={benefit.img} alt={benefit.displayName} className="benefit-image" />
                                 <h3 className="benefit-name">
-                                    <span>{benefit.name}</span>
+                                    <span>{benefit.displayName}</span>
                                     <span>Top10</span>
                                 </h3>
-                            </div>
+                            </NavLink>
                         ))}
                     </div>    
                 </section>
@@ -155,13 +159,17 @@ const ChartPage = () => {
                         <h2>카드타입별 인기차트</h2>
                         <div className="card-type-container">
                             {cardTypes.slice(0, 3).map((type) => (
-                                <div key={type.id} className="type-box">
+                                <NavLink 
+                                    key={type.id}
+                                    to={`/CardFolio/benefit-type/${type.name}`}  
+                                    className="type-box"
+                                >
                                     <img src={type.img} alt={type.name} className="type-image" />
                                     <h3 className="type-name">
                                         <span>{type.name}</span>
                                         <span>Top30</span>
                                     </h3>
-                                </div>
+                                </NavLink>
                             ))}
                         </div>
                     </section>
@@ -171,20 +179,24 @@ const ChartPage = () => {
                         <h2>전월실적별 인기차트</h2>
                         <div className="performance-container">
                             {cardTypes.slice(3).map((type) => (
-                                <div key={type.id} className="performance-box">
+                                <NavLink 
+                                    key={type.id}
+                                    to={`/CardFolio/performance/${type.name}`}  
+                                    className="performance-box"
+                                >
                                     <img src={type.img} alt={type.name} className="performance-image" />
                                     <h3 className="performance-name">
                                         <span>{type.name}</span>
                                         <span>Top30</span>
                                     </h3>
-                                </div>
+                                </NavLink>
                             ))}
                         </div>
                     </section>
                 </div>
 
                 {/* Card Cover Section */}        
-                <section className="card-cover">
+                {/* <section className="card-cover">
                     <h2>카드커버 인기차트</h2>
                     <div className="card-cover-container">
                         <img 
@@ -193,7 +205,7 @@ const ChartPage = () => {
                             className="card-cover-image"
                         />
                     </div>
-                </section>
+                </section> */}
             </div>
         </div>
     );

@@ -2,17 +2,17 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import CardRanking from "../../../Component/CardRanking/CardRanking";
 
-const CardCompanyChart = () => {
-    const { cardCompany } = useParams();
+const BenefitChart = () => {
+    const { benefitCategory } = useParams();
 
     return (
         <div>
             <CardRanking 
-                title={`${cardCompany} TOP 10`}
-                cardCompany={cardCompany}
+                title={`${benefitCategory} TOP 10`}
+                benefitCategory={benefitCategory}
             />
         </div>
     );
 };
 
-export default CardCompanyChart;
+export default BenefitChart;

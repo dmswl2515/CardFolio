@@ -33,7 +33,7 @@ const Header = () => {
                     </div>
 
                     <div className="header-top-right">
-                        <img src="https://d1c5n4ri2guedi.cloudfront.net/display/4468/pc_img/38928/%28%E1%84%89%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%BC%29-top_p_600x100.jpg" alt="카드이미지" className="card-image2"/>
+                        <img src="https://d1c5n4ri2guedi.cloudfront.net/display/4435/pc_img/43970/CardGorilla_TOP_PC.jpg" alt="카드이미지" className="card-image2"/>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@ const Header = () => {
                                     캐시백 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* <li>
                                 <NavLink to="/contents" className={({ isActive }) => isActive ? "active-link" : ""}>
                                     콘텐츠 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
@@ -88,7 +88,7 @@ const Header = () => {
                                 <NavLink to="/hotel" className={({ isActive }) => isActive ? "active-link" : ""}>
                                     호텔 <i className="fas fa-caret-down down-icon"></i>
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink to="/cardCover" className={({ isActive }) => isActive ? "active-link" : ""}>
                                     카드커버 <i className="fas fa-caret-down down-icon"></i>

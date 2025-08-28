@@ -5,7 +5,7 @@ const Check100Page = () => {
     return (
         <div>
             <CardRanking 
-                title={"체크카드 TOP 100"}
+                title={"체크카드 TOP 30"}
                 cardType="debit"
             />
         </div>

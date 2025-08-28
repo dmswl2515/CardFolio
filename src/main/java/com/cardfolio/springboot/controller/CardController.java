@@ -2,12 +2,12 @@ package com.cardfolio.springboot.controller;
 
 import java.util.List;
 
+import com.cardfolio.springboot.entity.Card;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import com.cardfolio.springboot.dto.CardDto;
 import com.cardfolio.springboot.service.CardService;
 
 @RestController
@@ -22,9 +22,9 @@ public class CardController {
 	}
 	
 	@GetMapping("/type/{type}")
-	public Page<CardDto> getCardsByType(@PathVariable String type,
-										@RequestParam(defaultValue = "0") int page,
-										@RequestParam(defaultValue = "10") int size) {
+	public Page<Card> getCardsByType(@PathVariable String type,
+									 @RequestParam(defaultValue = "0") int page,
+									 @RequestParam(defaultValue = "10") int size) {
 		Pageable pageable = PageRequest.of(page, size);
 		return cardService.getCardByType(type, pageable);
 	}

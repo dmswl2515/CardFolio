@@ -1,6 +1,16 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import styled from "styled-components";
-import CardData from "../CardData";
+import { useQuery } from "@tanstack/react-query";
+import { 
+    fetchOverallRanking, 
+    fetchTypeRanking, 
+    fetchCompanyRanking, 
+    fetchBenefitRanking, 
+    fetchNewReleaseRanking,
+    fetchEventRanking,
+    fetchBenefitTypeRanking,
+    fetchPreviousPerformanceRanking 
+} from "../../api/rankingApi";
 
 const Container = styled.div`
     display: flex;
@@ -219,7 +229,7 @@ const Card = ({ card, rank, isTop }) => (
         <CardRank rank={rank} isTop={isTop}>{rank}</CardRank>
         <RankingNum>
             <i class="fa-solid fa-caret-up"></i>
-            1
+            -
         </RankingNum>
         <TopImgContainer isTop={isTop}>
             <CircleBackground isTop={isTop} />
@@ -262,43 +272,132 @@ const getDateRange = (isNewRelease) => {
     return isNewRelease ? `${formattedFirstDay} ~ ${formattedToday}` : `${formattedMonday} ~ ${formattedSunday}`;
 };
 
-const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTabs = true }) => {
+const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefitCategory = null, benefitTypeKeyword = null, previousPerformanceAmount = null, showTabs = true }) => {
     const dateRange = getDateRange(isNewRelease);
 
-    /* For Filtering Release */
-    const filteredData = useMemo(() => {
-        let data = [...CardData];
+    // benefitTypeKeyword를 API 키워드로 변환
+    const getBenefitTypeApiKeyword = (keyword) => {
+        const typeMapping = {
+            '할인형': '할인',
+            '포인트형': '적립',
+            '마일리지형': '마일'
+        };
+        return typeMapping[keyword] || keyword;
+    };
+
+    // previousPerformanceAmount를 API 키워드로 변환
+    const getPerformanceApiKeyword = (keyword) => {
+        const performanceMapping = {
+            '조건없음': '전월실적 없음',
+            '30만원 이하': '5',      // 5~30만원 범위
+            '30만원 초과': '40'      // 40~150만원 범위
+        };
+        return performanceMapping[keyword] || keyword;
+    };
+
+    // API 함수 선택 로직
+    const getApiFunction = () => {
+        if (isNewRelease) return () => fetchNewReleaseRanking(30);
+        if (cardType) return () => fetchTypeRanking(cardType, 100);
+        if (cardCompany) return () => fetchCompanyRanking(cardCompany, 10);
+        if (benefitCategory) return () => fetchBenefitRanking(benefitCategory, 10);
+        if (benefitTypeKeyword) return () => fetchBenefitTypeRanking(getBenefitTypeApiKeyword(benefitTypeKeyword), 30);
+        if (previousPerformanceAmount) return () => fetchPreviousPerformanceRanking(getPerformanceApiKeyword(previousPerformanceAmount), 30);
         
-        /* For Filtering Release(2025) */
-        if (isNewRelease) {
-            data = data.filter(card => card.release.startsWith("2025"));
-        }
+        // 기본 케이스: 신용카드 랭킹으로 대체
+        return () => fetchTypeRanking('credit', 100);
+    };
 
-        /* Filtering cardType */
-        if (cardType) {
-            data = data.filter(card => card.type === cardType);
-        }
+    // React Query로 데이터 fetching
+    const { data: cards = [], isLoading, error } = useQuery({
+        queryKey: ['ranking', { isNewRelease, cardType, cardCompany, benefitCategory, benefitTypeKeyword, previousPerformanceAmount }],
+        queryFn: getApiFunction(),
+        staleTime: 60 * 60 * 1000, // 1시간 캐시 유지
+    });
 
-        /* Filtering Card Company */
-        if (cardCompany) {
-            data = data.filter(card => card.company === cardCompany);
-        }
+    // 카드사별 캐시백 TOP5 데이터 fetching (캐시백 top 5)
+    const { data: cashbackCards = [] } = useQuery({
+        queryKey: ['cashback-top5'],
+        queryFn: () => fetchEventRanking('캐시백', 5),
+        staleTime: 60 * 60 * 1000, // 1시간 캐시 유지
+    });
 
-        return data;
-    }, [isNewRelease, cardType, cardCompany]);
-    
-    /* For Filtering Count */
-    const sortedData = useMemo(() => [...filteredData].sort((a, b) => b.count - a.count), [filteredData]);
+    // 카드 데이터 정렬 (알고리즘 스코어 기준)
+    const sortedData = useMemo(() => {
+        return [...cards].sort((a, b) => (b.algorithmScore || 0) - (a.algorithmScore || 0));
+    }, [cards]);
 
     const topCard = sortedData.length > 0 ? sortedData[0] : null;
     const otherCards = sortedData.slice(1);
 
-    const sortedEvents = [...CardData].sort((a, b) => {
-        const numA = extractNumber(a.event);
-        const numB = extractNumber(b.event);
-        return numB - numA;
-    });
-    const topFiveEvents = sortedEvents.slice(0, 5);
+    // 스켈레톤 개수 결정
+    const getSkeletonCount = () => {
+        if (cardCompany || benefitCategory) return 5; // 회사별, 혜택별은 적게
+        if (isNewRelease) return 10; // 신규카드
+        return 15; // 신용/체크카드는 많이
+    };
+
+    // 로딩 상태 - 스켈레톤 UI 표시
+    if (isLoading) {
+        return (
+            <Container>
+                {/* 상단 Top 카드 스켈레톤 */}
+                <SkeletonTopSection>
+                    <SkeletonTopContainer>
+                        <SkeletonTopTitle />
+                        <SkeletonTopButton />
+                        <SkeletonTopAllChartBtn />
+                    </SkeletonTopContainer>
+                    <SkeletonTopSubInfo>
+                        <SkeletonTopDateRange />
+                        <SkeletonTopEmoji />
+                    </SkeletonTopSubInfo>
+                    <SkeletonTopCardWrapper>
+                        <SkeletonTopCardRank />
+                        <SkeletonTopCardImg />
+                        <SkeletonTopCardContent>
+                            <SkeletonTopCardName />
+                            <SkeletonTopCardCompany />
+                        </SkeletonTopCardContent>
+                    </SkeletonTopCardWrapper>
+                    <SkeletonTopQuestionMark />
+                </SkeletonTopSection>
+
+                {/* 카드 리스트 스켈레톤 */}
+                <SectionContainer>
+                    <LeftSection>
+                        <SkeletonWrapper>
+                            {Array.from({ length: getSkeletonCount() }, (_, index) => (
+                                <SkeletonCardItem key={index} rank={index + 1} />
+                            ))}
+                        </SkeletonWrapper>
+                    </LeftSection>
+                    <RightSection>
+                        <Banner>
+                            <a href="#">
+                                <BannerImage 
+                                    src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/advertise/eventCard.png" 
+                                    alt="배너 이미지"
+                                />
+                            </a>    
+                        </Banner>
+                    </RightSection>
+                </SectionContainer>
+            </Container>
+        );
+    }
+
+    // 에러 상태
+    if (error) {
+        return (
+            <Container>
+                <div>데이터를 불러오는데 실패했습니다: {error.message}</div>
+            </Container>
+        );
+    }
+
+    // 카드사별 캐시백 TOP5 데이터
+    const topFiveEvents = cashbackCards;
 
     return (
         <Container>
@@ -306,7 +405,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTa
                 <TitleSection bgImage={topCard.img}>
                     <TitleContainer>
                         <Title>{title}</Title>
-                        <CheckButton><i class="fa-solid fa-check"></i></CheckButton>
+                        {/* <CheckButton><i class="fa-solid fa-check"></i></CheckButton> */}
                         <AllChartBtn>
                             <i class="fa-solid fa-chevron-left"></i>
                             전체 차트
@@ -352,9 +451,9 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTa
                     <Banner>
                         <a href ="#">
                             <BannerImage 
-                                src="https://d1c5n4ri2guedi.cloudfront.net/display/3774/pc_img/28996/PC_%EC%84%9C%EB%B8%8C%EC%9A%B0%EC%B8%A1_340x340.jpg" 
+                                src="https://cardfolio.s3.ap-southeast-2.amazonaws.com/advertise/eventCard.png" 
                                 alt="배너 이미지"
-                                />
+                            />
                         </a>    
                     </Banner>
 
@@ -404,13 +503,30 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTa
                                         <TopTextContainer>
                                             <TopItemCompany>{card.company}</TopItemCompany>
                                             <TopItemEvent>
-                                                {card.event.replace(/^최대\s*/, '').split(' ').map((part, index) => {
-                                                    if (index == 0) {
-                                                        return <span key={index} style={{ fontWeight: 'bold', marginRight: '5px' }}>{part}</span>
-                                                    } else {
-                                                        return <span key={index} style={{ fontWeight: 'normal' }}>{part}</span>
+                                                {(() => {
+                                                    let eventText = card.event;
+                                                    
+                                                    // 캐시백이 포함된 경우, 숫자+단위 추출하여 간소화
+                                                    if (eventText.includes('캐시백')) {
+                                                        // 숫자+만원 또는 숫자+% 패턴 찾기
+                                                        const numberMatch = eventText.match(/(\d+(?:\.\d+)?(?:만원|%))/);
+                                                        if (numberMatch) {
+                                                            eventText = `${numberMatch[1]} 캐시백`;
+                                                        }
                                                     }
-                                                })}
+                                                    // 기존 "최대" 제거 로직 유지 (다른 이벤트들을 위해)
+                                                    else {
+                                                        eventText = eventText.replace(/^최대\s*/, '');
+                                                    }
+                                                    
+                                                    return eventText.split(' ').map((part, index) => {
+                                                        if (index === 0) {
+                                                            return <span key={index} style={{ fontWeight: 'bold', marginRight: '5px' }}>{part}</span>
+                                                        } else {
+                                                            return <span key={index} style={{ fontWeight: 'normal' }}>{part}</span>
+                                                        }
+                                                    });
+                                                })()}
                                             </TopItemEvent>
                                         </TopTextContainer>
                                         <TopListBtn>
@@ -421,7 +537,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, showTa
                                 </TopListItemWrapperContainer>
                                 ))}
 
-                                <MoreEventButton>
+                                <MoreEventButton onClick={() => window.location.href = '/CardFolio/cashback'}>
                                     이벤트 더 보기
                                 </MoreEventButton>
                             </TopListItem>
@@ -600,10 +716,11 @@ const TopListItemWrapperContainer = styled.div`
 
 const TopListItemWrapper = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 30px;
     margin-bottom: 20px;
+    padding-left: 10px;
     transition: color 0.3s ease;
 
     &:hover ${TopItemEvent}, &:hover ${TopListBtn} {
@@ -642,6 +759,7 @@ const TopTextContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    min-width: 120px;
 `;
 
 const TopItemCompany = styled.span`
@@ -667,5 +785,245 @@ const MoreEventButton = styled.div`
     }
 `;
 
+// 스켈레톤 UI 컴포넌트들
+const SkeletonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+`;
+
+const SkeletonCard = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 15px 35px 15px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    animation: pulse 1.5s ease-in-out infinite;
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+`;
+
+const SkeletonRank = styled.div`
+    width: 40px;
+    height: 24px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin: 0 20px;
+`;
+
+const SkeletonRankingNum = styled.div`
+    width: 30px;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-left: 20px;
+    margin-right: 50px;
+`;
+
+const SkeletonImageContainer = styled.div`
+    position: relative;
+    width: 40px;
+    height: 60px;
+`;
+
+const SkeletonImage = styled.div`
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+`;
+
+const SkeletonContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    flex: 1;
+`;
+
+const SkeletonName = styled.div`
+    width: 200px;
+    height: 16px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+`;
+
+const SkeletonCompany = styled.div`
+    width: 120px;
+    height: 14px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+`;
+
+const SkeletonChevron = styled.div`
+    width: 16px;
+    height: 16px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+`;
+
+// 스켈레톤 카드 컴포넌트
+const SkeletonCardItem = ({ rank }) => (
+    <SkeletonCard>
+        <SkeletonRank />
+        <SkeletonRankingNum />
+        <SkeletonImageContainer>
+            <SkeletonImage />
+        </SkeletonImageContainer>
+        <SkeletonContent>
+            <SkeletonName />
+            <SkeletonCompany />
+        </SkeletonContent>
+        <SkeletonChevron />
+    </SkeletonCard>
+);
+
+// 상단 Top 카드용 스켈레톤 UI
+const SkeletonTopSection = styled.div`
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    min-width: 440px;
+    padding: 10px 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    animation: pulse 1.5s ease-in-out infinite;
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.7;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+`;
+
+const SkeletonTopContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    width: 100%;
+    margin-bottom: 15px;
+`;
+
+const SkeletonTopTitle = styled.div`
+    width: 200px;
+    height: 24px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+`;
+
+const SkeletonTopButton = styled.div`
+    width: 20px;
+    height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    margin-left: 10px;
+`;
+
+const SkeletonTopAllChartBtn = styled.div`
+    width: 80px;
+    height: 32px;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: 40px;
+`;
+
+const SkeletonTopSubInfo = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 0 0 15px 0;
+    border-bottom: 0.1px solid #f5f5f5;
+`;
+
+const SkeletonTopDateRange = styled.div`
+    width: 150px;
+    height: 14px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+`;
+
+const SkeletonTopEmoji = styled.div`
+    width: 16px;
+    height: 16px;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+`;
+
+const SkeletonTopCardWrapper = styled.div`
+    position: relative;
+    margin-top: 20px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+`;
+
+const SkeletonTopCardRank = styled.div`
+    width: 60px;
+    height: 36px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin: 0 15px 0 5px;
+`;
+
+const SkeletonTopCardImg = styled.div`
+    width: 60px;
+    height: 90px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    margin-right: 50px;
+`;
+
+const SkeletonTopCardContent = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const SkeletonTopCardName = styled.div`
+    width: 180px;
+    height: 16px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-bottom: 8px;
+`;
+
+const SkeletonTopCardCompany = styled.div`
+    width: 100px;
+    height: 14px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+`;
+
+const SkeletonTopQuestionMark = styled.div`
+    position: absolute;
+    top: 80%;
+    left: 92.5%;
+    width: 20px;
+    height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+`;
 
 export default CardRanking;

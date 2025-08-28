@@ -67,7 +67,7 @@ function HomePage() {
                 buttonColor="white"
                 circleColorClass="white-background"
                 sectionTitle1="내가 선택하는 올해 받을 혜택!"
-                sectionTitle2="올 겨울 난방비는 공과금 혜택 카드로"
+                sectionTitle2="올 여름 전기세는 공과금 혜택 카드로"
             />
         </div>
     )

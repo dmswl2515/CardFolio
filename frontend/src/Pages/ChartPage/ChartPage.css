@@ -210,6 +210,13 @@
     margin-top: 10px;
     padding: 30px;
     position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.type-box:hover, .performance-box:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
 .type-box:not(:last-child)::after,

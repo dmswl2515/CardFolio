@@ -1,0 +1,1541 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.0)
+
+2025-08-27T21:59:27.913+09:00  INFO 36007 --- [CardFolio] [           main] c.c.springboot.CardFolioApplication      : Starting CardFolioApplication using Java 17.0.12 with PID 36007 (/Users/kim-eunji/Documents/STS4WorkSpace/CardFolio/build/classes/java/main started by kim-eunji in /Users/kim-eunji/Documents/STS4WorkSpace/CardFolio)
+2025-08-27T21:59:27.916+09:00  INFO 36007 --- [CardFolio] [           main] c.c.springboot.CardFolioApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-08-27T21:59:28.143+09:00  INFO 36007 --- [CardFolio] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-27T21:59:28.162+09:00  INFO 36007 --- [CardFolio] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2025-08-27T21:59:28.333+09:00  INFO 36007 --- [CardFolio] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-08-27T21:59:28.338+09:00  INFO 36007 --- [CardFolio] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-27T21:59:28.338+09:00  INFO 36007 --- [CardFolio] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-08-27T21:59:28.414+09:00  INFO 36007 --- [CardFolio] [           main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2025-08-27T21:59:28.416+09:00  INFO 36007 --- [CardFolio] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-27T21:59:28.416+09:00  INFO 36007 --- [CardFolio] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 472 ms
+2025-08-27T21:59:28.500+09:00  INFO 36007 --- [CardFolio] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-27T21:59:28.521+09:00  INFO 36007 --- [CardFolio] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2025-08-27T21:59:28.531+09:00  INFO 36007 --- [CardFolio] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-27T21:59:28.625+09:00  INFO 36007 --- [CardFolio] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-27T21:59:28.635+09:00  INFO 36007 --- [CardFolio] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-27T21:59:30.277+09:00  INFO 36007 --- [CardFolio] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@64dfb31d
+2025-08-27T21:59:30.279+09:00  INFO 36007 --- [CardFolio] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-27T21:59:30.931+09:00  WARN 36007 --- [CardFolio] [           main] org.hibernate.dialect.Dialect            : HHH000511: The 11.2.0 version for [org.hibernate.dialect.OracleDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 19.0.0. Check the community dialects project for available legacy versions.
+2025-08-27T21:59:30.935+09:00  WARN 36007 --- [CardFolio] [           main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-27T21:59:31.448+09:00  INFO 36007 --- [CardFolio] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-27T21:59:31.808+09:00  INFO 36007 --- [CardFolio] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-27T21:59:31.809+09:00  INFO 36007 --- [CardFolio] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-27T21:59:31.897+09:00  INFO 36007 --- [CardFolio] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-27T21:59:31.924+09:00  INFO 36007 --- [CardFolio] [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-08-27T21:59:32.031+09:00  INFO 36007 --- [CardFolio] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-08-27T21:59:32.035+09:00  INFO 36007 --- [CardFolio] [           main] c.c.springboot.CardFolioApplication      : Started CardFolioApplication in 4.315 seconds (process running for 4.487)
+2025-08-27T21:59:57.667+09:00  INFO 36007 --- [CardFolio] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-27T21:59:57.667+09:00  INFO 36007 --- [CardFolio] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-27T21:59:57.670+09:00  INFO 36007 --- [CardFolio] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            (
+                LOWER(c.benefitcontent1) LIKE LOWER('%' || ? || '%') 
+                OR LOWER(c.benefitcontent2) LIKE LOWER('%' || ? || '%') 
+                OR LOWER(c.benefitcontent3) LIKE LOWER('%' || ? || '%')
+            )) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            (
+                LOWER(c.benefitcontent1) LIKE LOWER('%' || ? || '%') 
+                OR LOWER(c.benefitcontent2) LIKE LOWER('%' || ? || '%') 
+                OR LOWER(c.benefitcontent3) LIKE LOWER('%' || ? || '%')
+            )) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (PARTITION 
+        BY
+            c.company 
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.event) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn = 1 
+        AND ROWNUM <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+2025-08-27T22:04:39.847+09:00  WARN 36007 --- [CardFolio] [nio-8081-exec-6] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (PARTITION 
+        BY
+            c.company 
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.event) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn = 1 
+        AND ROWNUM <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            c.company = ?) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+2025-08-27T23:18:59.040+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=28s95ms), soft-evicting connections from pool.
+2025-08-27T23:40:36.886+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m37s3ms).
+2025-08-27T23:57:55.564+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m48s665ms).
+2025-08-28T00:13:52.577+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m57s13ms).
+2025-08-28T00:34:11.844+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m49s236ms).
+2025-08-28T00:50:31.713+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m49s855ms).
+2025-08-28T01:09:50.773+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m19s16ms).
+2025-08-28T01:23:19.464+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m58s576ms).
+2025-08-28T01:39:44.474+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m54s996ms).
+2025-08-28T01:57:44.679+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m30s194ms).
+2025-08-28T02:17:20.622+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m35s891ms).
+2025-08-28T02:24:35.759+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m45s128ms).
+2025-08-28T02:40:42.202+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m6s443ms).
+2025-08-28T03:00:45.347+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m33s90ms).
+2025-08-28T03:19:45.425+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m30s48ms).
+2025-08-28T03:25:14.996+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m29s630ms).
+2025-08-28T03:44:58.524+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m43s497ms).
+2025-08-28T04:01:03.284+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m34s751ms).
+2025-08-28T04:01:29.363+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=26s78ms), soft-evicting connections from pool.
+2025-08-28T04:18:58.518+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58s979ms).
+2025-08-28T04:35:10.654+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m12s138ms).
+2025-08-28T04:51:33.755+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m53s117ms).
+2025-08-28T05:08:01.494+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m57s736ms).
+2025-08-28T05:26:19.075+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m47s564ms).
+2025-08-28T05:44:27.878+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m8s785ms).
+2025-08-28T06:03:23.616+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m55s729ms).
+2025-08-28T06:24:44.467+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m50s792ms).
+2025-08-28T06:41:02.515+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m48s32ms).
+2025-08-28T06:59:38.841+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m36s293ms).
+2025-08-28T07:15:39.879+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m31s44ms).
+2025-08-28T07:21:48.838+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s896ms).
+2025-08-28T07:31:52.681+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m3s807ms).
+2025-08-28T07:54:08.035+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m15s310ms).
+2025-08-28T08:13:23.781+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m15s687ms).
+2025-08-28T08:32:06.047+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m42s238ms).
+2025-08-28T08:51:10.746+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m4s664ms).
+2025-08-28T09:12:31.042+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m50s243ms).
+2025-08-28T09:22:44.531+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m43s431ms).
+2025-08-28T09:41:28.739+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m44s172ms).
+2025-08-28T10:01:12.004+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m43s215ms).
+2025-08-28T10:20:12.811+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m764ms).
+2025-08-28T10:23:07.760+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=54s926ms).
+2025-08-28T10:41:43.342+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m35s534ms).
+2025-08-28T10:59:11.855+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m58s504ms).
+2025-08-28T11:17:50.089+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m38s222ms).
+2025-08-28T11:23:24.327+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m4s242ms).
+2025-08-28T11:40:59.308+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m4s966ms).
+2025-08-28T11:58:58.342+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m28s986ms).
+2025-08-28T12:18:17.856+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m19s486ms).
+2025-08-28T12:24:36.000+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m48s103ms).
+2025-08-28T12:45:08.323+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m2s281ms).
+2025-08-28T13:03:05.364+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m57s24ms).
+2025-08-28T13:22:05.572+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m30s161ms).
+2025-08-28T13:49:18.814+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m13s90ms).
+2025-08-28T14:05:37.055+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m48s230ms).
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+2025-08-28T14:14:45.125+09:00  WARN 36007 --- [CardFolio] [l-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m8s70ms).
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.id) rn 
+        FROM
+            cards c 
+        WHERE
+            c.type = ?) 
+    WHERE
+        rn BETWEEN ? + 1 AND ? + ?
+Hibernate: 
+    SELECT
+        COUNT(*) 
+    FROM
+        cards 
+    WHERE
+        type = ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.condition) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn <= ?
+Hibernate: 
+    SELECT
+        * 
+    FROM
+        (SELECT
+            c.*,
+            ROW_NUMBER() OVER (PARTITION 
+        BY
+            c.company 
+        ORDER BY
+            c.views DESC NULLS LAST) rn 
+        FROM
+            cards c 
+        WHERE
+            LOWER(c.event) LIKE LOWER('%' || ? || '%')) 
+    WHERE
+        rn = 1 
+        AND ROWNUM <= ?
