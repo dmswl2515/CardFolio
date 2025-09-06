@@ -1,5 +1,5 @@
 import React from "react";
-import CardDetail from "../components/CardDetail/CardDetail";
+import CardDetail from "../../Component/CardDetail/CardDetail";
 
 export default function CardDetailPage() {
   const cardData = {
@@ -8,7 +8,7 @@ export default function CardDetailPage() {
     title: "LOCA 365 카드",
     issuer: "롯데카드",
     imageUrl:
-      "https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1200&auto=format&fit=crop",
+      "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
     bullets: [
       "아파트관리비, 공과금 10% 할인",
       "교통, 통신, 배달앱 10% 할인",
@@ -17,7 +17,8 @@ export default function CardDetailPage() {
     feeDomestic: "20,000원",
     feeInternational: "20,000원",
     minSpend: "전월실적 50만원 이상",
-    brands: ["VISA", "Mastercard", "AMEX"],
+    brands: ["Mastercard"],
+    issueType: ["ONLINE ONLY 온라인발급 전용 카드"],
     benefits: [
       {
         icon: "🧾",
@@ -84,6 +85,11 @@ export default function CardDetailPage() {
         ],
       },
     ],
+  };
+
+  const handleGoToIssuer = () => {
+    // 카드사 페이지로 이동하는 함수
+    window.open('https://www.lottecard.co.kr', '_blank');
   };
 
   return (

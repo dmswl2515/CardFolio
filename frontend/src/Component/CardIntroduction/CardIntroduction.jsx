@@ -126,3 +126,4 @@ const CardIntroduction = ({ backgroundColor, buttonColor, circleColorClass, sect
 };
 
 export default CardIntroduction;
+export { Card };

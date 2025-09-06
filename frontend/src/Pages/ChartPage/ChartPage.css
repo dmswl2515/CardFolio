@@ -12,7 +12,6 @@
 .chart-items {
    flex: 1;
    position: relative;
-   height: 200px;
    background-size: cover;
    background-position: center;
    border-radius: 16px;

@@ -21,6 +21,7 @@ import CardCompanyChart from './Pages/ChartPage/TopCompanyCardPage/CardCompanyCh
 import BenefitChart from './Pages/ChartPage/BenefitPage/BenefitChart';
 import BenefitTypeChart from './Pages/ChartPage/BenefitTypePage/BenefitTypeChart';
 import PerformanceChart from './Pages/ChartPage/PerformancePage/PerformanceChart';
+import CardDetail from './Pages/CardDetail/CardDetailPage';
 
 // TanStack Query 클라이언트 생성
 const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ function App() {
       <Route path="/chart/benefit/:benefitCategory" element={<Layout><BenefitChart /></Layout>}/>
       <Route path="/CardFolio/benefit-type/:benefitType" element={<Layout><BenefitTypeChart /></Layout>}/>
       <Route path="/CardFolio/performance/:performanceAmount" element={<Layout><PerformanceChart /></Layout>}/>
+      <Route path="/card/:cardId" element={<Layout><CardDetail /></Layout>}/>
       </Routes>
     </QueryClientProvider>
   );

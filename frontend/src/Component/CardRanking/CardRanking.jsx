@@ -1,6 +1,7 @@
 import { useMemo, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
+import { NavLink } from "react-router-dom";
 import { 
     fetchOverallRanking, 
     fetchTypeRanking, 
@@ -163,6 +164,20 @@ const TopListBtn = styled.div`
     align-items: center;
     color: #ccc;
     margin-left: auto;
+`;
+
+const CardNavLink = styled(NavLink)`
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    
+    &:hover {
+        text-decoration: none;
+    }
+    
+    &:visited {
+        color: inherit;
+    }
 `;
 
 const CardItem = styled.div`
@@ -424,7 +439,9 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                         </span>
                     </SubInfo>
                     <TopCardWrapper>
-                        <Card card={topCard} rank={1} isTop={true} />
+                        <CardNavLink to={`/card/${topCard.id}`}>
+                            <Card card={topCard} rank={1} isTop={true} />
+                        </CardNavLink>
                     </TopCardWrapper>
                     <QuestionMark>
                         <i class="fa-sharp fa-regular fa-circle-question"></i>
@@ -437,12 +454,13 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                 <LeftSection>
                     <CardWrapper>
                         {otherCards.map((card, index) => (
-                            <Card 
-                                key={card.id} 
-                                card={card} 
-                                rank={index + 2} 
-                                isTop={false} 
-                            />
+                            <CardNavLink key={card.id} to={`/card/${card.id}`}>
+                                <Card 
+                                    card={card} 
+                                    rank={index + 2} 
+                                    isTop={false} 
+                                />
+                            </CardNavLink>
                         ))}
                     </CardWrapper>
                 </LeftSection>

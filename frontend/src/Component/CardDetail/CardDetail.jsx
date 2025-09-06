@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./cardDetail.css";
+import { Card } from "../CardIntroduction/CardIntroduction";
+import "./CardDetail.css";
 
 const BrandChip = ({ label }) => <span className="brand-chip">{label}</span>;
 
@@ -68,6 +69,7 @@ export default function CardDetail({
   feeInternational, // 해외연회비
   minSpend, // 전월실적
   brands = [], // VISA / Mastercard / AMEX 등
+  issueType = [], // 온라인발급 전용 카드
   onGoToIssuer, // "카드사 바로가기" 클릭 핸들러
 
   // Accordion 혜택 리스트
@@ -80,35 +82,20 @@ export default function CardDetail({
       {/* HERO */}
       <section className="cd-hero">
         <div className="cd-hero-inner">
-          <div className="cd-promo">
-            {promoText && <span className="promo-pill">{promoText}</span>}
-            {promoCta && <button className="promo-cta">{promoCta}</button>}
-            <div className="hero-icons" aria-hidden>
-              {/* 우상단 아이콘 자리 (공유/스크랩 등 필요시 채워 사용) */}
-            </div>
-          </div>
-
           <div className="cd-grid">
             {/* 이미지 */}
             <div className="cd-img-col">
               {imageUrl ? (
-                <img className="cd-img" src={imageUrl} alt={`${title} 카드`} />
+                <Card
+                  title=""
+                  imageUrl={imageUrl}
+                  subtitle=""
+                  circleColorClass="gray-background"
+                />
               ) : (
                 <div className="cd-img ph" />
               )}
-            </div>
-
-            {/* 텍스트 */}
-            <div className="cd-text-col">
-              <div className="issuer">{issuer}</div>
-              <h1 className="cd-title">{title}</h1>
-
-              <ul className="cd-bullets">
-                {bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-
+              
               <div className="cd-actions">
                 <label className="compare">
                   <input
@@ -118,24 +105,35 @@ export default function CardDetail({
                   />
                   <span>비교함 담기</span>
                 </label>
-
-                <button className="cta" onClick={onGoToIssuer}>
-                  카드사 바로가기 <span className="cta-arrow">→</span>
-                </button>
-              </div>
-
-              <div className="cd-info-row">
-                <InfoTag label="국내연회비" value={feeDomestic} />
-                <InfoTag label="해외연회비" value={feeInternational} />
-                <InfoTag label="" value={minSpend} />
-                <div className="brand-row">
-                  {brands.map((b) => (
-                    <BrandChip key={b} label={b} />
-                  ))}
-                </div>
               </div>
             </div>
+
+            {/* 텍스트 */}
+            <div className="cd-text-col">
+              <div className="cd-promo">
+                {promoText && <span className="promo-pill">{promoText}</span>}
+                {/* {promoCta && <button className="promo-cta">{promoCta}</button>} */}
+              </div>
+              <h1 className="cd-title">{title}</h1>
+              <div className="issuer">{issuer}</div>
+
+              <ul className="cd-bullets">
+                {bullets.map((b, i) => (
+                  <li key={i}>{b}</li>
+                ))}
+              </ul>
+
+              <button className="cta" onClick={onGoToIssuer}>
+                카드사 바로가기 <span className="cta-arrow">→</span>
+              </button>
+            </div>    
           </div>
+          <div className="cd-info-row">
+                <InfoTag label="" value={`국내전용 ${feeDomestic} / 해외겸용 ${feeInternational}`} />
+                <InfoTag label="" value={minSpend} />
+                <InfoTag label="" value={brands} />
+                <InfoTag label="" value={issueType} />
+          </div>      
         </div>
       </section>
 
