@@ -1,11 +1,14 @@
 package com.cardfolio.springboot.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.cardfolio.springboot.entity.Card;
+import com.cardfolio.springboot.entity.CardBenefit;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.cardfolio.springboot.service.CardService;
@@ -29,7 +32,11 @@ public class CardController {
 		return cardService.getCardByType(type, pageable);
 	}
 	
-	
-	
+	@GetMapping("/{cardId}")
+	public ResponseEntity<Card> getCardById(@PathVariable String cardId) {
+		Optional<Card> card = cardService.getCardByCardId(cardId);
+		return card.map(ResponseEntity::ok)
+				   .orElse(ResponseEntity.notFound().build());
+	}
 
 }

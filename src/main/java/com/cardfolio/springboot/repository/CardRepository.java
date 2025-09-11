@@ -1,6 +1,7 @@
 package com.cardfolio.springboot.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +14,7 @@ import com.cardfolio.springboot.entity.Card;
 @Repository	
 public interface CardRepository extends JpaRepository<Card, Long> {
 	
-	@Query(value = "SELECT * FROM (SELECT c.*, ROW_NUMBER() OVER (ORDER BY c.id) rn FROM cards c WHERE c.type = :type) WHERE rn BETWEEN :offset + 1 AND :offset + :size", 
+	@Query(value = "SELECT * FROM (SELECT c.*, ROW_NUMBER() OVER (ORDER BY c.idx) rn FROM cards c WHERE c.type = :type) WHERE rn BETWEEN :offset + 1 AND :offset + :size", 
 	       nativeQuery = true)
 	List<Card> findByTypeWithPagination(@Param("type") String type, 
 	                                       @Param("offset") int offset, 
@@ -64,5 +65,8 @@ public interface CardRepository extends JpaRepository<Card, Long> {
 	       nativeQuery = true)
 	List<Card> findByBenefitTypeOrderByScoreDesc(@Param("typeKeyword") String typeKeyword, @Param("limit") int limit);
 
+	// cardId로 카드 조회
+	@Query(value = "SELECT * FROM cards WHERE card_id = :cardId", nativeQuery = true)
+	Optional<Card> findByCardId(@Param("cardId") String cardId);
 
 }

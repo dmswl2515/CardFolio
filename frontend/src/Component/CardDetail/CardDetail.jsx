@@ -43,13 +43,13 @@ function AccordionItem({ icon, title, subtitle, details, defaultOpen = false }) 
       {open && (
         <div className="acc-body">
           {Array.isArray(details) ? (
-            <ul className="acc-ul">
+            <div className="acc-details">
               {details.map((d, i) => (
-                <li key={i}>{d}</li>
+                <div key={i} dangerouslySetInnerHTML={{ __html: d }} />
               ))}
-            </ul>
+            </div>
           ) : (
-            <p>{details}</p>
+            <div dangerouslySetInnerHTML={{ __html: details }} />
           )}
         </div>
       )}
@@ -65,8 +65,7 @@ export default function CardDetail({
   issuer, // 카드사
   imageUrl, // 카드 이미지
   bullets = [], // 핵심 혜택 bullet 3~4줄
-  feeDomestic, // 국내연회비
-  feeInternational, // 해외연회비
+  annualFee, // 국내연회비
   minSpend, // 전월실적
   brands = [], // VISA / Mastercard / AMEX 등
   issueType = [], // 온라인발급 전용 카드
@@ -129,7 +128,7 @@ export default function CardDetail({
             </div>    
           </div>
           <div className="cd-info-row">
-                <InfoTag label="" value={`국내전용 ${feeDomestic} / 해외겸용 ${feeInternational}`} />
+                <InfoTag label="" value={`${annualFee}`} />
                 <InfoTag label="" value={minSpend} />
                 <InfoTag label="" value={brands} />
                 <InfoTag label="" value={issueType} />

@@ -9,3 +9,9 @@ export const fetchCardsByType = async (type, page = 0, size = 10) => {
   });
   return response.data;
 };
+
+// 카드 단일 조회 (혜택 정보 포함)
+export const fetchCardById = async (cardId) => {
+  const response = await axios.get(`${API_BASE_URL}/api/cards/${cardId}`);
+  return response.data;
+};

@@ -1,6 +1,7 @@
 package com.cardfolio.springboot.entity;
 
 import java.util.Date;
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,7 +12,11 @@ public class Card {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDX")
 	private Long id;
+	
+	@Column(name = "CARD_ID")
+	private String cardId;
 	
 	private String img;
 	
@@ -50,5 +55,9 @@ public class Card {
 	// 알고리즘으로 계산된 점수 (DB에 저장되지 않는 런타임 필드)
 	@Transient
 	private Double algorithmScore;
+	
+	// 카드 혜택 리스트 (DB에 저장되지 않는 런타임 필드)
+	@Transient
+	private List<CardBenefit> benefits;
 
 }

@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./CardInformation.css";
 
 const CardInformation = ({ card }) => {
+    const navigate = useNavigate();
+
+    const handleDetailsClick = () => {
+        navigate(`/card/${card.cardId}`);
+    };
+
     return (
 
             <div className="card-container">
@@ -12,7 +19,7 @@ const CardInformation = ({ card }) => {
                     <div className="card-details-section1">
                         <h3 className="card-name">{card.name}</h3>
                         <p className="card-company">{card.company}</p>
-                        <button className="details-button">자세히 보기</button>
+                        <button className="details-button" onClick={handleDetailsClick}>자세히 보기</button>
                     </div>
                     <p className={`card-event ${card.event ? 'has-content' : ''}`}>{card.event}</p>
                     <div className="card-benefits">
