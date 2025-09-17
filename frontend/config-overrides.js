@@ -1,6 +1,16 @@
 const path = require('path');
 
 module.exports = function override(config, env) {
+  // Path aliases 설정
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '@': path.resolve(__dirname, 'src'),
+    '@components': path.resolve(__dirname, 'src/Component'),
+    '@pages': path.resolve(__dirname, 'src/Pages'),
+    '@styles': path.resolve(__dirname, 'src/Styles'),
+    '@api': path.resolve(__dirname, 'src/api'),
+    '@constants': path.resolve(__dirname, 'src/constants')
+  };
   if (env === 'production') {
     // output 경로 및 파일 이름 설정
     config.output = {

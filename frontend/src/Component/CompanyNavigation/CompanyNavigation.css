@@ -1,0 +1,47 @@
+.card-company-list {
+    min-width: 1300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    background-color: #222;
+}
+
+.card-company-all {
+    color: #fff;
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.companyHome-icon-wrapper {
+    width: 50px;
+    height: 45px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.companyHome-icon-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.companyHome-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.card-company-item {
+    color: hsla(0, 0%, 100%, 0.6);
+    font-weight: bold;
+    cursor: pointer;
+}

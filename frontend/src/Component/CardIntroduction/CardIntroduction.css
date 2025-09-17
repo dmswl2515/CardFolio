@@ -41,7 +41,7 @@
 .card.gray-background::before {
     content: '';
     position: absolute;
-    top: -1.5%;
+    top: 1.7%;
     width: 140%;
     height: 50%;
     background-color: rgb(237, 234, 234);
