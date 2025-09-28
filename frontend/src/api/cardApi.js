@@ -15,3 +15,16 @@ export const fetchCardById = async (cardId) => {
   const response = await axios.get(`${API_BASE_URL}/api/cards/${cardId}`);
   return response.data;
 };
+
+// 이벤트가 있는 카드들 조회
+export const fetchCardsWithEvents = async (company = null) => {
+  const params = company ? { company } : {};
+  const response = await axios.get(`${API_BASE_URL}/api/cards/events`, { params });
+  return response.data;
+};
+
+// 특정 회사의 특정 혜택별 카드 조회
+export const fetchCardsByBenefit = async (company, benefit) => {
+  const response = await axios.get(`${API_BASE_URL}/api/cards/company/${company}/benefit/${benefit}`);
+  return response.data;
+};

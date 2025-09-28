@@ -27,13 +27,17 @@ const CompanyNavigation = ({ selectedCompany = "전체", backgroundColor }) => {
     // backgroundColor prop이 있으면 사용, 없으면 selectedCompany에 따라 결정
     const finalBackgroundColor = backgroundColor || companyColors[selectedCompany] || companyColors["전체"];
 
+    // 긴 이름의 회사들은 작은 폰트 사용
+    const longNameCompanies = ["KB국민카드", "NH농협카드", "IBK기업은행", "BC바로카드"];
+    const isLongName = longNameCompanies.includes(selectedCompany);
+
     const handleCompanyHomeClick = () => {
         navigate('/company');
     };
 
     return (
         <section className="card-company-list" style={{ backgroundColor: finalBackgroundColor }}>
-            <div className="card-company-all">
+            <div className={`card-company-all ${isLongName ? 'small-font' : ''}`}>
                 {selectedCompany === "전체" ? "전체 카드사" : (
                     <>
                         <div className="companyHome-icon-wrapper" onClick={handleCompanyHomeClick}>
@@ -56,7 +60,7 @@ const CompanyNavigation = ({ selectedCompany = "전체", backgroundColor }) => {
             <div className="card-company-item" onClick={() => handleCompanyClick("하나카드")}>하나카드</div>
             <div className="card-company-item" onClick={() => handleCompanyClick("NH농협카드")}>NH농협카드</div>
             <div className="card-company-item" onClick={() => handleCompanyClick("IBK기업은행")}>IBK기업은행</div>
-            <div className="card-company-item" onClick={() => handleCompanyClick("BC카드")}>BC바로카드</div>
+            <div className="card-company-item" onClick={() => handleCompanyClick("BC바로카드")}>BC바로카드</div>
         </section>
     );
 };

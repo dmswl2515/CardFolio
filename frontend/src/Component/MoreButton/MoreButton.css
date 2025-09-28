@@ -1,0 +1,36 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.more-cards-btn {
+    width: 64%;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 25px 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.more-cards-btn:hover {
+    background-color: #f8f5f5;
+}
+
+.more-cards-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.more-cards-btn i {
+    font-size: 1.2em;
+    position: absolute;
+    right: 40px;
+}

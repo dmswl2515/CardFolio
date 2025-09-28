@@ -1,11 +1,16 @@
 import React from "react";
+import { useQuery } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
+import { fetchCardsWithEvents } from '../../api/cardApi';
+import { fetchCompanyAdvancedRanking, fetchBenefitRanking } from '../../api/rankingApi';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import "./CardIntroduction.css";
 import "../../Styles/Style.css";
 
 {/* individual card component */}
-const Card = ({ title, imageUrl, subtitle, circleColorClass }) => {
+const Card = ({ title, imageUrl, subtitle, circleColorClass, cardId, onClick }) => {
     return (
-        <div className={`card ${circleColorClass}`}>
+        <div className={`card ${circleColorClass}`} onClick={() => onClick(cardId)} style={{ cursor: 'pointer' }}>
             <img src={imageUrl} alt={title} className="card-image-main" />
             <h3 className="card-title">{title}</h3>
             <p className="card-subtitle">{subtitle}</p>
@@ -14,7 +19,7 @@ const Card = ({ title, imageUrl, subtitle, circleColorClass }) => {
 };
 
 {/* cardlist component */}
-const CardList = ({ cards, backgroundColor, circleColorClass }) => {
+const CardList = ({ cards, backgroundColor, circleColorClass, onCardClick }) => {
     return (
         <div className="card-list" style={{ backgroundColor: backgroundColor }}>
             <div className="cards">
@@ -24,7 +29,9 @@ const CardList = ({ cards, backgroundColor, circleColorClass }) => {
                         title={card.title}
                         imageUrl={card.imageUrl}
                         subtitle={card.subtitle}
+                        cardId={card.cardId}
                         circleColorClass={circleColorClass}
+                        onClick={onCardClick}
                     />
                 ))}
             </div>
@@ -32,94 +39,207 @@ const CardList = ({ cards, backgroundColor, circleColorClass }) => {
     );
 };
 
-const CardIntroduction = ({ backgroundColor, buttonColor, circleColorClass, sectionTitle1, sectionTitle2 }) => {
-    const eventCards = [
-        {
-            title: "삼성카드 taptap O",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/51/card_img/37691/51card.png",
-            subtitle: "삼성카드",
-        },
-        {
-            title: "디지로카 London",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2632/card_img/31797/2362card.png",
-            subtitle: "롯데카드",
-        },
-        {
-            title: "현대카드 M",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2669/card_img/32807/2669card.png",
-            subtitle: "현대카드",
-        },
-        {
-            title: "IBK포인트(신용)",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2779/card_img/38233/2778card.png",
-            subtitle: "삼성카드",
-        },
-        {
-            title: "BC 바로 On&Off 카드",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2591/card_img/30912/2591card.png",
-            subtitle: "BC 바로카드",
-        },
-        {
-            title: "신한카드 Deep Oil",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/39/card_img/31864/39card.png",
-            subtitle: "신한카드",
-        },
-    ];
+// 이벤트 텍스트에서 금액 파싱하는 함수
+const parseAmount = (eventText) => {
+    if (!eventText) return 0;
+    
+    // "7만원", "1.6만원", "5천원", "3000원" 등의 패턴 매칭
+    const match = eventText.match(/(\d+(?:\.\d+)?)\s*(만원|천원|원)/);
+    if (!match) return 0;
+    
+    const amount = parseFloat(match[1]);
+    const unit = match[2];
+    
+    if (unit === '만원') return amount * 10000;
+    if (unit === '천원') return amount * 1000;
+    return amount;
+};
 
-    const discountCards = [
-        {
-            title: "LOCA 365 카드",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2330/card_img/24131/2330card.png",
-            subtitle: "롯데카드",
-        },
-        {
-            title: "신한카드 Mr.Life",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/13/card_img/28201/13card.png",
-            subtitle: "신한카드",
-        },
-        {
-            title: "원더카드 (원더 Life)",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2654/card_img/32266/2654card.png",
-            subtitle: "하나카드",
-        },
-        {
-            title: "현대카드 Summit",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2692/card_img/33549/2692card.png",
-            subtitle: "현대카드",
-        },
-        {
-            title: "BC 바로 MACAO 카드",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2728/card_img/36134/2728card.png",
-            subtitle: "BC 바로카드",
-        },
-        {
-            title: "현대카드Z family Edition2",
-            imageUrl: "https://d1c5n4ri2guedi.cloudfront.net/card/2683/card_img/32811/2683card.png",
-            subtitle: "현대카드",
-        },
-    ];
+const CardIntroduction = ({ 
+    backgroundColor, 
+    buttonColor, 
+    circleColorClass, 
+    sectionTitle1, 
+    sectionTitle2,
+    showEventCards = true,
+    showBestSellerCards = true,
+    showUtilityCards = false,
+    showTravelCards = false,
+    showCustomCards = false,
+    customCardsData = []
+}) => {
+    const navigate = useNavigate();
+
+    const handleCardClick = (cardId) => {
+        navigate(`/card/${cardId}`);
+    };
+    // 이벤트 카드 조회
+    const {
+        data: eventCardsData = [],
+        isLoading: isEventLoading,
+        isError: isEventError
+    } = useQuery({
+        queryKey: ['eventCards'],
+        queryFn: () => fetchCardsWithEvents(),
+        staleTime: 30 * 60 * 1000, // 30분 fresh
+        cacheTime: 60 * 60 * 1000, // 1시간 캐시
+        retry: 2,
+        enabled: showEventCards
+    });
+
+    // 베스트셀러 카드 조회 (고급 알고리즘 적용)
+    const {
+        data: bestSellerData = {},
+        isLoading: isBestSellerLoading,
+        isError: isBestSellerError
+    } = useQuery({
+        queryKey: ['bestSellerCards'],
+        queryFn: () => fetchCompanyAdvancedRanking('', 6),
+        staleTime: 30 * 60 * 1000, // 30분 fresh
+        cacheTime: 60 * 60 * 1000, // 1시간 캐시
+        retry: 2,
+        enabled: showBestSellerCards
+    });
+
+    // 공과금 혜택 카드 조회
+    const {
+        data: utilityBenefitData = [],
+        isLoading: isUtilityLoading,
+        isError: isUtilityError
+    } = useQuery({
+        queryKey: ['utilityBenefitCards'],
+        queryFn: () => fetchBenefitRanking('공과금', 6),
+        staleTime: 30 * 60 * 1000, // 30분 fresh
+        cacheTime: 60 * 60 * 1000, // 1시간 캐시
+        retry: 2,
+        enabled: showUtilityCards
+    });
+
+    // 여행+바우처 혜택 카드 조회
+    const {
+        data: travelBenefitData = [],
+        isLoading: isTravelLoading,
+        isError: isTravelError
+    } = useQuery({
+        queryKey: ['travelBenefitCards'],
+        queryFn: () => fetchBenefitRanking('여행', 6),
+        staleTime: 30 * 60 * 1000, // 30분 fresh
+        cacheTime: 60 * 60 * 1000, // 1시간 캐시
+        retry: 2,
+        enabled: showTravelCards
+    });
+
+    // 금액 기준으로 이벤트 카드 정렬 (높은 금액순)
+    const eventCards = showEventCards ? eventCardsData
+        .map(card => ({ ...card, parsedAmount: parseAmount(card.event) }))
+        .sort((a, b) => b.parsedAmount - a.parsedAmount)
+        .slice(0, 6)
+        .map(card => ({
+            title: card.name,
+            imageUrl: card.img,
+            subtitle: card.company,
+            cardId: card.cardId
+        })) : [];
+
+    // 베스트셀러 카드 데이터 (고급 알고리즘 적용)
+    const bestSellerCards = showBestSellerCards && bestSellerData?.bestSellers ? 
+        bestSellerData.bestSellers
+            .slice(0, 6)
+            .map(card => ({
+                title: card.name,
+                imageUrl: card.img,
+                subtitle: card.company,
+                cardId: card.cardId
+            })) : [];
+
+    // 공과금 혜택 카드 데이터
+    const utilityCards = showUtilityCards ? utilityBenefitData
+        .slice(0, 6)
+        .map(card => ({
+            title: card.name,
+            imageUrl: card.img,
+            subtitle: card.company,
+            cardId: card.cardId
+        })) : [];
+
+    // 여행 혜택 카드 데이터
+    const travelCards = showTravelCards ? travelBenefitData
+        .slice(0, 6)
+        .map(card => ({
+            title: card.name,
+            imageUrl: card.img,
+            subtitle: card.company,
+            cardId: card.cardId
+        })) : [];
+
+    // 커스텀 카드 데이터
+    const customCards = showCustomCards ? customCardsData : [];
+
+    // 로딩 상태 확인 (활성화된 쿼리만)
+    const isLoading = (showEventCards && isEventLoading) || 
+                     (showBestSellerCards && isBestSellerLoading) || 
+                     (showUtilityCards && isUtilityLoading) ||
+                     (showTravelCards && isTravelLoading);
+
+    if (isLoading) {
+        return (
+            <div className="card-intro-container" style={{ backgroundColor }}>
+                <LoadingSpinner message="카드 정보를 불러오는 중입니다" />
+            </div>
+        );
+    }
+
+    // 에러 처리 (에러 시에도 컴포넌트는 렌더링)
+    if (isEventError || isBestSellerError || isUtilityError || isTravelError) {
+        console.error('카드 데이터 로드 실패');
+    }
 
     return (
         <div className="card-intro-container" style={{ backgroundColor }} >
             <div className="card-introduction">
-                <div className="section-header">
-                    <hr2>{sectionTitle1}</hr2>
-                    <button className="view-all-button" style={{ backgroundColor: buttonColor }}>전체보기</button>
-                </div>
-                <CardList 
-                    cards={eventCards} 
-                    backgroundColor={backgroundColor}
-                    circleColorClass={circleColorClass} 
-                />
+                {/* 첫 번째 섹션 */}
+                {sectionTitle1 && (
+                    (showEventCards && eventCards.length > 0) ||
+                    (showUtilityCards && utilityCards.length > 0) ||
+                    (showTravelCards && travelCards.length > 0) ||
+                    (showCustomCards && customCards.length > 0)
+                ) && (
+                    <>
+                        <div className="section-header">
+                            <hr2>{sectionTitle1}</hr2>
+                        </div>
+                        <CardList 
+                            cards={showEventCards && eventCards.length > 0 ? eventCards : 
+                                   showTravelCards && travelCards.length > 0 ? travelCards :
+                                   showUtilityCards && utilityCards.length > 0 ? utilityCards : customCards} 
+                            backgroundColor={backgroundColor}
+                            circleColorClass={circleColorClass}
+                            onCardClick={handleCardClick}
+                        />
+                    </>
+                )}
                 
-                <div className="section-header">
-                    <hr2>{sectionTitle2}</hr2>
-                </div>
-                <CardList 
-                    cards={discountCards} 
-                    backgroundColor={backgroundColor} 
-                    circleColorClass={circleColorClass} 
-                />
+                {/* 두 번째 섹션 */}
+                {sectionTitle2 && (
+                    (showBestSellerCards && bestSellerCards.length > 0) ||
+                    (showUtilityCards && utilityCards.length > 0) ||
+                    (showTravelCards && travelCards.length > 0) ||
+                    (showCustomCards && customCards.length > 0)
+                ) && (
+                    <>
+                        <div className="section-header">
+                            <hr2>{sectionTitle2}</hr2>
+                        </div>
+                        <CardList 
+                            cards={showBestSellerCards && bestSellerCards.length > 0 ? bestSellerCards : 
+                                   showUtilityCards && utilityCards.length > 0 ? utilityCards : 
+                                   showTravelCards && travelCards.length > 0 ? travelCards : customCards} 
+                            backgroundColor={backgroundColor} 
+                            circleColorClass={circleColorClass}
+                            onCardClick={handleCardClick}
+                        />
+                    </>
+                )}
             </div>
         </div>
     );

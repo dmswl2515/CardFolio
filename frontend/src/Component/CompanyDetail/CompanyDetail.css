@@ -1,7 +1,3 @@
-/* 전체 컨테이너 스타일 (Overall container styles) */
-.shinhan-card-container {
-  }
-  
   /* 헤더 네비게이션 스타일 (Header navigation styles) */
   .company-header {
     background: #4666C1;
@@ -74,7 +70,6 @@
   /* 베스트셀러 섹션 스타일 (Best seller section styles) */
   .best-seller-section {
     display: flex;
-    margin-bottom: 60px;
     align-items: flex-start;
     justify-content: space-between;
     background: white;
@@ -183,8 +178,25 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    flex: 1;
     height: 100%;
+  }
+
+  /* 기본 스타일 (세로 카드 기준) */
+  .card-display .card {
+    margin-top: 0;
+  }
+
+  .card-display {
+    gap: 20px;
+  }
+
+  /* 가로 카드일 때 적용되는 스타일 */
+  .card-display.landscape .card {
+    margin-top: 60px;
+  }
+
+  .card-display.landscape {
+    gap: 70px;
   }
 
   /* Card 컴포넌트를 베스트셀러 영역과 동일한 높이로 맞춤 */
@@ -197,21 +209,24 @@
     justify-content: center;
   }
 
-  .card-display .card .card-image-main {
-    width: 200px !important;
-    height: auto !important;
+  .best-seller-section .card-display .card .card-image-main {
+    width: 300px !important;
+    height: auto;
     max-height: 300px !important;
     object-fit: contain;
+    object-position: center;
     margin-top: 40px;
   }
 
   /* CompanyDetail 페이지에서의 카드 배경 스타일 재정의 */
-  .card-display .card.gray-background::before {
+  .best-seller-section .card-display .card.gray-background::before {
     content: '';
     position: absolute;
-    top: 10%;
-    width: 105%;
-    height: 70%;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
     background-color: rgb(237, 234, 234);
     border-radius: 50%;
     z-index: 0;
@@ -273,7 +288,6 @@
     display: flex;
     gap: 6px;
     align-items: center;
-    margin-top: -80px;
   }
   
   .card-label {
@@ -299,7 +313,6 @@
   .featured-section {
     display: flex;
     flex-direction: column;
-    flex: 1;
     grid-template-columns: 1fr;
   }
   
@@ -312,7 +325,6 @@
   
   .featured-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   }
 
   .featured-card-content {
@@ -339,7 +351,7 @@
   }
 
   .card-title {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     color: #333;
     margin: 8px 0 8px 0;
@@ -347,6 +359,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 280px;
   }
 
   /* 추천 카드 섹션의 Card 컴포넌트 스타일 재정의 */
@@ -360,6 +373,15 @@
     width: 80px !important;
     height: auto !important;
     object-fit: contain;
+  }
+
+  /* 가로 카드일 때 더 큰 크기로 표시 */
+  .featured-card-content .card.landscape .card-image-main {
+    top: 16%;
+    width: auto !important;
+    height: 90px !important;
+    object-fit: contain;
+    object-position: center;
   }
 
   .featured-card-content .card.gray-background::before {
@@ -430,6 +452,8 @@
     }
   }
   
+
+
   @media (max-width: 480px) {
     .company-nav-menu {
       gap: 8px;

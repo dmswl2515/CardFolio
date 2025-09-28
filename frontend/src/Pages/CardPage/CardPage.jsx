@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCardsByType } from "../../api/cardApi";
 import CardInformation from "../../Component/CardInformation/CardInformation";
-import CardData from "../../Component/CardData";
 import ServicePrepModal from "../../Component/ServicePrepModal/ServicePrepModal";
 import LoadingSpinner from "../../Component/LoadingSpinner/LoadingSpinner";
+import MoreButton from "@/Component/MoreButton/MoreButton";
 import "../../Styles/Style.css";
 import "./CardPage.css";
 

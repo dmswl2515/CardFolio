@@ -1,0 +1,66 @@
+/* CompanyDetailPage의 CardEventList 스타일 재정의 */
+.company-detail-page .card-event-container {
+  max-width: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.company-detail-page .card-event-item {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px 60px;
+}
+
+.company-detail-page .card-event-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+}
+
+.company-detail-page .button-container {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.company-detail-page .more-cards-btn {
+  width: 30%;
+  padding: 20px 100px;
+  font-size: 18px;
+  margin: 20px auto 0;
+  border-radius: 12px;
+}
+
+.company-detail-page .event-list-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 60px;
+}
+
+/* EventList 컨테이너 너비 조정 */
+.company-detail-page .cardcompany-event-container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 20px auto 40px;
+}
+
+/* 흰색 배경 섹션의 이벤트 이미지 위치 조정 */
+.page-background-white .cardcompany-event-container .event-content-img {
+  left: 60% !important;
+}
+
+.common-container .card-container {
+  max-width: none;
+}
+
+/* CardInformation 스타일 재정의 */
+.cards-grid .button-container {
+  margin: -20px auto;
+  max-width: none;
+}
+
+.cards-grid .more-cards-btn {
+  width: 100%;
+}

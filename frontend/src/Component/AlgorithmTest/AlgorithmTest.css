@@ -1,0 +1,303 @@
+.algorithm-test-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.algorithm-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.algorithm-header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.algorithm-subtitle {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+.ranking-controls {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.algorithm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.algorithm-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.algorithm-btn:hover {
+    background: #d5dbdb;
+    transform: translateY(-2px);
+}
+
+.algorithm-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.ranking-info {
+    text-align: center;
+}
+
+.ranking-info h3 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.ranking-info p {
+    color: #7f8c8d;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.algorithm-results {
+    margin-bottom: 40px;
+}
+
+.cards-ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ranking-card-item {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ranking-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.ranking-position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.algorithm-results .rank-number {
+    font-size: 2em;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 5px;
+}
+
+.algorithm-score {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.card-image-section {
+    min-width: 120px;
+}
+
+.ranking-card-image {
+    width: 120px;
+    height: 75px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.card-info-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.card-name-ranking {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.card-company-ranking {
+    color: #7f8c8d;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.algorithm-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-width: 100px;
+}
+
+.metric-item span:first-child {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.metric-item span:last-child {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.card-benefits-section {
+    min-width: 300px;
+}
+
+.benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.benefit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    background: #f1f2f6;
+    border-radius: 8px;
+}
+
+.benefit-name {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.benefit-content {
+    color: #e74c3c;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.algorithm-explanation {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.algorithm-explanation h3 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.algorithm-breakdown {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.algorithm-breakdown h4 {
+    font-size: 1.3em;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+.algorithm-breakdown ul {
+    list-style: none;
+    padding: 0;
+}
+
+.algorithm-breakdown li {
+    padding: 12px 0;
+    border-bottom: 1px solid #ecf0f1;
+    line-height: 1.6;
+}
+
+.algorithm-breakdown li:last-child {
+    border-bottom: none;
+}
+
+.algorithm-breakdown strong {
+    color: #2c3e50;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+    .ranking-card-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .ranking-position {
+        flex-direction: row;
+        min-width: auto;
+        gap: 15px;
+    }
+    
+    .card-benefits-section {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .algorithm-test-container {
+        padding: 20px 15px;
+    }
+    
+    .algorithm-header h1 {
+        font-size: 2em;
+    }
+    
+    .algorithm-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .algorithm-btn {
+        width: 200px;
+    }
+    
+    .algorithm-metrics {
+        justify-content: center;
+    }
+}

@@ -191,7 +191,7 @@ const CardData = [
     },
     {
         id: 11, 
-        img: "https://d1c5n4ri2guedi.cloudfront.net/event/301/logo_img/38736/2376card.png",
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2376/card_img/27725/2376card.png",
         type: "credit",
         name: "삼성 iD SIMPLE 카드",
         event: "16만원 캐시백",
@@ -214,7 +214,7 @@ const CardData = [
         type: "credit",
         name: "BC 바로 클리어 플러스",
         event: "최대 15만원 캐시백",
-        company: "BC카드",
+        company: "BC바로카드",
         benefit1: "점심식사/배달앱",
         benefit2: "온라인쇼핑",
         benefit3: "휴대폰요금/스트리밍",

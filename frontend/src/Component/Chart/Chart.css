@@ -61,7 +61,7 @@
 }
 
 .chart-item {
-    width: 22%;
+    width: 25%;
     position: relative;
     background-color: #fff;
     border-radius: 10px;
@@ -90,12 +90,15 @@
     gap: 25px;
 }
 
+/* 이미지 컨테이너 - 고정 크기로 일정한 간격 보장 */
 .chart-item-entry .chart-item-image {
-    width: 25px;
-    height: 36px;
+    width: 36px; /* 최대 크기로 고정 */
+    height: 36px; /* 정사각형 컨테이너 */
     margin-left: 20px;
     border-radius: 2px;
-    object-fit: cover;
+    object-fit: contain; /* 비율 유지하면서 컨테이너 안에 맞춤 */
+    object-position: center; /* 중앙 정렬 */
+    background: transparent; /* 투명 배경 */
 }
 
 .chart-item-entry .chart-rank {

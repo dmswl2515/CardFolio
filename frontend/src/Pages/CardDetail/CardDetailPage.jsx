@@ -24,10 +24,10 @@ export default function CardDetailPage() {
           issuer: card.company || "",
           imageUrl: card.img || "",
           bullets: [
-            card.benefit1,
-            card.benefit2,
-            card.benefit3
-          ].filter(Boolean),
+            { benefit: card.benefit1, content: card.benefitcontent1 },
+            { benefit: card.benefit2, content: card.benefitcontent2 },
+            { benefit: card.benefit3, content: card.benefitcontent3 }
+          ].filter(item => item.benefit),
           annualFee: card.annualfee || "",
           minSpend: card.condition || "",
           brands: ["Mastercard"], // 기본값

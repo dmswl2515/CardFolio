@@ -65,3 +65,16 @@ export const fetchBenefitTypeRanking = async (typeKeyword, limit = 30) => {
   });
   return response.data;
 };
+
+// ========== 고급 알고리즘 API (CompanyDetailPage용) ==========
+
+// 카드사별 종합 고급 랭킹 - Wilson Score + Exponential Smoothing + Decay Function
+export const fetchCompanyAdvancedRanking = async (companyName, limitPerType = 6) => {
+  // companyName이 null이면 빈값으로 변경 (백엔드에서 전체 카드 조회)
+  const company = companyName || '';
+  
+  const response = await axios.get(`${API_BASE_URL}/api/advanced-ranking/company/${company}`, {
+    params: { limitPerType }
+  });
+  return response.data;
+};

@@ -68,5 +68,19 @@ public interface CardRepository extends JpaRepository<Card, Long> {
 	// cardId로 카드 조회
 	@Query(value = "SELECT * FROM cards WHERE card_id = :cardId", nativeQuery = true)
 	Optional<Card> findByCardId(@Param("cardId") String cardId);
+	
+	// 카드사별 전체 카드 조회 (고급 알고리즘용)
+	@Query(value = "SELECT * FROM cards WHERE company = :company", nativeQuery = true)
+	List<Card> findByCompany(@Param("company") String company);
+
+	// 이벤트가 있는 모든 카드 조회 (NULL이 아닌 것만)
+	List<Card> findByEventIsNotNullOrderByViewsDesc();
+
+	// 특정 카드사의 이벤트가 있는 카드 조회 (NULL이 아닌 것만)
+	List<Card> findByCompanyAndEventIsNotNullOrderByViewsDesc(String company);
+
+	// 특정 카드사의 특정 혜택별 카드 조회 (Spring Data JPA 메소드 명명 규칙)
+	List<Card> findByCompanyAndBenefit1ContainingOrBenefit2ContainingOrBenefit3ContainingOrderByViewsDesc(
+		String company, String benefit1, String benefit2, String benefit3);
 
 }

@@ -52,7 +52,7 @@ const CardImages= {
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32255/tips_corp_logo_nh.png",
         color: "#1961a1"
     },
-    BC카드 : {
+    BC바로카드 : {
         id: 9,
         img: "https://d1c5n4ri2guedi.cloudfront.net/card/772/card_img/22246/772card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/32/logo_img/33332/logo_bc.png",

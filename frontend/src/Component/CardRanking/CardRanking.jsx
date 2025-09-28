@@ -439,7 +439,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                         </span>
                     </SubInfo>
                     <TopCardWrapper>
-                        <CardNavLink to={`/card/${topCard.id}`}>
+                        <CardNavLink to={`/card/${topCard.cardId}`}>
                             <Card card={topCard} rank={1} isTop={true} />
                         </CardNavLink>
                     </TopCardWrapper>
@@ -454,7 +454,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                 <LeftSection>
                     <CardWrapper>
                         {otherCards.map((card, index) => (
-                            <CardNavLink key={card.id} to={`/card/${card.id}`}>
+                            <CardNavLink key={card.id} to={`/card/${card.cardId}`}>
                                 <Card 
                                     card={card} 
                                     rank={index + 2} 

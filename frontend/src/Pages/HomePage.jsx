@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Carousel from '../Component/Swiper/Carousel';
 import CardIntroduction from '../Component/CardIntroduction/CardIntroduction';
 import Chart from '../Component/Chart/Chart';
@@ -8,8 +9,8 @@ import PopularContent from "../Component/PopularContent/PopularContent";
 function HomePage() {
     const popularContents = [
         {
-            image: "https://d1c5n4ri2guedi.cloudfront.net/post/3439/post_top_img/38006/card_1482_0.jpg", 
-            title: "2024 귀속 연말정산<br /> 준비 꿀팁 모음",
+            image: "https://d1c5n4ri2guedi.cloudfront.net/post/3498/post_top_img/38686/card_1494_0.jpg", 
+            title: "단종 주의! 에디터가<br /> 주목한 알짜카드",
             posts: 79,
         },
         {
@@ -18,7 +19,7 @@ function HomePage() {
             posts: 144,
         },
         {
-            image: "https://d1c5n4ri2guedi.cloudfront.net/post/2966/post_top_img/33892/card_1401_0.jpg",
+            image: "https://d1c5n4ri2guedi.cloudfront.net/post/3900/post_top_img/43387/card_1569_0.jpg",
             title: "출국 D-7,<br /> 해외여행 결제카드<br /> 준비!",
             posts: 90,
         },
@@ -48,8 +49,11 @@ function HomePage() {
             <CardIntroduction
                 circleColorClass="gray-background"
                 sectionTitle1="놓치지 마세요! 이달의 이벤트 카드"
-                sectionTitle2="새해를 맞이하는 고정비 할인 카드!"
-                
+                sectionTitle2="꾸준히 사랑받는 베스트셀러 카드!"
+                showEventCards={true}
+                showBestSellerCards={true}
+                showUtilityCards={false}
+                showCustomCards={false}
             />
 
             {/* Chart Component */}
@@ -61,13 +65,47 @@ function HomePage() {
             {/* YouTube Component */}
             <YouTube />
 
+            {/* 알고리즘 테스트 링크 */}
+            {/* <div style={{ 
+                textAlign: 'center', 
+                padding: '40px 20px',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                margin: '40px 0'
+            }}>
+                <h2 style={{ color: 'white', marginBottom: '20px' }}>🎯 포트폴리오 - 고급 카드 랭킹 알고리즘</h2>
+                <p style={{ color: 'white', marginBottom: '30px', fontSize: '1.1em' }}>
+                    머신러닝 기반 다차원 스코어링 시스템으로 카드를 분석합니다
+                </p>
+                <Link 
+                    to="/algorithm-test" 
+                    style={{
+                        display: 'inline-block',
+                        padding: '15px 30px',
+                        background: 'white',
+                        color: '#764ba2',
+                        textDecoration: 'none',
+                        borderRadius: '50px',
+                        fontWeight: '600',
+                        fontSize: '1.1em',
+                        transition: 'transform 0.3s ease'
+                    }}
+                >
+                    알고리즘 테스트 시작하기 →
+                </Link>
+            </div> */}
+
             {/* CardIntroduction Component(2) */}
             <CardIntroduction 
                 backgroundColor="#f4f2f2"
                 buttonColor="white"
                 circleColorClass="white-background"
-                sectionTitle1="내가 선택하는 올해 받을 혜택!"
+                sectionTitle1="올 연휴에 여행하면서 쓰기 좋은 카드 추천!"
                 sectionTitle2="올 여름 전기세는 공과금 혜택 카드로"
+                showEventCards={false}
+                showBestSellerCards={false}
+                showUtilityCards={true}
+                showTravelCards={true}
+                showCustomCards={false}
             />
         </div>
     )

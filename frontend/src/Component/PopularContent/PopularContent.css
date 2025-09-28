@@ -10,13 +10,13 @@
 .popular-content h2 {
     font-size: 36px;
     font-weight: 900;
-    margin: 0 0;
+    margin: 0 40px;
 }
 
 .popular-content-container{
     display: flex;
     justify-content: center;
-    gap: 45px;
+    gap: 32px;
     flex-wrap: nowrap;
 }
 

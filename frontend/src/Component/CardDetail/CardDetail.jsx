@@ -118,7 +118,10 @@ export default function CardDetail({
 
               <ul className="cd-bullets">
                 {bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
+                  <li key={i}>
+                    <div className="benefit-text">{b.benefit}</div>
+                    {b.content && <div className="benefit-content">{b.content}</div>}
+                  </li>
                 ))}
               </ul>
 

@@ -34,7 +34,7 @@ const ModalOverlay = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    animation: ${fadeIn} 0.3s ease-out;
+    // animation: ${fadeIn} 0.3s ease-out;
 `;
 
 const ModalContainer = styled.div`
@@ -109,7 +109,14 @@ const CloseButton = styled.button`
     }
 `;
 
-const ServicePrepModal = ({ isOpen, onClose }) => {
+const ServicePrepModal = ({ 
+    isOpen, 
+    onClose, 
+    title = "준비중인 서비스",
+    message = "현재 해당 기능을 개발 중입니다.\n빠른 시일 내에 서비스를 제공할 예정이니\n조금만 기다려 주세요! 😊",
+    buttonText = "확인",
+    icon = "🚧"
+}) => {
     if (!isOpen) return null;
 
     const handleOverlayClick = (e) => {
@@ -123,18 +130,21 @@ const ServicePrepModal = ({ isOpen, onClose }) => {
             <ModalContainer>
                 <IconContainer>
                     <ConstructionIcon>
-                        🚧
+                        {icon}
                     </ConstructionIcon>
                 </IconContainer>
-                <Title>준비중인 서비스</Title>
+                <Title>{title}</Title>
                 <Message>
-                    현재 해당 기능을 개발 중입니다.<br />
-                    빠른 시일 내에 서비스를 제공할 예정이니<br />
-                    조금만 기다려 주세요! 😊
+                    {message.split('\n').map((line, index) => (
+                        <React.Fragment key={index}>
+                            {line}
+                            {index < message.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
                 </Message>
                 <ButtonContainer>
                     <CloseButton onClick={onClose}>
-                        확인
+                        {buttonText}
                     </CloseButton>
                 </ButtonContainer>
             </ModalContainer>

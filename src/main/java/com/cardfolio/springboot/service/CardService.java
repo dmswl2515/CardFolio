@@ -55,5 +55,29 @@ public class CardService {
 		}
 		return cardOpt;
 	}
+
+	/**
+	 * 이벤트가 있는 카드들 조회
+	 * @param company 카드사명 (null이면 전체)
+	 * @return 이벤트가 있는 카드 리스트
+	 */
+	public List<Card> getCardsWithEvents(String company) {
+		if (company != null && !company.trim().isEmpty()) {
+			return cardRepository.findByCompanyAndEventIsNotNullOrderByViewsDesc(company);
+		} else {
+			return cardRepository.findByEventIsNotNullOrderByViewsDesc();
+		}
+	}
+
+	/**
+	 * 특정 회사의 특정 혜택별 카드 조회
+	 * @param company 카드사명
+	 * @param benefit 혜택명
+	 * @return 해당 혜택을 제공하는 카드 리스트
+	 */
+	public List<Card> getCardsByBenefit(String company, String benefit) {
+		return cardRepository.findByCompanyAndBenefit1ContainingOrBenefit2ContainingOrBenefit3ContainingOrderByViewsDesc(
+			company, benefit, benefit, benefit);
+	}
 	
 }
