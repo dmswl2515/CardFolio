@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { fetchCardsWithEvents } from '../../api/cardApi';
 import { fetchCompanyAdvancedRanking, fetchBenefitRanking } from '../../api/rankingApi';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import SkeletonLoader from '../SkeletonLoader/SkeletonLoader';
 import "./CardIntroduction.css";
 import "../../Styles/Style.css";
 
@@ -184,7 +184,10 @@ const CardIntroduction = ({
     if (isLoading) {
         return (
             <div className="card-intro-container" style={{ backgroundColor }}>
-                <LoadingSpinner message="카드 정보를 불러오는 중입니다" />
+                <div className="card-introduction">
+                    {sectionTitle1 && <SkeletonLoader type="section" title={sectionTitle1} cardCount={6} backgroundClass={circleColorClass} />}
+                    {sectionTitle2 && <SkeletonLoader type="section" title={sectionTitle2} cardCount={6} backgroundClass={circleColorClass} />}
+                </div>
             </div>
         );
     }

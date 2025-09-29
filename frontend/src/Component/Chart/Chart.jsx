@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { fetchTypeRanking, fetchBenefitTypeRanking, fetchCompanyRanking, fetchBenefitRanking, fetchPreviousPerformanceRanking } from '../../api/rankingApi';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import SkeletonLoader from '../SkeletonLoader/SkeletonLoader';
 import useImageAspectRatio from '../../hooks/useImageAspectRatio';
 import "./Chart.css";
 
@@ -325,11 +325,7 @@ const Chart = () => {
     };
 
     if (isLoading()) {
-        return (
-            <div className="chart">
-                <LoadingSpinner message="차트 데이터를 불러오는 중입니다" />
-            </div>
-        );
+        return <SkeletonLoader type="chart" />;
     }
 
     if (isCreditError || isMileageError || isPointError || isCheckError || 

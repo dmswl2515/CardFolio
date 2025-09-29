@@ -1,0 +1,261 @@
+/* Skeleton Animation */
+@keyframes skeleton-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+/* Skeleton Card - CardIntroduction 스타일과 동일하게 */
+.skeleton-card {
+    width: 150px;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.skeleton-card.gray-background::before {
+    content: '';
+    position: absolute;
+    top: 1.7%;
+    width: 160%;
+    height: 50%;
+    background-color: rgb(237, 234, 234);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.skeleton-card.white-background::before {
+    content: '';
+    position: absolute;
+    top: -1.5%;
+    width: 140%;
+    height: 50%;
+    background-color: white; 
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.skeleton-image {
+    width: 100%;
+    height: 120px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    z-index: 2;
+    position: relative;
+}
+
+.skeleton-title {
+    height: 20px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.skeleton-subtitle {
+    height: 16px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    width: 60%;
+    margin: -5px 0 80px;
+}
+
+/* Skeleton Card List - CardIntroduction 스타일과 동일하게 */
+.skeleton-card-list {
+    width: 100%;
+}
+
+.skeleton-cards {
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+    gap: 120px;
+}
+
+/* Skeleton Section - CardIntroduction 스타일과 동일하게 */
+.skeleton-section {
+    max-width: 1250px;
+    padding: 40px 40px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+}
+
+.skeleton-section-header {
+    min-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: -40px;
+}
+
+.skeleton-section-title {
+    height: 32px;
+    width: 300px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+/* Chart Skeleton - Chart.css 스타일과 동일하게 */
+.skeleton-chart {
+    width: 100%;
+    min-width: 1300px;
+    background-color: #f4f2f2;
+}
+
+.skeleton-chart-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    min-height: 500px; /* 헤더(66px) + 차트 아이템(350px) + 여백들 */
+}
+
+.skeleton-chart-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.skeleton-chart-title {
+    height: 36px;
+    width: 200px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    margin-right: 70px;
+}
+
+.skeleton-chart-tabs {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.skeleton-chart-tab {
+    height: 22px;
+    width: 100px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-chart-list {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.skeleton-chart-item {
+    width: 25%;
+    height: 350px; /* 제목(21px + margin 35px) + 4개 엔트리(36px * 4 + gap 75px) + 버튼(40px + margin 30px) + padding 30px */
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+}
+
+.skeleton-chart-item::after {
+    content: '';
+    position: absolute;
+    bottom: 75px;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.skeleton-chart-item-title {
+    height: 21px;
+    width: 80%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    margin: 10px 0 25px 15px;
+}
+
+.skeleton-chart-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0 0 15px 0;
+}
+
+.skeleton-chart-entry {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.skeleton-chart-entry-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+.skeleton-chart-entry-text {
+    height: 16px;
+    width: 120px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    flex: 1;
+}
+
+.skeleton-chart-button {
+    height: 40px;
+    width: 53%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: skeleton-loading 1.5s infinite;
+    margin: 20px auto 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skeleton-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skeleton-chart-list {
+        flex-direction: column;
+    }
+    
+    .skeleton-chart-item {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

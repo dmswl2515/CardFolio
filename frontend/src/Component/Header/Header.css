@@ -31,33 +31,88 @@
 
 .rank {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 250px;
-    height: 50px;
+    width: 300px;
+    height: 58px;
     background-color: #f4f2f2;
-    padding: 5px 30px;
+    padding: 5px 15px 5px 0;
     border-radius: 27px;
-    margin-right: 10px;
     font-weight: bold;
     position: relative;
     overflow: hidden;
-    transition: height 0.3s ease;
+    transition: all 0.6s ease;
+    gap: 30px;
+}
+
+.rank.slide-up {
+    transform: translateY(-10px);
+    opacity: 0.7;
 }
 
 .rank.expanded {
     height: 150px; 
-  }
+}
+
+.rankWrapper .rank-number {
+    font-size: 16px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    text-align: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: 100% !important;
+    line-height: normal !important;
+    position: relative !important;
+    top: 0px !important;
+    flex-shrink: 0;
+}
 
 .card-image {
-    width: 30px;
-    height: 40px;
+    width: 25px;
+    height: 30px;
+    flex-shrink: 0;
 }
 
 .card-info {
     font-weight: bold;
     word-wrap: break-word;
+    transition: all 0.6s ease;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    margin-left: -15px;
+    margin-right: -30px;
+}
 
+.rank .fas {
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+}
+
+.card-image-placeholder {
+    width: 30px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.4;
+    }
 }
 
 .header-top-center{
@@ -88,6 +143,7 @@
     padding: 10px 20px;
     margin : 0 auto;
     position: relative;
+    gap: 50px;
 }
 
 .nav-menu {
@@ -99,7 +155,7 @@
 
 .nav-menu ul {
     display: flex;
-    gap: 80px;
+    gap: 85px;
     list-style: none;
     padding: 0;
     margin: 0;
