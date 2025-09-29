@@ -1,7 +1,8 @@
 import { useMemo, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import useImageAspectRatio from '../../hooks/useImageAspectRatio';
 import { 
     fetchOverallRanking, 
     fetchTypeRanking, 
@@ -239,16 +240,23 @@ const RankingNum = styled.div`
     }
 `;
 
-const Card = ({ card, rank, isTop }) => (
+const Card = ({ card, rank, isTop, handleImageLoad }) => (
+    
+    
     <CardItem isTop={isTop}>
         <CardRank rank={rank} isTop={isTop}>{rank}</CardRank>
         <RankingNum>
             <i class="fa-solid fa-caret-up"></i>
             -
         </RankingNum>
-        <TopImgContainer isTop={isTop}>
+        <TopImgContainer isTop={isTop} className="TopImgContainer">
             <CircleBackground isTop={isTop} />
-            <TopItemImg src={card.img} alt={card.name} />
+            <TopItemImg 
+                src={card.img} 
+                alt={card.name}
+                isTop={isTop}
+                onLoad={(e) => handleImageLoad(e, e.target)}
+            />
         </TopImgContainer>
         <CardContent>
             <CardName isTop={isTop}>{card.name}</CardName>
@@ -288,6 +296,8 @@ const getDateRange = (isNewRelease) => {
 };
 
 const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefitCategory = null, benefitTypeKeyword = null, previousPerformanceAmount = null, showTabs = true }) => {
+    const navigate = useNavigate();
+    const { handleImageLoad } = useImageAspectRatio();
     const dateRange = getDateRange(isNewRelease);
 
     // benefitTypeKeyword를 API 키워드로 변환
@@ -421,7 +431,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                     <TitleContainer>
                         <Title>{title}</Title>
                         {/* <CheckButton><i class="fa-solid fa-check"></i></CheckButton> */}
-                        <AllChartBtn>
+                        <AllChartBtn onClick={() => navigate('/chart')}>
                             <i class="fa-solid fa-chevron-left"></i>
                             전체 차트
                         </AllChartBtn>
@@ -440,7 +450,7 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                     </SubInfo>
                     <TopCardWrapper>
                         <CardNavLink to={`/card/${topCard.cardId}`}>
-                            <Card card={topCard} rank={1} isTop={true} />
+                            <Card card={topCard} rank={1} isTop={true} handleImageLoad={handleImageLoad} />
                         </CardNavLink>
                     </TopCardWrapper>
                     <QuestionMark>
@@ -458,7 +468,8 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                                 <Card 
                                     card={card} 
                                     rank={index + 2} 
-                                    isTop={false} 
+                                    isTop={false}
+                                    handleImageLoad={handleImageLoad}
                                 />
                             </CardNavLink>
                         ))}
@@ -516,7 +527,12 @@ const CardRanking = ({ title, isNewRelease, cardCompany, cardType = null, benefi
                                     <TopListItemWrapper key={index}>
                                         <TopImgContainer>
                                             <CircleBackground />
-                                            <TopItemImg src={card.img} alt={`${card.company} 로고`} />
+                                            <TopItemImg 
+                                                src={card.img} 
+                                                alt={`${card.company} 로고`}
+                                                isTop={false}
+                                                onLoad={(e) => handleImageLoad(e, e.target)}
+                                            />
                                         </TopImgContainer>
                                         <TopTextContainer>
                                             <TopItemCompany>{card.company}</TopItemCompany>
@@ -756,8 +772,18 @@ const TopItemImg = styled.img`
     position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     z-index: 2;
+
+    /* 가로 카드일 때 적용되는 스타일 */
+    &.landscape {
+        top: ${({ isTop }) => (isTop ? '-28px' : '-15px')};
+        left: ${({ isTop }) => (isTop ? '-17px' : '-10px')};
+        width: ${({ isTop }) => (isTop ? '100px' : '60px')};
+        height: ${({ isTop }) => (isTop ? '150px' : '90px')};
+        object-fit: contain;
+    }
 `;
 
 const CircleBackground = styled.div`

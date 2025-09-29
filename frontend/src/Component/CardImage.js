@@ -54,14 +54,14 @@ const CardImages= {
     },
     BC바로카드 : {
         id: 9,
-        img: "https://d1c5n4ri2guedi.cloudfront.net/card/772/card_img/22246/772card.png",
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/32/logo_img/33332/logo_bc.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32254/tips_corp_logo_br.png",
         color: "#bb464b"
     },
     IBK기업은행 : {
         id: 10,
-        img: "https://d1c5n4ri2guedi.cloudfront.net/card/2346/card_img/32523/2346card.png",
+        img: "https://d1c5n4ri2guedi.cloudfront.net/card/772/card_img/22246/772card.png",
         logo: "https://d1c5n4ri2guedi.cloudfront.net/corp/10/logo_img/33333/logo_ibk.png",
         logo2: "https://api.card-gorilla.com:8080/storage/corp/3/tips/32256/tips_corp_logo_ibk.png",
         color: "#2c70b9"

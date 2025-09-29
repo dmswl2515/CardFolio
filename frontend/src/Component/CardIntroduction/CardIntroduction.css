@@ -39,7 +39,7 @@
     position: relative;
 }
 
-.card.gray-background::before {
+.card-list .card.gray-background::before {
     content: '';
     position: absolute;
     top: 1.7%;
@@ -54,8 +54,8 @@
 .card.white-background::before {
     content: '';
     position: absolute;
-    top: -1.5%;
-    width: 140%;
+    top: 1.7%;
+    width: 160%;
     height: 50%;
     background-color: white; 
     border-radius: 50%;

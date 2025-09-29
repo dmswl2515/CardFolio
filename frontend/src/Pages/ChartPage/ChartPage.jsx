@@ -33,7 +33,7 @@ const ChartPage = () => {
         { id: 6, logo: cardImages?.롯데카드?.logo, name: "롯데카드", img: cardImages?.롯데카드?.img },
         { id: 7, logo: cardImages?.하나카드?.logo, name: "하나카드", img: cardImages?.하나카드?.img },
         { id: 8, logo: cardImages?.NH농협카드?.logo, name: "NH농협카드", img: cardImages?.NH농협카드?.img },
-        { id: 9, logo: cardImages?.BC카드?.logo, name: "BC카드", img: cardImages?.BC카드?.img },
+        { id: 9, logo: cardImages?.BC바로카드?.logo, name: "BC바로카드", img: cardImages?.BC바로카드?.img },
         { id: 10, logo: cardImages?.IBK기업은행?.logo, name: "IBK기업은행", img: cardImages?.IBK기업은행?.img },
         
     ];

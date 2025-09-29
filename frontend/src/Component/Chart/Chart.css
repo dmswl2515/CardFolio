@@ -87,7 +87,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 25px;
-    gap: 25px;
+    gap: 15px;
+    padding-right: 10px;
 }
 
 /* 이미지 컨테이너 - 고정 크기로 일정한 간격 보장 */
@@ -99,26 +100,34 @@
     object-fit: contain; /* 비율 유지하면서 컨테이너 안에 맞춤 */
     object-position: center; /* 중앙 정렬 */
     background: transparent; /* 투명 배경 */
+    flex-shrink: 0; /* 크기 고정 */
 }
 
 .chart-item-entry .chart-rank {
     color: rgb(165, 165, 165);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0; /* 크기 고정 */
+    font-weight: 700;
 }
 
 
 .chart-item-entry .name {
-    flex-grow: 1;
+    flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: rgb(121, 120, 120);
     font-weight: 700;
-    
+    min-width: 0; /* 텍스트 오버플로우가 제대로 작동하도록 */
 }
 
 .chart-icon {
     margin-right: 15px;
     color: #ffc107;
+    width: 16px;
+    flex-shrink: 0; /* 크기 고정 */
+    text-align: center;
 }
 
 .more-button {
