@@ -1,0 +1,278 @@
+.card-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.card-modal-container {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.card-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-modal-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.card-modal-tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #999;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.card-modal-tab.active {
+  color: #000;
+}
+
+.card-modal-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #000;
+}
+
+.card-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.card-modal-close:hover {
+  color: #000;
+}
+
+.card-modal-companies {
+  display: flex;
+  gap: 8px;
+  padding: 20px 32px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+}
+
+.card-modal-companies::-webkit-scrollbar {
+  display: none;
+}
+
+.company-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.company-chip:hover {
+  border-color: #333;
+  color: #333;
+}
+
+.company-chip.active {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+.card-modal-search {
+  padding: 0 32px 20px;
+  position: relative;
+}
+
+.card-modal-search input {
+  width: 100%;
+  padding: 14px 50px 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.card-modal-search input:focus {
+  border-color: #333;
+}
+
+.card-modal-search input::placeholder {
+  color: #bbb;
+}
+
+.cart-search-icon {
+  position: absolute;
+  right: 50px;
+  top: 36%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.card-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 32px 32px;
+  margin-bottom: 24px;
+}
+
+.card-modal-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.card-modal-count {
+  font-size: 13px;
+  color: #666;
+}
+
+.card-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-modal-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.card-modal-item:hover {
+  border-color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.card-modal-thumbnail {
+  width: 56px;
+  height: 36px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-modal-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 가로형 이미지 스타일 */
+.card-modal-thumbnail.landscape img {
+  object-fit: cover;
+  width: 70%;
+  height: auto;
+  max-height: 100%;
+}
+
+/* 세로형 이미지 스타일 */
+.card-modal-thumbnail:not(.landscape) img {
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+.card-modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-modal-name {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.card-modal-company {
+  font-size: 13px;
+  color: #666;
+}
+
+.card-modal-loading,
+.card-modal-error,
+.card-modal-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.card-modal-error {
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .card-modal-container {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    max-height: 95vh;
+  }
+
+  .card-modal-header,
+  .card-modal-companies,
+  .card-modal-search,
+  .card-modal-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

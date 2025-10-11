@@ -76,6 +76,52 @@ export default function CardDetail({
 }) {
   const [compare, setCompare] = useState(false);
 
+  const handleCompareChange = (e) => {
+    const isChecked = e.target.checked;
+    setCompare(isChecked);
+    
+    if (isChecked) {
+      // 장바구니에 추가
+      const cartItem = {
+        cardId: title, // 임시로 title을 cardId로 사용
+        title,
+        company: issuer,
+        image: imageUrl,
+        benefit: promoText,
+        fee: annualFee,
+        requirement: minSpend,
+        details: benefits.filter(benefit => 
+          benefit.title && 
+          !benefit.title.includes('유의사항') && 
+          !benefit.title.includes('주의사항')
+        ).map(benefit => ({
+          label: benefit.title,
+          desc: benefit.subtitle
+        }))
+      };
+      
+      const existingCart = JSON.parse(localStorage.getItem('cardfolio_cart') || '[]');
+      const isAlreadyInCart = existingCart.some(item => item.cardId === cartItem.cardId);
+      
+      if (!isAlreadyInCart) {
+        const updatedCart = [...existingCart, cartItem];
+        localStorage.setItem('cardfolio_cart', JSON.stringify(updatedCart));
+        window.dispatchEvent(new Event('cartUpdated'));
+        alert('비교함에 추가되었습니다!');
+      } else {
+        alert('이미 비교함에 있는 카드입니다.');
+        setCompare(false);
+      }
+    } else {
+      // 장바구니에서 제거
+      const existingCart = JSON.parse(localStorage.getItem('cardfolio_cart') || '[]');
+      const updatedCart = existingCart.filter(item => item.cardId !== title);
+      localStorage.setItem('cardfolio_cart', JSON.stringify(updatedCart));
+      window.dispatchEvent(new Event('cartUpdated'));
+      alert('비교함에서 제거되었습니다.');
+    }
+  };
+
   return (
     <div className="cd-wrap">
       {/* HERO */}
@@ -100,7 +146,7 @@ export default function CardDetail({
                   <input
                     type="checkbox"
                     checked={compare}
-                    onChange={(e) => setCompare(e.target.checked)}
+                    onChange={handleCompareChange}
                   />
                   <span>비교함 담기</span>
                 </label>

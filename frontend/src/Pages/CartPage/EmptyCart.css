@@ -1,0 +1,115 @@
+.empty-cart-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #f0f2f5, #e4e8ef);
+  padding: 60px 20px;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.empty-cart-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.compare-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.compare-icon-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.empty-cart-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 16px 0;
+}
+
+.empty-cart-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.empty-cart-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 968px) {
+  .empty-cart-slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .empty-cart-slots {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-slot-empty {
+  background: white;
+  border-radius: 16px;
+  padding: 60px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cart-slot-empty:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #FDB022;
+}
+
+.cart-slot-placeholder {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ddd;
+  transition: all 0.3s ease;
+}
+
+.cart-slot-empty:hover .cart-slot-placeholder {
+  background-color: #fff8e8;
+  border-color: #FDB022;
+}
+
+.slot-plus-icon {
+  font-size: 48px;
+  color: #999;
+  font-weight: 300;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.cart-slot-empty:hover .slot-plus-icon {
+  color: #FDB022;
+  transform: rotate(90deg);
+}
+
+.cart-slot-text {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.cart-slot-empty:hover .cart-slot-text {
+  color: #333;
+}

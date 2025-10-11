@@ -25,6 +25,7 @@ import CardDetail from './Pages/CardDetail/CardDetailPage';
 import CompanyDetailPage from './Pages/CompanyDetailPage/CompanyDetailPage';
 import CompanyBenefitPage from './Pages/CompanyBenefitPage/CompanyBenefitPage';
 import AlgorithmTest from './Component/AlgorithmTest/AlgorithmTest';
+import CartPage from './Pages/CartPage/CartPage';
 
 // TanStack Query 클라이언트 생성
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ function App() {
       <Route path="/company/:companyName" element={<Layout><CompanyDetailPage /></Layout>}/>
       <Route path="/company/:companyName/benefit" element={<Layout><CompanyBenefitPage /></Layout>}/>
       <Route path="/algorithm-test" element={<Layout><AlgorithmTest /></Layout>}/>
+      <Route path="/cart" element={<Layout><CartPage /></Layout>}/>
       </Routes>
     </QueryClientProvider>
   );

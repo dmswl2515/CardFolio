@@ -1,5 +1,5 @@
 .card-cover-list {
-    width: 80%;
+    width: 89%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +41,7 @@
 .best-info {
     display: inline-block;
     position: relative;
-    width: 94%;
+    width: 100%;
     padding: 50px 40px;
     background-color: white;
     border-radius: 15px;
@@ -75,10 +75,10 @@
 
 .best-images img {
     position: absolute;
-    width: 55%;
+    width: 71%;
     height: 100%;
     top: 50%;
-    left: 73%;
+    left: 66%;
     transform: translate3d(-50%, -50%, 1px);
     object-fit: cover;
     border-top-right-radius: 15px;
@@ -105,6 +105,11 @@
     position: relative;
     padding: 0 10px 0 150px;
     overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.top-content:hover {
+    transform: scale(1.02);
 }
 
 .additional-info .top-content:not(:last-child) {

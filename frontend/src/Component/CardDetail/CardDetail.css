@@ -41,7 +41,7 @@
   }
   
   /* 이미지 */
-  .cd-img-col { 
+  .cd-grid .cd-img-col { 
     width: 100%; 
     position: relative;
     overflow: hidden;

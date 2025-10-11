@@ -1,12 +1,41 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import SearchComponent from "./SearchButton";
 import RankCard from "./RankCard";
+import CardSelectionModal from "../CardSelectionModal/CardSelectionModal";
 import "./Header.css"
 
 const Header = () => {
+    const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+    const [cartCount, setCartCount] = useState(0);
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+
+    // localStorage에서 장바구니 개수 가져오기
+    const updateCartCount = () => {
+        const cartData = JSON.parse(localStorage.getItem('cardfolio_cart') || '[]');
+        setCartCount(cartData.length);
+    };
+
+    useEffect(() => {
+        // 초기 로드 시 장바구니 개수 설정
+        updateCartCount();
+
+        // localStorage 변경 감지를 위한 이벤트 리스너
+        const handleStorageChange = () => {
+            updateCartCount();
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        
+        // 같은 탭에서 localStorage 변경 감지를 위한 커스텀 이벤트
+        window.addEventListener('cartUpdated', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('cartUpdated', handleStorageChange);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -14,6 +43,27 @@ const Header = () => {
 
     const closeMenu = () => {
         setMenuOpen(false);
+    };
+
+    const handleSearchClick = () => {
+        setIsSearchModalOpen(true);
+    };
+
+    const handleSelectCard = (cardItem) => {
+        // 장바구니에 카드 추가
+        const existingCart = JSON.parse(localStorage.getItem('cardfolio_cart') || '[]');
+        const isAlreadyInCart = existingCart.some(item => item.cardId === cardItem.cardId);
+        
+        if (!isAlreadyInCart && existingCart.length < 3) {
+            const updatedCart = [...existingCart, cardItem];
+            localStorage.setItem('cardfolio_cart', JSON.stringify(updatedCart));
+            window.dispatchEvent(new Event('cartUpdated'));
+            alert('비교함에 추가되었습니다!');
+        } else if (isAlreadyInCart) {
+            alert('이미 비교함에 있는 카드입니다.');
+        } else {
+            alert('최대 3개까지만 비교할 수 있습니다.');
+        }
     };
 
     return (
@@ -103,17 +153,23 @@ const Header = () => {
                     ></div>
 
                     <div className="header-icons">
-                        <div className="search-icon">
-                            <SearchComponent />
+                        <div className="search-icon" onClick={handleSearchClick}>
+                            🔍
                         </div>
-                        <button className="cart-icon">
-                            🛒
-                            <spna className="cart-count">3</spna>
+                        <button className="cart-icon" onClick={() => navigate('/cart')}>
+                            🛒 
+                            <span className="cart-count">{cartCount}</span>
                         </button>
                     </div>
                 </div>
 
                 <hr className="divider"></hr>
+                
+                <CardSelectionModal 
+                    isOpen={isSearchModalOpen}
+                    onClose={() => setIsSearchModalOpen(false)}
+                    onSelectCard={handleSelectCard}
+                />
             </header>
     );
 };

@@ -202,6 +202,18 @@
     gap: 5px;
 }
 
+.search-icon {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 8px;
+    transition: opacity 0.3s;
+    user-select: none;
+}
+
+.search-icon:hover {
+    opacity: 0.7;
+}
+
 .cart-icon {
     position: relative;
     background: none;
@@ -212,7 +224,7 @@
 
 .cart-count {
     position: absolute;
-    top: -4px;
+    top: 3px;
     right: -14px;
     background-color: #f2be63;
     font-size: 12px;

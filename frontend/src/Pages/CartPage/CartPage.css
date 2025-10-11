@@ -1,0 +1,268 @@
+.cart-page-background {
+  background: linear-gradient(to right, #f0f2f5, #e4e8ef);
+}
+
+/* 전체 컨테이너 */
+.card-cart-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 0 auto;
+    max-width: 1280px;
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+    color: #222;
+  }
+
+ .card-cart-header .card.white-background::before {
+    top: -1.3%;
+    width: 100%;
+    height: 70%;
+ }
+
+ .card-cart-header .card-subtitle {
+    margin: 0;
+ }
+  
+  /* 카드 박스 */
+  .card-cart {
+    background: #fff;
+    border-radius: 0;
+    width: 360px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* 첫 번째 카드 */
+  .card-cart:nth-child(1) {
+    background: #f0f2f5;
+  }
+
+  /* 두 번째 카드 */
+  .card-cart:nth-child(2) {
+    background: #eaedf2;
+  }
+
+  /* 세 번째 카드 */
+  .card-cart:nth-child(3) {
+    background: #e4e8ef;
+  }
+
+  /* EmptyCart와 동일한 빈 슬롯 스타일 */
+  .cart-slot-empty {
+    background: white;
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-slot-empty:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: #FDB022;
+  }
+
+  .cart-slot-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ddd;
+    transition: all 0.3s ease;
+  }
+
+  .cart-slot-empty:hover .cart-slot-placeholder {
+    background-color: #fff8e8;
+    border-color: #FDB022;
+  }
+
+  .slot-plus-icon {
+    font-size: 48px;
+    color: #999;
+    font-weight: 300;
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+
+  .cart-slot-empty:hover .slot-plus-icon {
+    color: #FDB022;
+    transform: rotate(90deg);
+  }
+
+  .cart-slot-text {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .cart-slot-empty:hover .cart-slot-text {
+    color: #333;
+  }
+  
+  /* 카드 헤더 */
+  .card-cart-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  
+  .card-cart-image {
+    width: 140px;
+    height: 180px;
+    object-fit: contain;
+  }
+  
+  .cart-close-btn {
+    position: absolute;
+    right: 0;
+    top: -4px;
+    border: none;
+    background: none;
+    font-size: 26px;
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  /* 카드 제목 */
+  .card-cart h3 {
+    margin: 12px 0 2px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .cart-company {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 16px;
+  }
+  
+  /* 자세히 보기 버튼 */
+  .cart-detail-btn {
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+  
+  .cart-detail-btn:hover {
+    background-color: #333;
+  }
+  
+  /* 카드 정보 박스 */
+  .card-cart-info {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    align-items: center;
+  }
+  
+  .card-cart-benefit {
+    color: #e84c3d;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+  }
+  
+  /* 기본 텍스트 */
+  .card-cart-info p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* 상세 혜택 */
+  .card-cart-details {
+    padding-top: 10px;
+  }
+  
+  .cart-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5px 5px 10px;
+    border-top: 1px solid #eee;
+  }
+  
+  .cart-main-benefit {
+    font-weight: 600;
+    color: #444;
+    min-width: 80px;
+  }
+  
+  .cart-detail-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 12px;
+  }
+  
+  .cart-detail-label {
+    font-weight: 600;
+    color: #444;
+    min-width: 80px;
+  }
+  
+  .cart-detail-desc {
+    text-align: left;
+    color: #555;
+    line-height: 1.4;
+    font-size: 13px;
+    flex: 1;
+    margin-left: 12px;
+  }
+
+  .cart-detail-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 12px;
+  }
+
+  .cart-detail-benefit-label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 4px;
+    font-size: 13px;
+  }
+
+  /* cart-detail-content 안의 cart-detail-desc는 margin 제거 */
+  .cart-detail-content .cart-detail-desc {
+    margin-left: 0;
+  }
+  
+  /* card-cart-details 내부의 특별한 구조 */
+  .card-cart-details .cart-detail-label {
+    margin-bottom: 4px;
+    min-width: auto;
+  }
+  
+  .card-cart-details .cart-detail-desc {
+    margin-left: 0;
+    flex: none;
+  }
+  
